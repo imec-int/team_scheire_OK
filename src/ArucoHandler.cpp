@@ -72,9 +72,11 @@ void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DISPLAY_CAMERA) {
         trackVideo->draw(0, 0, ofGetWidth(), ofGetHeight());
     }
     vector<aruco::Marker> markers = aruco.getMarkers();
-
+	if (DISPLAY_CAMERA) {
+		ofDrawBitmapStringHighlight("numMarkers: " + ofToString(markers.size()), 50, 50);
+	}
 	if (markers.size() == 1) {
-		drawOSC(surfaces, markers);
+		drawOSC(surfaces, markers, DISPLAY_CAMERA);
 	}
 	else {
 		drawFile(surfaces, markers);
@@ -101,7 +103,7 @@ void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> ma
 
 }
 
-void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers) {
+void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DISPLAY_CAMERA) {
 	for (int i = 0; i < markers.size(); i++) {
 
 		aruco.begin(i);
@@ -114,14 +116,25 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 			for (int j = 0; j < markerList.size(); j++) {
 				if (markerList.at(j).id == curID) {
 					MarkerClass m = markerList.at(j);
+					OSCScale = m.scale;
+					std::cout << "current scale: " << m.scale << endl;
+					sendMessage("/scale", m.scale);
 					OSCOutputX = m.outputX;
+					sendMessage("/outputX", m.outputX);
 					OSCOutputY = m.outputY;
+					sendMessage("/outputY", m.outputY);
 					OSCOutputWidth = m.outputWidth;
+					sendMessage("/outputWidth", m.outputWidth);
 					OSCOutputHeight = m.outputHeight;
+					sendMessage("/outputHeight", m.outputHeight);
 					OSCVideoX = m.videoX;
+					sendMessage("/videoX", m.videoX);
 					OSCVideoY = m.videoY;
+					sendMessage("/videoY", m.videoY);
 					OSCVideoWidth = m.videoWidth;
+					sendMessage("/videoWidth", m.videoWidth);
 					OSCVideoHeight = m.videoHeight;
+					sendMessage("/videoHeight", m.videoHeight);
 				}
 			}
 		}
@@ -130,19 +143,49 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 		aruco.end();
 	}
 
+	if (DISPLAY_CAMERA) {
 
-
-	ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, 30);
-	ofDrawBitmapStringHighlight("ox:" + ofToString(OSCOutputX), 50, 50);
-	ofDrawBitmapStringHighlight("oy:" + ofToString(OSCOutputY), 50, 70);
-	ofDrawBitmapStringHighlight("ow:" + ofToString(OSCOutputWidth), 50, 90);
-	ofDrawBitmapStringHighlight("oh:" + ofToString(OSCOutputHeight), 50, 110);
-	ofDrawBitmapStringHighlight("vx:" + ofToString(OSCVideoX), 50, 130);
-	ofDrawBitmapStringHighlight("vy:" + ofToString(OSCOutputY), 50, 150);
-	ofDrawBitmapStringHighlight("vw:" + ofToString(OSCVideoWidth), 50, 170);
-	ofDrawBitmapStringHighlight("vh:" + ofToString(OSCVideoHeight), 50, 190);
+		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, 70);
+		ofDrawBitmapStringHighlight("ox:" + ofToString(OSCOutputX), 50, 90);
+		ofDrawBitmapStringHighlight("oy:" + ofToString(OSCOutputY), 50, 110);
+		ofDrawBitmapStringHighlight("ow:" + ofToString(OSCOutputWidth), 50, 130);
+		ofDrawBitmapStringHighlight("oh:" + ofToString(OSCOutputHeight), 50, 150);
+		ofDrawBitmapStringHighlight("vx:" + ofToString(OSCVideoX), 50, 170);
+		ofDrawBitmapStringHighlight("vy:" + ofToString(OSCOutputY), 50, 190);
+		ofDrawBitmapStringHighlight("vw:" + ofToString(OSCVideoWidth), 50, 210);
+		ofDrawBitmapStringHighlight("vh:" + ofToString(OSCVideoHeight), 50, 230);
+		ofDrawBitmapStringHighlight("s:" + ofToString(OSCScale), 50, 250);
+	}
 }
- 
+
+void ArucoHandler::sendMessage(string channel, int value) {
+	ofxOscMessage msg;
+	msg.setAddress(channel);
+	msg.addFloatArg(value);
+	sender.sendMessage(msg);
+}
+void ArucoHandler::setupSurfaces() {
+	markerList.clear();
+    if(xml.loadFile("markers.xml")){
+        xml.pushTag("markers");
+        int numberOfMarkers = xml.getNumTags("marker");
+        std::cout << "num markers found: " << numberOfMarkers << endl;
+        for(int j = 0; j < numberOfMarkers; j++){
+            xml.pushTag("marker", j);
+            MarkerClass marker;
+            std::cout << "xml scale: " <<  xml.getValue("scale", 1) << endl;
+
+            marker.setup(xml.getValue("ID", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
+            markerList.push_back(marker);
+            xml.popTag();
+        }
+        xml.popTag();
+    }
+    else{
+        ofLogError("Position file did not load!");
+    }
+}
+
 void ArucoHandler::handleOSC(ofxOscMessage msg) {
 	string a = msg.getAddress();
 
@@ -155,7 +198,7 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 		ofxXmlSettings set;
 		set.loadFile("markers.xml");
 		set.pushTag("markers");
-		
+
 
 		int numberOfMarkers = set.getNumTags("marker");
 		int indexFound = -1;
@@ -185,10 +228,11 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 		set.popTag();
 		set.saveFile("markers.xml");
 
+		setupSurfaces();
 
 	}
 	else if (a == "/scale") {
-		OSCScale = msg.getArgAsFloat(0)/100;
+		OSCScale = msg.getArgAsFloat(0);
 	}
 	else if (a == "/outputX") {
 		OSCOutputX = msg.getArgAsInt(0);
@@ -218,24 +262,4 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 
 		std::cout << msg.getAddress() << "val: " << msg.getArgAsInt(0) << endl;
 	}
-}
-void ArucoHandler::setupSurfaces() {
-    if(xml.loadFile("markers.xml")){
-        xml.pushTag("markers");
-        int numberOfMarkers = xml.getNumTags("marker");
-        std::cout << "num markers found: " << numberOfMarkers << endl;
-        for(int j = 0; j < numberOfMarkers; j++){
-            xml.pushTag("marker", j);
-            MarkerClass marker;
-            std::cout << "xml scale: " <<  xml.getValue("scale", 1) << endl;
-
-            marker.setup(xml.getValue("ID", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 1));
-            markerList.push_back(marker);
-            xml.popTag();
-        }
-        xml.popTag();
-    }
-    else{
-        ofLogError("Position file did not load!");
-    }
 }

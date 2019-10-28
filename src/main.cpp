@@ -9,7 +9,7 @@ int main( ){
     //settings.setGLESVersion(2);
 
     //ofCreateWindow(settings);
-    ofSetupOpenGL(1024,768, OF_FULLSCREEN);
+    ofSetupOpenGL(1024,768, OF_WINDOW);
 
 
     // <-------- setup the GL context

@@ -55,11 +55,11 @@ void SurfaceGenerator::update() {
 }
 
 void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight) {
-    
+	std::cout << scale << endl;
 	if (background.isLoaded()) {
 		
 		ofPushMatrix();
-		ofScale(scale);
+		ofScale(scale / 10000);
 		videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
 
 

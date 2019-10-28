@@ -22,5 +22,5 @@ void MarkerClass::setup(int markerId, float oX, float oY, float oW, float oH, fl
     videoWidth = vW;
     videoHeight = vH;
     
-    scale = s / 1000;
+    scale = s;
 }

@@ -30,7 +30,8 @@ public:
     
 	void handleOSC(ofxOscMessage msg);
 	void drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> markers);
-	void drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers);
+	void drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DISPLAY_CAMERA);
+	void sendMessage(string channel, int value);
 
 
 	ofxOscSender sender;

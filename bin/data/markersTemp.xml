@@ -25,26 +25,14 @@
     </marker>
     <marker>
         <ID>838</ID>
-        <scale>0.005863875</scale>
-        <outputX>-42</outputX>
-        <outputY>-123</outputY>
-        <outputWidth>81</outputWidth>
-        <outputHeight>316</outputHeight>
-        <videoX>360</videoX>
+        <scale>0.007277487</scale>
+        <outputX>-36</outputX>
+        <outputY>-114</outputY>
+        <outputWidth>71</outputWidth>
+        <outputHeight>393</outputHeight>
+        <videoX>659</videoX>
         <videoY>0</videoY>
-        <videoWidth>183</videoWidth>
-        <videoHeight>473</videoHeight>
-    </marker>
-    <marker>
-        <ID>461</ID>
-        <scale>0.001623037</scale>
-        <outputX>0</outputX>
-        <outputY>0</outputY>
-        <outputWidth>200</outputWidth>
-        <outputHeight>200</outputHeight>
-        <videoX>0</videoX>
-        <videoY>0</videoY>
-        <videoWidth>1024</videoWidth>
-        <videoHeight>512</videoHeight>
+        <videoWidth>138</videoWidth>
+        <videoHeight>493</videoHeight>
     </marker>
 </markers>

@@ -26,7 +26,7 @@ void PresetItemClass::setup(string ha = "test", int w = 200, int h = 200, int xO
     
 }
 
-void PresetItemClass::draw(SurfaceGenerator* surfaces) {
+void PresetItemClass::draw(SurfaceGenerator* surfaces, bool INTERACTION) {
     
     ofDrawAxis(200);
     
@@ -40,7 +40,8 @@ void PresetItemClass::draw(SurfaceGenerator* surfaces) {
     ofNoFill();
     // ofDrawRectangle(-width / 2, -height / 2, width, height);
     
-    surfaces->draw(0, 0, width, height, 0, 1, vStartX, vStartY, vWidth, vHeight);
+    surfaces->draw(0, 0, width, height, 0, 6000, vStartX, vStartY, vWidth, vHeight, INTERACTION);
+	
     
     ofPopStyle();
     ofPopMatrix();

@@ -33,6 +33,6 @@ class ofApp : public ofBaseApp{
     
     int DISPLAY_MODE = 0;
     bool DISPLAY_CAMERA = true;
-
+	bool DISPLAY_INTERACTION = false;
 		
 };

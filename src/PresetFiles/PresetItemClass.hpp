@@ -16,7 +16,7 @@
 class PresetItemClass {
 public:
     void setup(string ha, int w, int h, int xO, int yO, int zO, float xR, float yR, float zR, int vSX, int VSY, int vW, int vH);
-    void draw(SurfaceGenerator* surfaces);
+    void draw(SurfaceGenerator* surfaces, bool INTERACTION);
     
     
     ofPlanePrimitive videoProjection;

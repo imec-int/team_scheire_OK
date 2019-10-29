@@ -22,7 +22,7 @@ class PresetSurfaceClass {
 public:
     void setup();
     void update();
-    void draw(SurfaceGenerator* surfaces, int PRESET_NUM);
+    void draw(SurfaceGenerator* surfaces, int PRESET_NUM, bool DISPLAY_INTERACTION);
     
     ofxXmlSettings xmlPresets;
     vector<PresetFileClass> presetFiles;

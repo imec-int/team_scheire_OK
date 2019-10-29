@@ -66,6 +66,6 @@ void PresetSurfaceClass::setup() {
     std::cout << "num presets found: " << presetFiles.size() << endl;
 }
 
-void PresetSurfaceClass::draw(SurfaceGenerator* surfaces, int PRESET_NUM) {
-    presetFiles[PRESET_NUM - 1].draw(surfaces);
+void PresetSurfaceClass::draw(SurfaceGenerator* surfaces, int PRESET_NUM, bool DISPLAY_INTERACTION) {
+    presetFiles[PRESET_NUM - 1].draw(surfaces, DISPLAY_INTERACTION);
 }

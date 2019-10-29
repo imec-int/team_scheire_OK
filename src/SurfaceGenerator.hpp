@@ -18,7 +18,7 @@ class SurfaceGenerator {
 public:
 	SurfaceGenerator();
     void update();
-    void draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight);
+    void draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION);
     void loadNewSource(std::string source);
     
     ofxHapPlayer background;

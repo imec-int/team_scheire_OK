@@ -47,4 +47,28 @@
         <videoWidth>380</videoWidth>
         <videoHeight>512</videoHeight>
     </marker>
+    <marker>
+        <ID>428</ID>
+        <scale>27.356019974</scale>
+        <outputX>-302</outputX>
+        <outputY>84</outputY>
+        <outputWidth>416</outputWidth>
+        <outputHeight>369</outputHeight>
+        <videoX>440</videoX>
+        <videoY>0</videoY>
+        <videoWidth>1024</videoWidth>
+        <videoHeight>512</videoHeight>
+    </marker>
+    <marker>
+        <ID>181</ID>
+        <scale>15.000000000</scale>
+        <outputX>-107</outputX>
+        <outputY>36</outputY>
+        <outputWidth>327</outputWidth>
+        <outputHeight>759</outputHeight>
+        <videoX>994</videoX>
+        <videoY>0</videoY>
+        <videoWidth>646</videoWidth>
+        <videoHeight>512</videoHeight>
+    </marker>
 </markers>

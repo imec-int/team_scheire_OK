@@ -54,8 +54,13 @@ void SurfaceGenerator::update() {
     
 }
 
-void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight) {
-	std::cout << scale << endl;
+void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION) {
+	if (INTERACTION) {
+		if (!interaction.isPlaying()) {
+			interaction.play();
+		}
+	}
+
 	if (background.isLoaded()) {
 		
 		ofPushMatrix();
@@ -72,30 +77,30 @@ void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight,
 		if (background.getError().length())
 		{
 			// std::cout << background.getError() << endl;
-			ofDrawBitmapStringHighlight(background.getError(), 20, 20);
+			ofDrawBitmapStringHighlight(background.getError(), ofGetWidth() / 2, 20);
 		}
 		else
 		{
-			ofDrawBitmapStringHighlight("Background is loading...", 20, 20);
+			ofDrawBitmapStringHighlight("Background is loading...", ofGetWidth() / 2, 20);
 		}
 
 		if (foreground.getError().length())
 		{
 			// std::cout << background.getError() << endl;
-			ofDrawBitmapStringHighlight(foreground.getError(), 20, 20);
+			ofDrawBitmapStringHighlight(foreground.getError(), ofGetWidth() / 2, 20);
 		}
 		else
 		{
-			ofDrawBitmapStringHighlight("foreground is loading...", 20, 20);
+			ofDrawBitmapStringHighlight("foreground is loading...", ofGetWidth() / 2, 20);
 		}
 		if (interaction.getError().length())
 		{
 			// std::cout << background.getError() << endl;
-			ofDrawBitmapStringHighlight(interaction.getError(), 20, 20);
+			ofDrawBitmapStringHighlight(interaction.getError(), ofGetWidth() / 2, 20);
 		}
 		else
 		{
-			ofDrawBitmapStringHighlight("interaction is loading...", 20, 20);
+			ofDrawBitmapStringHighlight("interaction is loading...", ofGetWidth() / 2, 20);
 		}
 	}
     
@@ -108,6 +113,7 @@ void SurfaceGenerator::loadNewSource(std::string source) {
     foreground.load(source + "/foreground.mov");
     foreground.play();
     interaction.load(source + "/interaction.mov");
+	interaction.setLoopState(OF_LOOP_NONE);
     interaction.play();
     
 }

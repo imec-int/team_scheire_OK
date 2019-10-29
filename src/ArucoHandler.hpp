@@ -25,7 +25,7 @@ public:
     
     void setup();
     void update();
-    void draw(SurfaceGenerator* surfaces, bool DISPLAY_CAMERA);
+    void draw(SurfaceGenerator* surfaces, bool DISPLAY_CAMERA, bool DISPLAY_INTERACTION);
     void setupSurfaces();
     
 	void handleOSC(ofxOscMessage msg);
@@ -47,6 +47,7 @@ public:
 
     
     bool TRACK = false;
+	bool INTERACTION = false;
 
 
 	float OSCScale = 0.001;

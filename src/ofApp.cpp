@@ -27,10 +27,10 @@ void ofApp::draw(){
     ofClear(0, 0, 0);
     
 	if(DISPLAY_MODE == 0) {
-        aruco.draw(surfaceGenerator, DISPLAY_CAMERA);
+        aruco.draw(surfaceGenerator, DISPLAY_CAMERA, DISPLAY_INTERACTION);
     }
     else {
-        presets.draw(surfaceGenerator, DISPLAY_MODE);
+        presets.draw(surfaceGenerator, DISPLAY_MODE, DISPLAY_INTERACTION);
     }
 	
 }
@@ -39,7 +39,7 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     
     if(key == 't') {
-        aruco.TRACK = true;
+        aruco.TRACK = !aruco.TRACK;
     }
     if(key == '0') {
         DISPLAY_MODE = 0;
@@ -50,9 +50,12 @@ void ofApp::keyPressed(int key){
     if(key == '2') {
         DISPLAY_MODE = 2;
     }
+	if (key == 'i') {
+		DISPLAY_INTERACTION = true;
+	}
     if(key == 'v') {
         DISPLAY_CAMERA = !DISPLAY_CAMERA;
-    }
+	}
     
     if(key == 'w'){
         surfaceGenerator->loadNewSource("water");
@@ -64,9 +67,12 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    if(key == 't') {
-        aruco.TRACK = false;
-    }
+    //if(key == 't') {
+    //    aruco.TRACK = false;
+    //}
+	if (key == 'i') {
+		DISPLAY_INTERACTION = false;
+	}
 }
 
 //--------------------------------------------------------------

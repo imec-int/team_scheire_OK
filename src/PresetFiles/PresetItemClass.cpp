@@ -39,9 +39,13 @@ void PresetItemClass::draw(SurfaceGenerator* surfaces, bool INTERACTION) {
     //    ofSetColor(255, 255, 255, 255);
     ofNoFill();
     // ofDrawRectangle(-width / 2, -height / 2, width, height);
-    
-    surfaces->draw(0, 0, width, height, 0, 6000, vStartX, vStartY, vWidth, vHeight, INTERACTION);
-	
+	if (handle == "wall") {
+		surfaces->draw(0, 0, width, height, 0, 6000, vStartX, vStartY, vWidth, vHeight, INTERACTION);
+	}
+	if (handle == "ceiling") {
+		surfaces->draw(0, 0, width, height, 1, 6000, vStartX, vStartY, vWidth, vHeight, INTERACTION);
+	}
+
     
     ofPopStyle();
     ofPopMatrix();

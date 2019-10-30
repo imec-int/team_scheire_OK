@@ -28,11 +28,17 @@ class ofApp : public ofBaseApp{
     ArucoHandler aruco;
     SurfaceGenerator* surfaceGenerator;
     PresetSurfaceClass presets;
+
+
+
+	ofxOscSender sender;
+	ofxOscReceiver receiver;
+
     
     ofSoundPlayer sound;
     
     int DISPLAY_MODE = 0;
-    bool DISPLAY_CAMERA = true;
+    bool DEBUG_MODE = true;
 	bool DISPLAY_INTERACTION = false;
 		
 };

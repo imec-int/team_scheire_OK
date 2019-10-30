@@ -10,97 +10,150 @@
 SurfaceGenerator::SurfaceGenerator() {
 	ofEnableAlphaBlending();
 
-
-	
 	loadNewSource("water");
 
+	wall_videoFBO.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
+	ceiling_videoFBO.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
 
-
-	videoFBO.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
-
-	videoFBO.begin();
+	wall_videoFBO.begin();
 	ofClear(0, 0, 0, 0);
-	videoFBO.end();
+	wall_videoFBO.end();
+
+	ceiling_videoFBO.begin();
+	ofClear(0, 0, 0, 0);
+	ceiling_videoFBO.end();
 
 	
 
 }
 
+
+void SurfaceGenerator::handleOSC(ofxOscMessage msg) {
+	string a = msg.getAddress();
+	if (a == "/keystone") {
+		keyStone = msg.getArgAsFloat(0);
+	}
+}
 
 void SurfaceGenerator::update() {
     
-    background.update();
-    foreground.update();
-    interaction.update();
-    
-    videoFBO.begin();
 
-	
+    wall_background.update();
+    wall_foreground.update();
+    wall_interaction.update();
+
+	ceiling_background.update();
+	ceiling_foreground.update();
+	ceiling_interaction.update();
+
+	// prep walls
+	wall_videoFBO.begin();
     ofEnableAlphaBlending();
     ofClear(0, 0, 0, 0);
-    
-	
-    background.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
-
-	interaction.draw(0, 0, ofGetWidth(), ofGetHeight());
-	foreground.draw(0, 0, ofGetWidth(), ofGetHeight());
-
-    
-    
+	wall_background.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+	wall_interaction.draw(0, 0, ofGetWidth(), ofGetHeight());
+	wall_foreground.draw(0, 0, ofGetWidth(), ofGetHeight());
     ofDisableAlphaBlending();
-	
-    videoFBO.end();
+    wall_videoFBO.end();
     
-    
+    // prep ceiling
+	ceiling_videoFBO.begin();
+	ofEnableAlphaBlending();
+	ofClear(0, 0, 0, 0);
+	ceiling_background.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+	ceiling_interaction.draw(0, 0, ofGetWidth(), ofGetHeight());
+	ceiling_foreground.draw(0, 0, ofGetWidth(), ofGetHeight());
+	ofDisableAlphaBlending();
+	ceiling_videoFBO.end();
 }
 
-void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION) {
+void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight, int position, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION) {
 	if (INTERACTION) {
-		if (!interaction.isPlaying()) {
-			interaction.play();
+		if (!wall_interaction.isPlaying()) {
+			wall_interaction.play();
+		}
+		if (!ceiling_interaction.isPlaying()) {
+			ceiling_interaction.play();
 		}
 	}
+	if (position == 0) {
 
-	if (background.isLoaded()) {
-		
-		ofPushMatrix();
-		ofScale(scale / 10000);
-		videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
+		if (wall_background.isLoaded()) {
+			ofPushMatrix();
+			ofScale(scale / 10000);
+			ofRotateY(keyStone);
+			wall_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
+			ofPopMatrix();
+		}
+		else {
+			if (wall_background.getError().length())
+			{
+				// std::cout << background.getError() << endl;
+				ofDrawBitmapStringHighlight(wall_background.getError(), ofGetWidth() / 2, 20);
+			}
+			else
+			{
+				ofDrawBitmapStringHighlight("Background is loading...", ofGetWidth() / 2, 20);
+			}
 
-
-		ofPopMatrix();
-		
-		// background.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+			if (wall_foreground.getError().length())
+			{
+				// std::cout << background.getError() << endl;
+				ofDrawBitmapStringHighlight(wall_foreground.getError(), ofGetWidth() / 2, 20);
+			}
+			else
+			{
+				ofDrawBitmapStringHighlight("foreground is loading...", ofGetWidth() / 2, 20);
+			}
+			if (wall_interaction.getError().length())
+			{
+				// std::cout << background.getError() << endl;
+				ofDrawBitmapStringHighlight(wall_interaction.getError(), ofGetWidth() / 2, 20);
+			}
+			else
+			{
+				ofDrawBitmapStringHighlight("interaction is loading...", ofGetWidth() / 2, 20);
+			}
+		}
 	}
 	else {
 
-		if (background.getError().length())
-		{
-			// std::cout << background.getError() << endl;
-			ofDrawBitmapStringHighlight(background.getError(), ofGetWidth() / 2, 20);
+		if (ceiling_background.isLoaded()) {
+			ofPushMatrix();
+			ofScale(scale / 10000);
+			ofRotateY(keyStone);
+			ceiling_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
+			ofPopMatrix();
 		}
-		else
-		{
-			ofDrawBitmapStringHighlight("Background is loading...", ofGetWidth() / 2, 20);
-		}
+		else {
+			if (ceiling_background.getError().length())
+			{
+				// std::cout << background.getError() << endl;
+				ofDrawBitmapStringHighlight(ceiling_background.getError(), ofGetWidth() / 2, 20);
+			}
+			else
+			{
+				ofDrawBitmapStringHighlight("Background is loading...", ofGetWidth() / 2, 20);
+			}
 
-		if (foreground.getError().length())
-		{
-			// std::cout << background.getError() << endl;
-			ofDrawBitmapStringHighlight(foreground.getError(), ofGetWidth() / 2, 20);
-		}
-		else
-		{
-			ofDrawBitmapStringHighlight("foreground is loading...", ofGetWidth() / 2, 20);
-		}
-		if (interaction.getError().length())
-		{
-			// std::cout << background.getError() << endl;
-			ofDrawBitmapStringHighlight(interaction.getError(), ofGetWidth() / 2, 20);
-		}
-		else
-		{
-			ofDrawBitmapStringHighlight("interaction is loading...", ofGetWidth() / 2, 20);
+			if (ceiling_foreground.getError().length())
+			{
+				// std::cout << background.getError() << endl;
+				ofDrawBitmapStringHighlight(ceiling_foreground.getError(), ofGetWidth() / 2, 20);
+			}
+			else
+			{
+				ofDrawBitmapStringHighlight("foreground is loading...", ofGetWidth() / 2, 20);
+			}
+			if (ceiling_interaction.getError().length())
+			{
+				// std::cout << background.getError() << endl;
+				ofDrawBitmapStringHighlight(ceiling_interaction.getError(), ofGetWidth() / 2, 20);
+			}
+			else
+			{
+				ofDrawBitmapStringHighlight("interaction is loading...", ofGetWidth() / 2, 20);
+			}
 		}
 	}
     
@@ -108,13 +161,23 @@ void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight,
 
 void SurfaceGenerator::loadNewSource(std::string source) {
     
-    background.load(source + "/background.mov");
-    background.play();
-    foreground.load(source + "/foreground.mov");
-    foreground.play();
-    interaction.load(source + "/interaction.mov");
-	interaction.setLoopState(OF_LOOP_NONE);
-    interaction.play();
+	wall_background.load(source + "/wall_background.mov");
+	wall_background.load(source + "/wall_background.mov");
+	wall_background.play();
+	wall_foreground.load(source + "/wall_foreground.mov");
+	wall_foreground.play();
+	wall_interaction.load(source + "/wall_interaction.mov");
+	wall_interaction.setLoopState(OF_LOOP_NONE);
+	wall_interaction.play();
+
+
+	ceiling_background.load(source + "/ceiling_background.mov");
+	ceiling_background.play();
+	ceiling_foreground.load(source + "/ceiling_foreground.mov");
+	ceiling_foreground.play();
+	ceiling_interaction.load(source + "/ceiling_interaction.mov");
+	ceiling_interaction.setLoopState(OF_LOOP_NONE);
+	ceiling_interaction.play();
     
 }
 

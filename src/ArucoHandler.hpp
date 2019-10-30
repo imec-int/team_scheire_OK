@@ -23,23 +23,21 @@
 class ArucoHandler {
 public:
     
-    void setup();
+    void setup(ofxOscSender s);
     void update();
-    void draw(SurfaceGenerator* surfaces, bool DISPLAY_CAMERA, bool DISPLAY_INTERACTION);
+    void draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION);
     void setupSurfaces();
     
 	void handleOSC(ofxOscMessage msg);
-	void drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> markers);
-	void drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DISPLAY_CAMERA);
+	void drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE);
+	void drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE);
 	void sendMessage(string channel, int value);
-
-
-	ofxOscSender sender;
-	ofxOscReceiver receiver;
 
     ofxAruco aruco;
     ofVideoGrabber grabber;
     ofBaseVideoDraws * trackVideo;
+
+	ofxOscSender sender;
     
     ofxXmlSettings xml;
 
@@ -59,6 +57,7 @@ public:
 	int OSCVideoY = 0;
 	int OSCVideoWidth = 1024;
 	int OSCVideoHeight = 512;
+	int OSCPosition = 0;
 
 	int curID = 0;
 };

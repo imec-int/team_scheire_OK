@@ -8,7 +8,7 @@
 #include "MarkerClass.hpp"
 
 
-void MarkerClass::setup(int markerId, float oX, float oY, float oW, float oH, float vX, float vY, float vW, float vH, float s) {
+void MarkerClass::setup(int markerId, int p, float oX, float oY, float oW, float oH, float vX, float vY, float vW, float vH, float s) {
     
     id = markerId;
     
@@ -23,4 +23,5 @@ void MarkerClass::setup(int markerId, float oX, float oY, float oW, float oH, fl
     videoHeight = vH;
     
     scale = s;
+	position = p;
 }

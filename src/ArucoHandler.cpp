@@ -29,7 +29,7 @@ void drawMarker(float size, const ofColor & color, int id){
     
 }
 
-void ArucoHandler::setup() {
+void ArucoHandler::setup(ofxOscSender s) {
 
 
 	//     setting aruco track
@@ -45,9 +45,8 @@ void ArucoHandler::setup() {
     
     setupSurfaces();
 
+	sender = s;
 
-	sender.setup("10.100.17.95", 9000);
-	receiver.setup(8000);
 }
 
 void ArucoHandler::update() {
@@ -60,43 +59,38 @@ void ArucoHandler::update() {
         }
     }
 
-	while (receiver.hasWaitingMessages()) {
-		ofxOscMessage msg;
-		receiver.getNextMessage(&msg);
-		handleOSC(msg);
-	}
 }
 
-void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DISPLAY_CAMERA, bool DISPLAY_INTERACTION) {
+void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION) {
 	INTERACTION = DISPLAY_INTERACTION;
 
-    if(DISPLAY_CAMERA) {
+    if(DEBUG_MODE) {
         trackVideo->draw(0, 0, ofGetWidth(), ofGetHeight());
     }
     vector<aruco::Marker> markers = aruco.getMarkers();
-	//if (DISPLAY_CAMERA) {
+	if (DEBUG_MODE) {
 		ofDrawBitmapStringHighlight("numMarkers: " + ofToString(markers.size()), 50, 50);
-	//}
+	}
 	if (markers.size() == 1) {
-		drawOSC(surfaces, markers, DISPLAY_CAMERA);
+		drawOSC(surfaces, markers, DEBUG_MODE);
 	}
 	else {
-		drawFile(surfaces, markers);
+		drawFile(surfaces, markers, DEBUG_MODE);
 	}
 }
 
-void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> markers) {
+void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE) {
 
 	for (int i = 0; i < markers.size(); i++) {
 
 		aruco.begin(i);
-
-		drawMarker(0.15, ofColor::white, markers.at(i).id);
-
+		if (DEBUG_MODE) {
+			drawMarker(0.15, ofColor::white, markers.at(i).id);
+		}
 		for (int j = 0; j < markerList.size(); j++) {
 			if (markerList.at(j).id == markers.at(i).id) {
 				MarkerClass m = markerList.at(j);
-				surfaces->draw(m.outputX, m.outputY, m.outputWidth, m.outputHeight, 0, m.scale, m.videoX, m.videoY, m.videoWidth, m.videoHeight, INTERACTION);
+				surfaces->draw(m.outputX, m.outputY, m.outputWidth, m.outputHeight, m.position, m.scale, m.videoX, m.videoY, m.videoWidth, m.videoHeight, INTERACTION);
 			}
 		}
 
@@ -105,13 +99,13 @@ void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> ma
 
 }
 
-void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DISPLAY_CAMERA) {
+void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE) {
 	for (int i = 0; i < markers.size(); i++) {
 
 		aruco.begin(i);
-
-		drawMarker(0.15, ofColor::white, markers.at(i).id);
-
+		if (DEBUG_MODE) {
+			drawMarker(0.15, ofColor::white, markers.at(i).id);
+		}
 		if (curID != markers.at(i).id) {
 
 			curID = markers.at(i).id;
@@ -140,12 +134,12 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 				}
 			}
 		}
-		surfaces->draw(OSCOutputX, OSCOutputY, OSCOutputWidth, OSCOutputHeight, 0, OSCScale, OSCVideoX, OSCVideoY, OSCVideoWidth, OSCVideoHeight, INTERACTION);
+		surfaces->draw(OSCOutputX, OSCOutputY, OSCOutputWidth, OSCOutputHeight, OSCPosition, OSCScale, OSCVideoX, OSCVideoY, OSCVideoWidth, OSCVideoHeight, INTERACTION);
 			
 		aruco.end();
 	}
 
-	if (DISPLAY_CAMERA) {
+	if (DEBUG_MODE) {
 
 		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, 70);
 		ofDrawBitmapStringHighlight("ox:" + ofToString(OSCOutputX), 50, 90);
@@ -177,7 +171,7 @@ void ArucoHandler::setupSurfaces() {
             MarkerClass marker;
             std::cout << "xml scale: " <<  xml.getValue("scale", 1) << endl;
 
-            marker.setup(xml.getValue("ID", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
+            marker.setup(xml.getValue("ID", 0), xml.getValue("position", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
             markerList.push_back(marker);
             xml.popTag();
         }
@@ -218,6 +212,7 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 		}
 		int lineNum = set.addTag("marker");
 		set.setValue("marker:ID", curID, lineNum);
+		set.setValue("marker:position", OSCPosition, lineNum);
 		set.setValue("marker:scale", OSCScale, lineNum);
 		set.setValue("marker:outputX", OSCOutputX, lineNum);
 		set.setValue("marker:outputY", OSCOutputY, lineNum);
@@ -232,6 +227,9 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 
 		setupSurfaces();
 
+	}
+	else if (a == "/position") {
+		OSCPosition = msg.getArgAsInt(0);
 	}
 	else if (a == "/scale") {
 		OSCScale = msg.getArgAsFloat(0);

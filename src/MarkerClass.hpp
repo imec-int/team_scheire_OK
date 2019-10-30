@@ -14,9 +14,10 @@
 class MarkerClass {
 public:
     
-    void setup(int markerId, float oX, float oY, float oW, float oH, float vX, float vY, float vW, float vH, float s);
+    void setup(int markerId, int p,float oX, float oY, float oW, float oH, float vX, float vY, float vW, float vH, float s);
     
     int id;
+	int position;
     
     int outputX;
     int outputY;

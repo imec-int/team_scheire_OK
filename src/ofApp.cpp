@@ -2,7 +2,6 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    aruco.setup();
 
 	ofSetFrameRate(24);
     
@@ -13,6 +12,12 @@ void ofApp::setup(){
     surfaceGenerator = new SurfaceGenerator();
     
     presets.setup();
+
+
+	sender.setup("10.100.17.95", 9000);
+	receiver.setup(8000);
+	aruco.setup(sender);
+
 }
 
 //--------------------------------------------------------------
@@ -20,6 +25,14 @@ void ofApp::update(){
     aruco.update();
     surfaceGenerator->update();
     
+
+	while (receiver.hasWaitingMessages()) {
+		ofxOscMessage msg;
+		receiver.getNextMessage(&msg);
+		
+		surfaceGenerator->handleOSC(msg); 
+		aruco.handleOSC(msg);
+	}
 }
 
 //--------------------------------------------------------------
@@ -27,7 +40,7 @@ void ofApp::draw(){
     ofClear(0, 0, 0);
     
 	if(DISPLAY_MODE == 0) {
-        aruco.draw(surfaceGenerator, DISPLAY_CAMERA, DISPLAY_INTERACTION);
+        aruco.draw(surfaceGenerator, DEBUG_MODE, DISPLAY_INTERACTION);
     }
     else {
         presets.draw(surfaceGenerator, DISPLAY_MODE, DISPLAY_INTERACTION);
@@ -54,7 +67,7 @@ void ofApp::keyPressed(int key){
 		DISPLAY_INTERACTION = true;
 	}
     if(key == 'v') {
-        DISPLAY_CAMERA = !DISPLAY_CAMERA;
+        DEBUG_MODE = !DEBUG_MODE;
 	}
     
     if(key == 'w'){

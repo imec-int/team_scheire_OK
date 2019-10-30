@@ -23,7 +23,8 @@ public:
     ofFbo texture;
     
     string handle;
-    int width;
+	int position;
+	int width;
     int height;
     int xOffset;
     int yOffset;

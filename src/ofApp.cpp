@@ -13,7 +13,6 @@ void ofApp::setup(){
     
     presets.setup();
 
-
 	sender.setup("10.100.17.95", 9000);
 	receiver.setup(8000);
 	aruco.setup(sender);
@@ -23,8 +22,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     aruco.update();
-    surfaceGenerator->update();
-    
+    surfaceGenerator->update();    
 
 	while (receiver.hasWaitingMessages()) {
 		ofxOscMessage msg;

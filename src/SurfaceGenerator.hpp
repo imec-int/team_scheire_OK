@@ -23,14 +23,15 @@ public:
     void loadNewSource(std::string source);
 	void handleOSC(ofxOscMessage msg);
 
-	float keyStone;
+	float keyStoneH = 0;
+	float keyStoneV = 0;
 
 	ofFbo wall_videoFBO;
     ofxHapPlayer wall_background;
 	ofxHapPlayer wall_foreground;
 	ofxHapPlayer wall_interaction;
 
-
+	
 	ofFbo ceiling_videoFBO;
 	ofxHapPlayer ceiling_background;
 	ofxHapPlayer ceiling_foreground;

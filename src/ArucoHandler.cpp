@@ -112,6 +112,8 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 			for (int j = 0; j < markerList.size(); j++) {
 				if (markerList.at(j).id == curID) {
 					MarkerClass m = markerList.at(j);
+					OSCPosition = m.position;
+					sendMessage("/position", m.position);
 					OSCScale = m.scale;
 					std::cout << "current scale: " << m.scale << endl;
 					sendMessage("/scale", m.scale);
@@ -151,6 +153,7 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 		ofDrawBitmapStringHighlight("vw:" + ofToString(OSCVideoWidth), 50, 210);
 		ofDrawBitmapStringHighlight("vh:" + ofToString(OSCVideoHeight), 50, 230);
 		ofDrawBitmapStringHighlight("s:" + ofToString(OSCScale), 50, 250);
+		ofDrawBitmapStringHighlight("p:" + ofToString(OSCPosition), 50, 270);
 	}
 }
 
@@ -169,7 +172,7 @@ void ArucoHandler::setupSurfaces() {
         for(int j = 0; j < numberOfMarkers; j++){
             xml.pushTag("marker", j);
             MarkerClass marker;
-            std::cout << "xml scale: " <<  xml.getValue("scale", 1) << endl;
+            std::cout << "xml pos: " << xml.getValue("position", 0) << endl;
 
             marker.setup(xml.getValue("ID", 0), xml.getValue("position", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
             markerList.push_back(marker);

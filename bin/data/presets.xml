@@ -4,8 +4,8 @@
       <video>
         <startX>0</startX>
         <startY>0</startY>
-        <width>2048</width>
-        <height>1024</height>
+        <width>1024</width>
+        <height>768</height>
       </video>
       <handle>ceiling</handle>
       <width>2048</width>
@@ -62,7 +62,7 @@
         <width>500</width>
         <height>400</height>
       </video>
-      <handle>Wall</handle>
+      <handle>wall</handle>
       <width>2000</width>
       <height>600</height>
       <xOffset>-200</xOffset>

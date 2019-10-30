@@ -30,8 +30,11 @@ SurfaceGenerator::SurfaceGenerator() {
 
 void SurfaceGenerator::handleOSC(ofxOscMessage msg) {
 	string a = msg.getAddress();
-	if (a == "/keystone") {
-		keyStone = msg.getArgAsFloat(0);
+	if (a == "/keystoneV") {
+		keyStoneV = msg.getArgAsFloat(0);
+	}
+	if (a == "/keystoneH") {
+		keyStoneH = msg.getArgAsFloat(0);
 	}
 }
 
@@ -55,7 +58,8 @@ void SurfaceGenerator::update() {
 	wall_foreground.draw(0, 0, ofGetWidth(), ofGetHeight());
     ofDisableAlphaBlending();
     wall_videoFBO.end();
-    
+  
+	
     // prep ceiling
 	ceiling_videoFBO.begin();
 	ofEnableAlphaBlending();
@@ -65,6 +69,7 @@ void SurfaceGenerator::update() {
 	ceiling_foreground.draw(0, 0, ofGetWidth(), ofGetHeight());
 	ofDisableAlphaBlending();
 	ceiling_videoFBO.end();
+	
 }
 
 void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight, int position, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION) {
@@ -72,18 +77,23 @@ void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight,
 		if (!wall_interaction.isPlaying()) {
 			wall_interaction.play();
 		}
+		
 		if (!ceiling_interaction.isPlaying()) {
 			ceiling_interaction.play();
 		}
+		
 	}
+
+	ofPushMatrix();
+	ofScale(scale / 10000);
+	ofTranslate(drawWidth / 2, drawHeight / 2);
+	ofRotateY(keyStoneV);
+	ofRotateX(keyStoneH);
+	ofTranslate(-drawWidth / 2, -drawHeight / 2);
 	if (position == 0) {
 
 		if (wall_background.isLoaded()) {
-			ofPushMatrix();
-			ofScale(scale / 10000);
-			ofRotateY(keyStone);
 			wall_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
-			ofPopMatrix();
 		}
 		else {
 			if (wall_background.getError().length())
@@ -119,11 +129,7 @@ void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight,
 	else {
 
 		if (ceiling_background.isLoaded()) {
-			ofPushMatrix();
-			ofScale(scale / 10000);
-			ofRotateY(keyStone);
 			ceiling_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
-			ofPopMatrix();
 		}
 		else {
 			if (ceiling_background.getError().length())
@@ -156,12 +162,13 @@ void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight,
 			}
 		}
 	}
+
+	ofPopMatrix();
     
 }
 
 void SurfaceGenerator::loadNewSource(std::string source) {
     
-	wall_background.load(source + "/wall_background.mov");
 	wall_background.load(source + "/wall_background.mov");
 	wall_background.play();
 	wall_foreground.load(source + "/wall_foreground.mov");
@@ -170,7 +177,7 @@ void SurfaceGenerator::loadNewSource(std::string source) {
 	wall_interaction.setLoopState(OF_LOOP_NONE);
 	wall_interaction.play();
 
-
+	
 	ceiling_background.load(source + "/ceiling_background.mov");
 	ceiling_background.play();
 	ceiling_foreground.load(source + "/ceiling_foreground.mov");

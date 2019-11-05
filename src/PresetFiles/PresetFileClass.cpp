@@ -12,8 +12,11 @@ void PresetFileClass::setup(vector<PresetItemClass> presetI) {
     presetItems = presetI;
 }
 
-void PresetFileClass::draw(SurfaceGenerator* surfaces, bool INTERACTION) {
+void PresetFileClass::draw(SurfaceGenerator* surfaces, bool INTERACTION, int selected) {
     for(int i = 0; i < presetItems.size(); i++) {
-        presetItems[i].draw(surfaces, INTERACTION);
+		if (selected == -1 || i == selected) {
+			presetItems[i].draw(surfaces, INTERACTION);
+		}
     }
 }
+

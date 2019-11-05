@@ -5,30 +5,31 @@ void ofApp::setup(){
 
 	ofSetFrameRate(24);
     
-    sound.load("space.wav");
-    sound.setVolume(10);
-//    sound.play();
+    sound.load("water/music.mp3");
+    sound.setVolume(5);
+    sound.play();
     
     surfaceGenerator = new SurfaceGenerator();
     
-    presets.setup();
 
 	sender.setup("10.100.17.95", 9000);
 	receiver.setup(8000);
 	aruco.setup(sender);
 
+	presets.setup(sender);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     aruco.update();
     surfaceGenerator->update();    
-
+	presets.update(DISPLAY_MODE);
 	while (receiver.hasWaitingMessages()) {
 		ofxOscMessage msg;
 		receiver.getNextMessage(&msg);
 		
 		surfaceGenerator->handleOSC(msg); 
+		presets.handleOSC(msg);
 		aruco.handleOSC(msg);
 	}
 }
@@ -41,7 +42,7 @@ void ofApp::draw(){
         aruco.draw(surfaceGenerator, DEBUG_MODE, DISPLAY_INTERACTION);
     }
     else {
-        presets.draw(surfaceGenerator, DISPLAY_MODE, DISPLAY_INTERACTION);
+        presets.draw(surfaceGenerator, DISPLAY_INTERACTION);
     }
 	
 }
@@ -70,9 +71,11 @@ void ofApp::keyPressed(int key){
     
     if(key == 'w'){
         surfaceGenerator->loadNewSource("water");
+		sound.load("water/music.mp3");
     }
     if(key == 's'){
         surfaceGenerator->loadNewSource("space");
+		sound.load("space/music.mp3");
     }
 }
 

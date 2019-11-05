@@ -44,7 +44,7 @@ public:
     vector<MarkerClass> markerList;
 
     
-    bool TRACK = false;
+    bool TRACK = true;
 	bool INTERACTION = false;
 
 

@@ -15,15 +15,15 @@
 
 class PresetItemClass {
 public:
-    void setup(string ha, int w, int h, int xO, int yO, int zO, float xR, float yR, float zR, int vSX, int VSY, int vW, int vH);
+    void setup(int p, int w, int h, int xO, int yO, int zO, float xR, float yR, float zR, int vSX, int VSY, int vW, int vH);
+	void update(int p, int w, int h, int xO, int yO, int zO, float xR, float yR, float zR, int vSX, int VSY, int vW, int vH);
     void draw(SurfaceGenerator* surfaces, bool INTERACTION);
     
     
     ofPlanePrimitive videoProjection;
     ofFbo texture;
     
-    string handle;
-	int position;
+	int position = -1;
 	int width;
     int height;
     int xOffset;

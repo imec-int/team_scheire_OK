@@ -143,7 +143,7 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 
 	if (DEBUG_MODE) {
 
-		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, 70);
+		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, 290);
 		ofDrawBitmapStringHighlight("ox:" + ofToString(OSCOutputX), 50, 90);
 		ofDrawBitmapStringHighlight("oy:" + ofToString(OSCOutputY), 50, 110);
 		ofDrawBitmapStringHighlight("ow:" + ofToString(OSCOutputWidth), 50, 130);
@@ -162,7 +162,7 @@ void ArucoHandler::sendMessage(string channel, int value) {
 	msg.setAddress(channel);
 	msg.addFloatArg(value);
 	sender.sendMessage(msg);
-}
+} 
 void ArucoHandler::setupSurfaces() {
 	markerList.clear();
     if(xml.loadFile("markers.xml")){
@@ -231,6 +231,7 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 		setupSurfaces();
 
 	}
+
 	else if (a == "/position") {
 		OSCPosition = msg.getArgAsInt(0);
 	}
@@ -252,7 +253,7 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 	else if (a == "/videoX") {
 		OSCVideoX = msg.getArgAsInt(0);
 	}
-	else if (a == "/videoX") {
+	else if (a == "/videoY") {
 		OSCVideoY = msg.getArgAsInt(0);
 	}
 	else if (a == "/videoWidth") {

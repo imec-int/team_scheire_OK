@@ -47,9 +47,26 @@ void ArucoHandler::setup(ofxOscSender s) {
 
 	sender = s;
 
+
+	saveBtn.addListener(this, &ArucoHandler::saveButtonPressed);
+
+
+	ofxXmlSettings settings;
+	settings.loadFile("settings.xml");
+	
+	ofVec3f v = ofVec3f(settings.getValue("settings:translateX", 0), settings.getValue("settings:translateY", 0), settings.getValue("settings:translateZ", 0));
+
+	gui.setup();
+	gui.add(translate.setup("translate", v, ofVec3f(-ofGetWidth(), -ofGetHeight(), -1000), ofVec3f(ofGetWidth(), ofGetHeight(), 1000) ) );
+	gui.add(saveBtn.setup("save"));
+
+	fbo.allocate(ofGetWidth(), ofGetHeight());
 }
 
 void ArucoHandler::update() {
+	ofPushMatrix();
+	ofTranslate(translate->x, translate->y, translate->z);
+
     if(TRACK) {
         trackVideo->update();
 
@@ -58,10 +75,14 @@ void ArucoHandler::update() {
 
         }
     }
+	ofPopMatrix();
 
 }
 
 void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION) {
+	fbo.begin();
+	ofClear(0, 0, 0);
+
 	INTERACTION = DISPLAY_INTERACTION;
 
     if(DEBUG_MODE) {
@@ -77,6 +98,42 @@ void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLA
 	else {
 		drawFile(surfaces, markers, DEBUG_MODE);
 	}
+
+	fbo.end();
+
+	if (DEBUG_MODE) {
+		int offset = 200;
+		ofDrawBitmapStringHighlight("ox:" + ofToString(OSCOutputX), 50, offset);
+		ofDrawBitmapStringHighlight("oy:" + ofToString(OSCOutputY), 50, offset + 20);
+		ofDrawBitmapStringHighlight("ow:" + ofToString(OSCOutputWidth), 50, offset + 40);
+		ofDrawBitmapStringHighlight("oh:" + ofToString(OSCOutputHeight), 50, offset + 60);
+		ofDrawBitmapStringHighlight("vx:" + ofToString(OSCVideoX), 50, offset + 80);
+		ofDrawBitmapStringHighlight("vy:" + ofToString(OSCOutputY), 50, offset + 100);
+		ofDrawBitmapStringHighlight("vw:" + ofToString(OSCVideoWidth), 50, offset + 120);
+		ofDrawBitmapStringHighlight("vh:" + ofToString(OSCVideoHeight), 50, offset + 140);
+		ofDrawBitmapStringHighlight("s:" + ofToString(OSCScale), 50, offset + 160);
+		ofDrawBitmapStringHighlight("p:" + ofToString(OSCPosition), 50, offset + 180);
+		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, offset + 200);
+	}
+	
+
+	ofPushMatrix();
+
+	ofTranslate(translate->x, translate->y, translate->z);
+
+	//draw FBO
+	fbo.draw(0, 0);
+	ofPopMatrix();
+
+	gui.draw();
+}
+
+void ArucoHandler::saveButtonPressed() {
+	ofxXmlSettings settings;
+	settings.setValue("settings:translateX", translate->x);
+	settings.setValue("settings:translateY", translate->y);
+	settings.setValue("settings:translateZ", translate->z);
+	settings.saveFile("settings.xml");
 }
 
 void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE) {
@@ -141,20 +198,6 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 		aruco.end();
 	}
 
-	if (DEBUG_MODE) {
-
-		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, 290);
-		ofDrawBitmapStringHighlight("ox:" + ofToString(OSCOutputX), 50, 90);
-		ofDrawBitmapStringHighlight("oy:" + ofToString(OSCOutputY), 50, 110);
-		ofDrawBitmapStringHighlight("ow:" + ofToString(OSCOutputWidth), 50, 130);
-		ofDrawBitmapStringHighlight("oh:" + ofToString(OSCOutputHeight), 50, 150);
-		ofDrawBitmapStringHighlight("vx:" + ofToString(OSCVideoX), 50, 170);
-		ofDrawBitmapStringHighlight("vy:" + ofToString(OSCOutputY), 50, 190);
-		ofDrawBitmapStringHighlight("vw:" + ofToString(OSCVideoWidth), 50, 210);
-		ofDrawBitmapStringHighlight("vh:" + ofToString(OSCVideoHeight), 50, 230);
-		ofDrawBitmapStringHighlight("s:" + ofToString(OSCScale), 50, 250);
-		ofDrawBitmapStringHighlight("p:" + ofToString(OSCPosition), 50, 270);
-	}
 }
 
 void ArucoHandler::sendMessage(string channel, int value) {
@@ -168,7 +211,6 @@ void ArucoHandler::setupSurfaces() {
     if(xml.loadFile("markers.xml")){
         xml.pushTag("markers");
         int numberOfMarkers = xml.getNumTags("marker");
-        std::cout << "num markers found: " << numberOfMarkers << endl;
         for(int j = 0; j < numberOfMarkers; j++){
             xml.pushTag("marker", j);
             MarkerClass marker;
@@ -188,6 +230,7 @@ void ArucoHandler::setupSurfaces() {
 void ArucoHandler::handleOSC(ofxOscMessage msg) {
 	string a = msg.getAddress();
 
+	ofDrawBitmapStringHighlight("msg:" + a, 50, 370);
 	if (a == "/accxyz") {
 		// do nothing, always coming in
 	}

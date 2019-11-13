@@ -2,55 +2,37 @@
     <preset>
         <panel>
             <video>
-                <startX>0</startX>
+                <startX>99</startX>
                 <startY>0</startY>
                 <width>1024</width>
                 <height>512</height>
             </video>
             <position>1</position>
             <handle>wall</handle>
-            <width>2048</width>
+            <width>1769</width>
             <height>1060</height>
-            <xOffset>339</xOffset>
-            <yOffset>221</yOffset>
-            <zOffset>79</zOffset>
-            <xRotation>4</xRotation>
+            <xOffset>366</xOffset>
+            <yOffset>198</yOffset>
+            <zOffset>0</zOffset>
+            <xRotation>-18</xRotation>
             <yRotation>0</yRotation>
             <zRotation>0</zRotation>
         </panel>
         <panel>
             <video>
-                <startX>0</startX>
+                <startX>99</startX>
                 <startY>0</startY>
                 <width>1024</width>
                 <height>512</height>
             </video>
             <position>1</position>
             <handle>wall</handle>
-            <width>2048</width>
+            <width>1769</width>
             <height>1060</height>
-            <xOffset>278</xOffset>
-            <yOffset>217</yOffset>
-            <zOffset>211</zOffset>
-            <xRotation>11</xRotation>
-            <yRotation>0</yRotation>
-            <zRotation>0</zRotation>
-        </panel>
-        <panel>
-            <video>
-                <startX>0</startX>
-                <startY>0</startY>
-                <width>1024</width>
-                <height>512</height>
-            </video>
-            <position>1</position>
-            <handle>wall</handle>
-            <width>2048</width>
-            <height>1060</height>
-            <xOffset>278</xOffset>
-            <yOffset>217</yOffset>
-            <zOffset>211</zOffset>
-            <xRotation>11</xRotation>
+            <xOffset>366</xOffset>
+            <yOffset>198</yOffset>
+            <zOffset>0</zOffset>
+            <xRotation>-18</xRotation>
             <yRotation>0</yRotation>
             <zRotation>0</zRotation>
         </panel>
@@ -76,37 +58,37 @@
         </panel>
         <panel>
             <video>
-                <startX>5</startX>
-                <startY>4</startY>
+                <startX>160</startX>
+                <startY>193</startY>
                 <width>1024</width>
                 <height>512</height>
             </video>
             <position>0</position>
             <handle>wall</handle>
-            <width>1712</width>
+            <width>2029</width>
             <height>1060</height>
-            <xOffset>8</xOffset>
-            <yOffset>62</yOffset>
-            <zOffset>0</zOffset>
-            <xRotation>0</xRotation>
+            <xOffset>196</xOffset>
+            <yOffset>175</yOffset>
+            <zOffset>-33</zOffset>
+            <xRotation>-18</xRotation>
             <yRotation>0</yRotation>
             <zRotation>0</zRotation>
         </panel>
         <panel>
             <video>
-                <startX>5</startX>
-                <startY>4</startY>
+                <startX>160</startX>
+                <startY>193</startY>
                 <width>1024</width>
                 <height>512</height>
             </video>
             <position>0</position>
             <handle>wall</handle>
-            <width>1712</width>
+            <width>2029</width>
             <height>1060</height>
-            <xOffset>8</xOffset>
-            <yOffset>62</yOffset>
-            <zOffset>0</zOffset>
-            <xRotation>0</xRotation>
+            <xOffset>196</xOffset>
+            <yOffset>175</yOffset>
+            <zOffset>-33</zOffset>
+            <xRotation>-18</xRotation>
             <yRotation>0</yRotation>
             <zRotation>0</zRotation>
         </panel>

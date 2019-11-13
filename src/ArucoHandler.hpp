@@ -20,6 +20,9 @@
 #include "ofxOsc.h"
 #include "MarkerClass.hpp"
 #include "ofXml.h"
+#include "ofxGui.h"
+
+
 class ArucoHandler {
 public:
     
@@ -32,6 +35,7 @@ public:
 	void drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE);
 	void drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE);
 	void sendMessage(string channel, int value);
+	void saveButtonPressed();
 
     ofxAruco aruco;
     ofVideoGrabber grabber;
@@ -40,6 +44,14 @@ public:
 	ofxOscSender sender;
     
     ofxXmlSettings xml;
+	ofxXmlSettings settings;
+	
+	
+	ofxPanel gui;
+	ofxVec3Slider translate;
+	ofxButton saveBtn;
+	ofFbo fbo;
+
 
     vector<MarkerClass> markerList;
 

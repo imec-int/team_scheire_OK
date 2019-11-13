@@ -12,7 +12,7 @@ void ofApp::setup(){
     surfaceGenerator = new SurfaceGenerator();
     
 
-	sender.setup("10.100.17.95", 9000);
+	sender.setup("192.168.137.241", 9000);
 	receiver.setup(8000);
 	aruco.setup(sender);
 
@@ -36,7 +36,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofClear(0, 0, 0);
+    ofClear(40, 40, 40);
     
 	if(DISPLAY_MODE == 0) {
         aruco.draw(surfaceGenerator, DEBUG_MODE, DISPLAY_INTERACTION);

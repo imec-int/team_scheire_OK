@@ -12,8 +12,8 @@ SurfaceGenerator::SurfaceGenerator() {
 
 	loadNewSource("water");
 
-	wall_videoFBO.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
-	ceiling_videoFBO.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
+	wall_videoFBO.allocate(WIDTH, HEIGHT, GL_RGBA);
+	ceiling_videoFBO.allocate(WIDTH, HEIGHT, GL_RGBA);
 
 	wall_videoFBO.begin();
 	ofClear(0, 0, 0, 0);
@@ -53,10 +53,10 @@ void SurfaceGenerator::update() {
 	wall_videoFBO.begin();
     ofEnableAlphaBlending();
     ofClear(0, 0, 0, 0);
-	wall_background.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
-	wall_interaction.draw(0, 0, ofGetWidth(), ofGetHeight());
-	wall_foreground.draw(0, 0, ofGetWidth(), ofGetHeight());
-    ofDisableAlphaBlending();
+	wall_background.draw(0, 0, WIDTH, HEIGHT);
+	wall_foreground.draw(0, 0, WIDTH, HEIGHT);
+	wall_interaction.draw(0, 0, WIDTH, HEIGHT);
+	ofDisableAlphaBlending();
     wall_videoFBO.end();
   
 	
@@ -64,9 +64,9 @@ void SurfaceGenerator::update() {
 	ceiling_videoFBO.begin();
 	ofEnableAlphaBlending();
 	ofClear(0, 0, 0, 0);
-	ceiling_background.draw(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
-	ceiling_interaction.draw(0, 0, ofGetWidth(), ofGetHeight());
-	ceiling_foreground.draw(0, 0, ofGetWidth(), ofGetHeight());
+	ceiling_background.draw(0, 0, WIDTH, HEIGHT);
+	ceiling_foreground.draw(0, 0, WIDTH, HEIGHT);
+	ceiling_interaction.draw(0, 0, WIDTH, HEIGHT);
 	ofDisableAlphaBlending();
 	ceiling_videoFBO.end();
 	
@@ -92,74 +92,43 @@ void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight,
 	ofTranslate(-drawWidth / 2, -drawHeight / 2);
 	if (position == 0) {
 
-		if (wall_background.isLoaded()) {
-			wall_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
+		wall_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
+		if (wall_background.getError().length())
+		{
+			std::cout << wall_background.getError() << endl;
+			ofDrawBitmapStringHighlight(wall_background.getError(), ofGetWidth() / 2, 20);
 		}
-		else {
-			if (wall_background.getError().length())
-			{
-				// std::cout << background.getError() << endl;
-				ofDrawBitmapStringHighlight(wall_background.getError(), ofGetWidth() / 2, 20);
-			}
-			else
-			{
-				ofDrawBitmapStringHighlight("Background is loading...", ofGetWidth() / 2, 20);
-			}
-
-			if (wall_foreground.getError().length())
-			{
-				// std::cout << background.getError() << endl;
-				ofDrawBitmapStringHighlight(wall_foreground.getError(), ofGetWidth() / 2, 20);
-			}
-			else
-			{
-				ofDrawBitmapStringHighlight("foreground is loading...", ofGetWidth() / 2, 20);
-			}
-			if (wall_interaction.getError().length())
-			{
-				// std::cout << background.getError() << endl;
-				ofDrawBitmapStringHighlight(wall_interaction.getError(), ofGetWidth() / 2, 20);
-			}
-			else
-			{
-				ofDrawBitmapStringHighlight("interaction is loading...", ofGetWidth() / 2, 20);
-			}
+		if (wall_foreground.getError().length())
+		{
+			std::cout << wall_foreground.getError() << endl;
+			ofDrawBitmapStringHighlight(wall_foreground.getError(), ofGetWidth() / 2, 20);
+		}
+		if (wall_interaction.getError().length())
+		{
+			std::cout << wall_interaction.getError() << endl;
+			ofDrawBitmapStringHighlight(wall_interaction.getError(), ofGetWidth() / 2, 20);
 		}
 	}
+	
 	else {
 
-		if (ceiling_background.isLoaded()) {
-			ceiling_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
+		ceiling_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
+		
+		if (ceiling_background.getError().length())
+		{
+			std::cout << ceiling_background.getError() << endl;
+			ofDrawBitmapStringHighlight(ceiling_background.getError(), ofGetWidth() / 2, 20);
 		}
-		else {
-			if (ceiling_background.getError().length())
-			{
-				// std::cout << background.getError() << endl;
-				ofDrawBitmapStringHighlight(ceiling_background.getError(), ofGetWidth() / 2, 20);
-			}
-			else
-			{
-				ofDrawBitmapStringHighlight("Background is loading...", ofGetWidth() / 2, 20);
-			}
-
-			if (ceiling_foreground.getError().length())
-			{
-				// std::cout << background.getError() << endl;
-				ofDrawBitmapStringHighlight(ceiling_foreground.getError(), ofGetWidth() / 2, 20);
-			}
-			else
-			{
-				ofDrawBitmapStringHighlight("foreground is loading...", ofGetWidth() / 2, 20);
-			}
-			if (ceiling_interaction.getError().length())
-			{
-				// std::cout << background.getError() << endl;
-				ofDrawBitmapStringHighlight(ceiling_interaction.getError(), ofGetWidth() / 2, 20);
-			}
-			else
-			{
-				ofDrawBitmapStringHighlight("interaction is loading...", ofGetWidth() / 2, 20);
-			}
+		
+		if (ceiling_foreground.getError().length())
+		{
+			std::cout << ceiling_foreground.getError() << endl;
+			ofDrawBitmapStringHighlight(ceiling_foreground.getError(), ofGetWidth() / 2, 20);
+		}
+		if (ceiling_interaction.getError().length())
+		{
+			std::cout << ceiling_interaction.getError() << endl;
+			ofDrawBitmapStringHighlight(ceiling_interaction.getError(), ofGetWidth() / 2, 20);
 		}
 	}
 

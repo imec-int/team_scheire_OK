@@ -37,7 +37,8 @@ public:
 	ofxHapPlayer ceiling_foreground;
 	ofxHapPlayer ceiling_interaction;
     
-
+	int WIDTH = 1400;
+	int HEIGHT = 900;
     
 };
 

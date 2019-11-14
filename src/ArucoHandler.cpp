@@ -55,9 +55,11 @@ void ArucoHandler::setup(ofxOscSender s) {
 	settings.loadFile("settings.xml");
 	
 	ofVec3f v = ofVec3f(settings.getValue("settings:translateX", 0), settings.getValue("settings:translateY", 0), settings.getValue("settings:translateZ", 0));
+	ofVec3f r = ofVec3f(settings.getValue("settings:rotateX", 0), settings.getValue("settings:rotateY", 0), settings.getValue("settings:rotateZ", 0));
 
 	gui.setup();
-	gui.add(translate.setup("translate", v, ofVec3f(-ofGetWidth(), -ofGetHeight(), -1000), ofVec3f(ofGetWidth(), ofGetHeight(), 1000) ) );
+	gui.add(translate.setup("translate", v, ofVec3f(-ofGetWidth(), -ofGetHeight(), -1000), ofVec3f(ofGetWidth(), ofGetHeight(), 1000)));
+	gui.add(rotate.setup("rotate", r, ofVec3f(-90, -90, -90), ofVec3f(90, 90, 90)));
 	gui.add(saveBtn.setup("save"));
 
 	fbo.allocate(ofGetWidth(), ofGetHeight());
@@ -65,6 +67,13 @@ void ArucoHandler::setup(ofxOscSender s) {
 
 void ArucoHandler::update() {
 	ofPushMatrix();
+	
+	ofRotateXDeg(rotate->x);
+	ofRotateYDeg(rotate->y);
+	ofRotateZDeg(rotate->z);
+
+	
+	
 	ofTranslate(translate->x, translate->y, translate->z);
 
     if(TRACK) {
@@ -89,9 +98,6 @@ void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLA
         trackVideo->draw(0, 0, ofGetWidth(), ofGetHeight());
     }
     vector<aruco::Marker> markers = aruco.getMarkers();
-	if (DEBUG_MODE) {
-		ofDrawBitmapStringHighlight("numMarkers: " + ofToString(markers.size()), 50, 50);
-	}
 	if (markers.size() == 1) {
 		drawOSC(surfaces, markers, DEBUG_MODE);
 	}
@@ -100,6 +106,23 @@ void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLA
 	}
 
 	fbo.end();
+
+	ofPushMatrix();
+	
+
+	ofTranslate(translate->x, translate->y, translate->z);
+	
+	
+	ofTranslate(fbo.getWidth() / 2, fbo.getHeight() / 2);
+	ofRotateXDeg(rotate->x);
+	ofRotateYDeg(rotate->y);
+	ofRotateZDeg(rotate->z);
+	ofTranslate(-fbo.getWidth() / 2, -fbo.getHeight() / 2);
+
+	
+	//draw FBO
+	fbo.draw(0, 0);
+	ofPopMatrix();
 
 	if (DEBUG_MODE) {
 		int offset = 200;
@@ -114,18 +137,11 @@ void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLA
 		ofDrawBitmapStringHighlight("s:" + ofToString(OSCScale), 50, offset + 160);
 		ofDrawBitmapStringHighlight("p:" + ofToString(OSCPosition), 50, offset + 180);
 		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, offset + 200);
+		ofDrawBitmapStringHighlight("numMarkers: " + ofToString(markers.size()), 50, offset + 220);
+
+		gui.draw();
+
 	}
-	
-
-	ofPushMatrix();
-
-	ofTranslate(translate->x, translate->y, translate->z);
-
-	//draw FBO
-	fbo.draw(0, 0);
-	ofPopMatrix();
-
-	gui.draw();
 }
 
 void ArucoHandler::saveButtonPressed() {
@@ -214,7 +230,6 @@ void ArucoHandler::setupSurfaces() {
         for(int j = 0; j < numberOfMarkers; j++){
             xml.pushTag("marker", j);
             MarkerClass marker;
-            std::cout << "xml pos: " << xml.getValue("position", 0) << endl;
 
             marker.setup(xml.getValue("ID", 0), xml.getValue("position", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
             markerList.push_back(marker);
@@ -244,7 +259,6 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 
 		int numberOfMarkers = set.getNumTags("marker");
 		int indexFound = -1;
-		std::cout << "num markers found: " << numberOfMarkers << endl;
 		for (int j = 0; j < numberOfMarkers; j++) {
 			set.pushTag("marker", j);
 			std::cout << set.getValue("ID", 0) << endl;

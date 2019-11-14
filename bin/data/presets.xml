@@ -2,37 +2,91 @@
     <preset>
         <panel>
             <video>
-                <startX>99</startX>
+                <startX>0</startX>
                 <startY>0</startY>
-                <width>1024</width>
-                <height>512</height>
+                <width>1400</width>
+                <height>900</height>
             </video>
             <position>1</position>
             <handle>wall</handle>
-            <width>1769</width>
-            <height>1060</height>
-            <xOffset>366</xOffset>
-            <yOffset>198</yOffset>
-            <zOffset>0</zOffset>
-            <xRotation>-18</xRotation>
+            <width>1400</width>
+            <height>900</height>
+            <xOffset>0</xOffset>
+            <yOffset>0</yOffset>
+            <zOffset>-20</zOffset>
+            <xRotation>0</xRotation>
             <yRotation>0</yRotation>
             <zRotation>0</zRotation>
         </panel>
         <panel>
             <video>
-                <startX>99</startX>
-                <startY>0</startY>
+                <startX>514</startX>
+                <startY>76</startY>
                 <width>1024</width>
                 <height>512</height>
             </video>
             <position>1</position>
             <handle>wall</handle>
-            <width>1769</width>
+            <width>2048</width>
             <height>1060</height>
-            <xOffset>366</xOffset>
-            <yOffset>198</yOffset>
-            <zOffset>0</zOffset>
-            <xRotation>-18</xRotation>
+            <xOffset>347</xOffset>
+            <yOffset>221</yOffset>
+            <zOffset>265</zOffset>
+            <xRotation>0</xRotation>
+            <yRotation>0</yRotation>
+            <zRotation>0</zRotation>
+        </panel>
+        <panel>
+            <video>
+                <startX>514</startX>
+                <startY>76</startY>
+                <width>1024</width>
+                <height>512</height>
+            </video>
+            <position>1</position>
+            <handle>wall</handle>
+            <width>2048</width>
+            <height>1060</height>
+            <xOffset>347</xOffset>
+            <yOffset>221</yOffset>
+            <zOffset>265</zOffset>
+            <xRotation>0</xRotation>
+            <yRotation>0</yRotation>
+            <zRotation>0</zRotation>
+        </panel>
+        <panel>
+            <video>
+                <startX>514</startX>
+                <startY>76</startY>
+                <width>1024</width>
+                <height>512</height>
+            </video>
+            <position>0</position>
+            <handle>wall</handle>
+            <width>1179</width>
+            <height>675</height>
+            <xOffset>265</xOffset>
+            <yOffset>221</yOffset>
+            <zOffset>265</zOffset>
+            <xRotation>0</xRotation>
+            <yRotation>0</yRotation>
+            <zRotation>0</zRotation>
+        </panel>
+        <panel>
+            <video>
+                <startX>514</startX>
+                <startY>76</startY>
+                <width>1024</width>
+                <height>512</height>
+            </video>
+            <position>0</position>
+            <handle>wall</handle>
+            <width>1179</width>
+            <height>675</height>
+            <xOffset>265</xOffset>
+            <yOffset>221</yOffset>
+            <zOffset>265</zOffset>
+            <xRotation>0</xRotation>
             <yRotation>0</yRotation>
             <zRotation>0</zRotation>
         </panel>

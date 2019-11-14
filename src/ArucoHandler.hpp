@@ -49,6 +49,7 @@ public:
 	
 	ofxPanel gui;
 	ofxVec3Slider translate;
+	ofxVec3Slider rotate;
 	ofxButton saveBtn;
 	ofFbo fbo;
 

@@ -45,7 +45,7 @@ void PresetItemClass::update(int p, int w = 200, int h = 200, int xO = 50, int y
 
 }
 
-void PresetItemClass::draw(SurfaceGenerator* surfaces, bool INTERACTION) {
+void PresetItemClass::draw(SurfaceGenerator* surfaces, bool INTERACTION, bool DISPLAY_LOUIS) {
     
     ofDrawAxis(200);
     
@@ -64,7 +64,7 @@ void PresetItemClass::draw(SurfaceGenerator* surfaces, bool INTERACTION) {
     //    ofSetColor(255, 255, 255, 255);
     ofNoFill();
     // ofDrawRectangle(-width / 2, -height / 2, width, height);
-	surfaces->draw(0, 0, width, height, position, 6000, vStartX, vStartY, vWidth, vHeight, INTERACTION);
+	surfaces->draw(0, 0, width, height, position, 6000, vStartX, vStartY, vWidth, vHeight, INTERACTION, DISPLAY_LOUIS);
 	
     
     ofPopStyle();

@@ -56,6 +56,9 @@ void SurfaceGenerator::update() {
 	wall_background.draw(0, 0, WIDTH, HEIGHT);
 	wall_foreground.draw(0, 0, WIDTH, HEIGHT);
 	wall_interaction.draw(0, 0, WIDTH, HEIGHT);
+	if (louis_bottom.isPlaying()) { louis_bottom.draw(0, 0, WIDTH, HEIGHT);  }
+	if (louis_left.isPlaying()) { louis_left.draw(0, 0, WIDTH, HEIGHT);  }
+	if (louis_top.isPlaying()) { louis_top.draw(0, 0, WIDTH, HEIGHT); }
 	ofDisableAlphaBlending();
     wall_videoFBO.end();
   
@@ -67,12 +70,15 @@ void SurfaceGenerator::update() {
 	ceiling_background.draw(0, 0, WIDTH, HEIGHT);
 	ceiling_foreground.draw(0, 0, WIDTH, HEIGHT);
 	ceiling_interaction.draw(0, 0, WIDTH, HEIGHT);
+	if (louis_bottom.isPlaying()) { louis_bottom.draw(0, 0, WIDTH, HEIGHT); }
+	if (louis_left.isPlaying()) { louis_left.draw(0, 0, WIDTH, HEIGHT); }
+	if (louis_top.isPlaying()) { louis_top.draw(0, 0, WIDTH, HEIGHT); }
 	ofDisableAlphaBlending();
 	ceiling_videoFBO.end();
 	
 }
 
-void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight, int position, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION) {
+void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight, int position, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION, bool LOUIS) {
 	if (INTERACTION) {
 		if (!wall_interaction.isPlaying()) {
 			wall_interaction.play();
@@ -83,6 +89,15 @@ void SurfaceGenerator::draw(int drawX, int drawY, int drawWidth, int drawHeight,
 		}
 		
 	}
+
+	if (LOUIS) {
+		int select = floor(ofRandom(3));
+
+		if (select == 0) { louis_bottom.play(); }
+		if (select == 1) { louis_top.play(); }
+		if (select == 2) { louis_left.play(); }
+	}
+	
 
 	ofPushMatrix();
 	ofScale(scale / 10000);
@@ -144,7 +159,6 @@ void SurfaceGenerator::loadNewSource(std::string source) {
 	wall_foreground.play();
 	wall_interaction.load(source + "/wall_interaction.mov");
 	wall_interaction.setLoopState(OF_LOOP_NONE);
-	wall_interaction.play();
 
 	
 	ceiling_background.load(source + "/ceiling_background.mov");
@@ -153,8 +167,14 @@ void SurfaceGenerator::loadNewSource(std::string source) {
 	ceiling_foreground.play();
 	ceiling_interaction.load(source + "/ceiling_interaction.mov");
 	ceiling_interaction.setLoopState(OF_LOOP_NONE);
-	ceiling_interaction.play();
     
+	louis_top.load("louis/top.mov");
+	louis_top.setLoopState(OF_LOOP_NONE);
+	louis_bottom.load("louis/bottom.mov");
+	louis_bottom.setLoopState(OF_LOOP_NONE);
+	louis_left.load("louis/left.mov");
+	louis_left.setLoopState(OF_LOOP_NONE);
+
 }
 
 

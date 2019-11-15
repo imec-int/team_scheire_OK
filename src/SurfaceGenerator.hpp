@@ -19,7 +19,7 @@ class SurfaceGenerator {
 public:
 	SurfaceGenerator();
     void update();
-    void draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION);
+    void draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION, bool LOUIS);
     void loadNewSource(std::string source);
 	void handleOSC(ofxOscMessage msg);
 
@@ -36,6 +36,10 @@ public:
 	ofxHapPlayer ceiling_background;
 	ofxHapPlayer ceiling_foreground;
 	ofxHapPlayer ceiling_interaction;
+
+	ofxHapPlayer louis_top;
+	ofxHapPlayer louis_left;
+	ofxHapPlayer louis_bottom;
     
 	int WIDTH = 1400;
 	int HEIGHT = 900;

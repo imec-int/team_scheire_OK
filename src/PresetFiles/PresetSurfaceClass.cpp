@@ -85,10 +85,10 @@ void PresetSurfaceClass::update(int PN) {
 	}
 }
 
-void PresetSurfaceClass::draw(SurfaceGenerator* surfaces, bool DISPLAY_INTERACTION) {
-    presetFiles[PRESET_NUM].draw(surfaces, DISPLAY_INTERACTION, selectedPresetNum);
+void PresetSurfaceClass::draw(SurfaceGenerator* surfaces, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS) {
+    presetFiles[PRESET_NUM].draw(surfaces, DISPLAY_INTERACTION, DISPLAY_LOUIS, selectedPresetNum);
 	if (EDIT_MODE) {
-		item.draw(surfaces, DISPLAY_INTERACTION);
+		item.draw(surfaces, DISPLAY_INTERACTION, DISPLAY_LOUIS);
 	}
 
 }

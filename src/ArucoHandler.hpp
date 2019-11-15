@@ -28,7 +28,7 @@ public:
     
     void setup(ofxOscSender s);
     void update();
-    void draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION);
+    void draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS);
     void setupSurfaces();
     
 	void handleOSC(ofxOscMessage msg);
@@ -59,6 +59,7 @@ public:
     
     bool TRACK = true;
 	bool INTERACTION = false;
+	bool LOUIS = false;
 
 
 	float OSCScale = 0.001;

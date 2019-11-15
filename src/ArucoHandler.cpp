@@ -88,11 +88,12 @@ void ArucoHandler::update() {
 
 }
 
-void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION) {
+void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS) {
 	fbo.begin();
 	ofClear(0, 0, 0);
 
 	INTERACTION = DISPLAY_INTERACTION;
+	LOUIS = DISPLAY_LOUIS;
 
     if(DEBUG_MODE) {
         trackVideo->draw(0, 0, ofGetWidth(), ofGetHeight());
@@ -163,7 +164,7 @@ void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> ma
 		for (int j = 0; j < markerList.size(); j++) {
 			if (markerList.at(j).id == markers.at(i).id) {
 				MarkerClass m = markerList.at(j);
-				surfaces->draw(m.outputX, m.outputY, m.outputWidth, m.outputHeight, m.position, m.scale, m.videoX, m.videoY, m.videoWidth, m.videoHeight, INTERACTION);
+				surfaces->draw(m.outputX, m.outputY, m.outputWidth, m.outputHeight, m.position, m.scale, m.videoX, m.videoY, m.videoWidth, m.videoHeight, INTERACTION, LOUIS);
 			}
 		}
 
@@ -209,7 +210,7 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 				}
 			}
 		}
-		surfaces->draw(OSCOutputX, OSCOutputY, OSCOutputWidth, OSCOutputHeight, OSCPosition, OSCScale, OSCVideoX, OSCVideoY, OSCVideoWidth, OSCVideoHeight, INTERACTION);
+		surfaces->draw(OSCOutputX, OSCOutputY, OSCOutputWidth, OSCOutputHeight, OSCPosition, OSCScale, OSCVideoX, OSCVideoY, OSCVideoWidth, OSCVideoHeight, INTERACTION, LOUIS);
 			
 		aruco.end();
 	}

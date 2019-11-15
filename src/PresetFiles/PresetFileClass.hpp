@@ -16,7 +16,7 @@
 class PresetFileClass {
 public:
     void setup(vector<PresetItemClass> presetI);
-    void draw(SurfaceGenerator* surfaces, bool INTERACTION, int selected);
+    void draw(SurfaceGenerator* surfaces, bool INTERACTION, bool DISPLAY_LOUIS, int selected);
     
     vector<PresetItemClass> presetItems;
     

@@ -22,7 +22,7 @@ class PresetSurfaceClass {
 public:
     void setup(ofxOscSender s);
     void update(int PRESET_NUM);
-    void draw(SurfaceGenerator* surfaces, bool DISPLAY_INTERACTION);
+    void draw(SurfaceGenerator* surfaces, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS);
 	void setupPresets();
 	void handleOSC(ofxOscMessage msg);
 	void sendMessage(string channel, int value);

@@ -39,10 +39,10 @@ void ofApp::draw(){
     ofClear(40, 40, 40);
     
 	if(DISPLAY_MODE == 0) {
-        aruco.draw(surfaceGenerator, DEBUG_MODE, DISPLAY_INTERACTION);
+        aruco.draw(surfaceGenerator, DEBUG_MODE, DISPLAY_INTERACTION, DISPLAY_LOUIS);
     }
     else {
-        presets.draw(surfaceGenerator, DISPLAY_INTERACTION);
+        presets.draw(surfaceGenerator, DISPLAY_INTERACTION, DISPLAY_LOUIS);
     }
 	
 }
@@ -62,6 +62,9 @@ void ofApp::keyPressed(int key){
     if(key == '2') {
         DISPLAY_MODE = 2;
     }
+	if (key == 'l') {
+		DISPLAY_LOUIS = true;
+	}
 	if (key == 'i') {
 		DISPLAY_INTERACTION = true;
 	}
@@ -86,6 +89,9 @@ void ofApp::keyReleased(int key){
     //}
 	if (key == 'i') {
 		DISPLAY_INTERACTION = false;
+	}
+	if (key == 'l') {
+		DISPLAY_LOUIS = false;
 	}
 }
 

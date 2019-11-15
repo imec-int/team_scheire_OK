@@ -40,5 +40,6 @@ class ofApp : public ofBaseApp{
     int DISPLAY_MODE = 0;
     bool DEBUG_MODE = false;
 	bool DISPLAY_INTERACTION = false;
+	bool DISPLAY_LOUIS = false;
 		
 };

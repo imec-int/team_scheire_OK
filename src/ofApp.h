@@ -38,8 +38,10 @@ class ofApp : public ofBaseApp{
     ofSoundPlayer sound;
     
     int DISPLAY_MODE = 0;
+	bool DISPLAY_CAM = false;
     bool DEBUG_MODE = false;
 	bool DISPLAY_INTERACTION = false;
 	bool DISPLAY_LOUIS = false;
+	bool MUTE = false;
 		
 };

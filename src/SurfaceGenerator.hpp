@@ -19,12 +19,16 @@ class SurfaceGenerator {
 public:
 	SurfaceGenerator();
     void update();
-    void draw(int drawX, int drawY, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION, bool LOUIS);
+    void draw(int drawX, int drawY, int drawZ, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION, bool LOUIS);
     void loadNewSource(std::string source);
 	void handleOSC(ofxOscMessage msg);
 
 	float keyStoneH = 0;
 	float keyStoneV = 0;
+
+
+	ofSoundPlayer interactionSound;
+
 
 	ofFbo wall_videoFBO;
     ofxHapPlayer wall_background;

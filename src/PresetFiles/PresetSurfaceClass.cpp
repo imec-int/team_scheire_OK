@@ -227,7 +227,7 @@ void PresetSurfaceClass::handleOSC(ofxOscMessage msg) {
 		OSCOutputRY = msg.getArgAsInt(0);
 	}
 	else if (a == "/outputRZPreset") {
-		OSCOutputRZ = msg.getArgAsInt(0);
+		OSCOutputRZ = msg.getArgAsInt(0) * 2;
 	}
 	else if (a == "/widthPreset") {
 		OSCWidth = msg.getArgAsInt(0);

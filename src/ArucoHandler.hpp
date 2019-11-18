@@ -28,7 +28,7 @@ public:
     
     void setup(ofxOscSender s);
     void update();
-    void draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS);
+    void draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS, bool DISPLAY_CAM);
     void setupSurfaces();
     
 	void handleOSC(ofxOscMessage msg);
@@ -65,6 +65,7 @@ public:
 	float OSCScale = 0.001;
 	int OSCOutputX = 0;
 	int OSCOutputY = 0;
+	int OSCOutputZ = 0;
 	int OSCOutputWidth = 200;
 	int OSCOutputHeight = 200;
 	int OSCVideoX = 0;

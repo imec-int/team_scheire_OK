@@ -4,11 +4,16 @@
 void ofApp::setup(){
 
 	ofSetFrameRate(24);
-    
-    sound.load("water/music.mp3");
-    sound.setVolume(5);
-    sound.play();
-    
+	ofDirectory dir("/");
+	std::cout << dir.listDir("sounds") << endl;
+    sound.load("sounds/background.mp3");
+	if (sound.isLoaded()) {
+		sound.setVolume(5);
+		sound.play();
+	}
+	else {
+		std::cout << "could not find sound";
+	}
     surfaceGenerator = new SurfaceGenerator();
     
 
@@ -39,7 +44,7 @@ void ofApp::draw(){
     ofClear(40, 40, 40);
     
 	if(DISPLAY_MODE == 0) {
-        aruco.draw(surfaceGenerator, DEBUG_MODE, DISPLAY_INTERACTION, DISPLAY_LOUIS);
+        aruco.draw(surfaceGenerator, DEBUG_MODE, DISPLAY_INTERACTION, DISPLAY_LOUIS, DISPLAY_CAM);
     }
     else {
         presets.draw(surfaceGenerator, DISPLAY_INTERACTION, DISPLAY_LOUIS);
@@ -50,7 +55,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
-    if(key == 't') {
+    if(key == 't' || key == '6') {
         aruco.TRACK = !aruco.TRACK;
     }
     if(key == '0') {
@@ -62,35 +67,45 @@ void ofApp::keyPressed(int key){
     if(key == '2') {
         DISPLAY_MODE = 2;
     }
-	if (key == 'l') {
+	if (key == '3') {
+		DISPLAY_MODE = 3;
+	}
+	if (key == 'l' || key == '4') {
 		DISPLAY_LOUIS = true;
 	}
-	if (key == 'i') {
+	if (key == 'i' || key == '5') {
 		DISPLAY_INTERACTION = true;
 	}
-    if(key == 'v') {
+    if(key == 'v' || key == '7') {
         DEBUG_MODE = !DEBUG_MODE;
 	}
-    
-    if(key == 'w'){
+	if (key == 'c' || key == '8') {
+		DISPLAY_CAM = !DISPLAY_CAM;
+	}
+	if (key == 'm' || key == '9') {
+		MUTE = !MUTE;
+		if (MUTE) { sound.setVolume(0); }
+		else { sound.setVolume(5); }
+	}
+
+    if(key == 'w' || key == '+'){
         surfaceGenerator->loadNewSource("water");
-		sound.load("water/music.mp3");
     }
-    if(key == 's'){
+    if(key == 's' || key == '-'){
         surfaceGenerator->loadNewSource("space");
-		sound.load("space/music.mp3");
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    //if(key == 't') {
-    //    aruco.TRACK = false;
-    //}
-	if (key == 'i') {
+
+	if (key == 't' || key == '6') {
+		aruco.TRACK = false;
+	}
+	if (key == 'i' || key=='5') {
 		DISPLAY_INTERACTION = false;
 	}
-	if (key == 'l') {
+	if (key == 'l' || key=='4') {
 		DISPLAY_LOUIS = false;
 	}
 }

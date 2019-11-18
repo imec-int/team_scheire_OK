@@ -54,7 +54,7 @@ public:
 	int OSCPosition = 0;
 
 	bool managePresets = false;
-	int selectedPresetNum =- -1;
+	int selectedPresetNum = -1;
 
 };
 #endif /* PresetSurfaceClass_hpp */

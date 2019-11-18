@@ -39,9 +39,8 @@ void ArucoHandler::setup(ofxOscSender s) {
 	}
 	grabber.setDeviceID(0);
     grabber.initGrabber(1024, 768);
-    trackVideo = &grabber;
 
-    aruco.setup("intrinsics.int", trackVideo->getWidth(), trackVideo->getHeight());
+    aruco.setup("intrinsics.int", grabber.getWidth(), grabber.getHeight());
     
     setupSurfaces();
 
@@ -77,10 +76,12 @@ void ArucoHandler::update() {
 	ofTranslate(translate->x, translate->y, translate->z);
 
     if(TRACK) {
-        trackVideo->update();
+		grabber.update();
 
-        if(trackVideo->isFrameNew()){
-            aruco.detectBoards(trackVideo->getPixels());
+        if(grabber.isFrameNew()){
+
+			grabber.getPixelsRef().mirror(true, false);
+            aruco.detectBoards(grabber.getPixels());
 
         }
     }
@@ -88,15 +89,15 @@ void ArucoHandler::update() {
 
 }
 
-void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS) {
+void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS, bool DISPLAY_CAM) {
 	fbo.begin();
 	ofClear(0, 0, 0);
 
 	INTERACTION = DISPLAY_INTERACTION;
 	LOUIS = DISPLAY_LOUIS;
 
-    if(DEBUG_MODE) {
-        trackVideo->draw(0, 0, ofGetWidth(), ofGetHeight());
+    if(DISPLAY_CAM) { 
+        grabber.draw(0, 0, ofGetWidth(), ofGetHeight());
     }
     vector<aruco::Marker> markers = aruco.getMarkers();
 	if (markers.size() == 1) {
@@ -133,12 +134,13 @@ void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLA
 		ofDrawBitmapStringHighlight("oh:" + ofToString(OSCOutputHeight), 50, offset + 60);
 		ofDrawBitmapStringHighlight("vx:" + ofToString(OSCVideoX), 50, offset + 80);
 		ofDrawBitmapStringHighlight("vy:" + ofToString(OSCOutputY), 50, offset + 100);
-		ofDrawBitmapStringHighlight("vw:" + ofToString(OSCVideoWidth), 50, offset + 120);
-		ofDrawBitmapStringHighlight("vh:" + ofToString(OSCVideoHeight), 50, offset + 140);
-		ofDrawBitmapStringHighlight("s:" + ofToString(OSCScale), 50, offset + 160);
-		ofDrawBitmapStringHighlight("p:" + ofToString(OSCPosition), 50, offset + 180);
-		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, offset + 200);
-		ofDrawBitmapStringHighlight("numMarkers: " + ofToString(markers.size()), 50, offset + 220);
+		ofDrawBitmapStringHighlight("vy:" + ofToString(OSCOutputZ), 50, offset + 120);
+		ofDrawBitmapStringHighlight("vw:" + ofToString(OSCVideoWidth), 50, offset + 140);
+		ofDrawBitmapStringHighlight("vh:" + ofToString(OSCVideoHeight), 50, offset + 160);
+		ofDrawBitmapStringHighlight("s:" + ofToString(OSCScale), 50, offset + 180);
+		ofDrawBitmapStringHighlight("p:" + ofToString(OSCPosition), 50, offset + 200);
+		ofDrawBitmapStringHighlight("id:" + ofToString(curID), 50, offset + 220);
+		ofDrawBitmapStringHighlight("numMarkers: " + ofToString(markers.size()), 50, offset + 240);
 
 		gui.draw();
 
@@ -164,7 +166,7 @@ void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> ma
 		for (int j = 0; j < markerList.size(); j++) {
 			if (markerList.at(j).id == markers.at(i).id) {
 				MarkerClass m = markerList.at(j);
-				surfaces->draw(m.outputX, m.outputY, m.outputWidth, m.outputHeight, m.position, m.scale, m.videoX, m.videoY, m.videoWidth, m.videoHeight, INTERACTION, LOUIS);
+				surfaces->draw(m.outputX, m.outputY, m.outputZ, m.outputWidth, m.outputHeight, m.position, m.scale, m.videoX, m.videoY, m.videoWidth, m.videoHeight, INTERACTION, LOUIS);
 			}
 		}
 
@@ -187,7 +189,7 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 				if (markerList.at(j).id == curID) {
 					MarkerClass m = markerList.at(j);
 					OSCPosition = m.position;
-					sendMessage("/position", m.position);
+					sendMessage("/videoPosition", m.position);
 					OSCScale = m.scale;
 					std::cout << "current scale: " << m.scale << endl;
 					sendMessage("/scale", m.scale);
@@ -195,6 +197,8 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 					sendMessage("/outputX", m.outputX);
 					OSCOutputY = m.outputY;
 					sendMessage("/outputY", m.outputY);
+					OSCOutputZ = m.outputZ;
+					sendMessage("/outputZ", m.outputZ);
 					OSCOutputWidth = m.outputWidth;
 					sendMessage("/outputWidth", m.outputWidth);
 					OSCOutputHeight = m.outputHeight;
@@ -210,7 +214,8 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 				}
 			}
 		}
-		surfaces->draw(OSCOutputX, OSCOutputY, OSCOutputWidth, OSCOutputHeight, OSCPosition, OSCScale, OSCVideoX, OSCVideoY, OSCVideoWidth, OSCVideoHeight, INTERACTION, LOUIS);
+		
+		surfaces->draw(OSCOutputX, OSCOutputY, OSCOutputZ, OSCOutputWidth, OSCOutputHeight, OSCPosition, OSCScale, OSCVideoX, OSCVideoY, OSCVideoWidth, OSCVideoHeight, INTERACTION, LOUIS);
 			
 		aruco.end();
 	}
@@ -232,7 +237,7 @@ void ArucoHandler::setupSurfaces() {
             xml.pushTag("marker", j);
             MarkerClass marker;
 
-            marker.setup(xml.getValue("ID", 0), xml.getValue("position", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
+            marker.setup(xml.getValue("ID", 0), xml.getValue("position", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputZ", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
             markerList.push_back(marker);
             xml.popTag();
         }
@@ -277,6 +282,7 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 		set.setValue("marker:scale", OSCScale, lineNum);
 		set.setValue("marker:outputX", OSCOutputX, lineNum);
 		set.setValue("marker:outputY", OSCOutputY, lineNum);
+		set.setValue("marker:outputZ", OSCOutputZ, lineNum);
 		set.setValue("marker:outputWidth", OSCOutputWidth, lineNum);
 		set.setValue("marker:outputHeight", OSCOutputHeight, lineNum);
 		set.setValue("marker:videoX", OSCVideoX, lineNum);
@@ -290,7 +296,7 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 
 	}
 
-	else if (a == "/position") {
+	else if (a == "/videoPosition") {
 		OSCPosition = msg.getArgAsInt(0);
 	}
 	else if (a == "/scale") {
@@ -301,6 +307,9 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 	}
 	else if (a == "/outputY") {
 		OSCOutputY = msg.getArgAsInt(0);
+	}
+	else if (a == "/outputZ") {
+		OSCOutputZ = msg.getArgAsInt(0);
 	}
 	else if (a == "/outputWidth") {
 		OSCOutputWidth = msg.getArgAsInt(0);

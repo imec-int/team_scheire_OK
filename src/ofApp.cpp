@@ -4,12 +4,11 @@
 void ofApp::setup(){
 
 	ofSetFrameRate(24);
-	ofDirectory dir("/");
-	std::cout << dir.listDir("sounds") << endl;
-    sound.load("sounds/background.mp3");
+  sound.load("sounds/background.mp3");
 	if (sound.isLoaded()) {
 		sound.setVolume(5);
 		sound.play();
+    sound.setLoop(true);
 	}
 	else {
 		std::cout << "could not find sound";
@@ -26,8 +25,8 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    aruco.update();
-    surfaceGenerator->update();    
+  aruco.update();
+  surfaceGenerator->update();    
 	presets.update(DISPLAY_MODE);
 	while (receiver.hasWaitingMessages()) {
 		ofxOscMessage msg;
@@ -41,7 +40,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofClear(40, 40, 40);
+  ofClear(0, 0, 0);
     
 	if(DISPLAY_MODE == 0) {
         aruco.draw(surfaceGenerator, DEBUG_MODE, DISPLAY_INTERACTION, DISPLAY_LOUIS, DISPLAY_CAM);
@@ -93,6 +92,14 @@ void ofApp::keyPressed(int key){
     }
     if(key == 's' || key == '-'){
         surfaceGenerator->loadNewSource("space");
+    }
+    if(key == '.') {
+      if(sound.isPlaying()) {
+        sound.stop();
+
+      } else {
+        sound.play();
+      }
     }
 }
 

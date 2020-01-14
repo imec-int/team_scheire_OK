@@ -1,11 +1,11 @@
 #include "ofApp.h"
+#include "settings.hpp"
 
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-
-	ofSetFrameRate(24);
-	sound.load("sounds/background.mp3");
+	ofSetFrameRate(_framerate);
+	sound.load("sounds/background.mp3"); //TODO adapt to LUT or define in settings.hpp?
 	if (sound.isLoaded())
 	{
 		sound.setVolume(5);
@@ -18,8 +18,8 @@ void ofApp::setup()
 	}
 	surfaceGenerator = new SurfaceGenerator();
 
-	sender.setup("192.168.137.241", 9000);
-	receiver.setup(8000);
+	sender.setup(_ip, _sendport);
+	receiver.setup(_recport);
 	aruco.setup(sender);
 
 	presets.setup(sender);
@@ -60,15 +60,84 @@ void ofApp::draw()
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-
-	if (key == 't' || key == '6')
+	switch (key)
 	{
+	case 't':
+	case '6':
 		aruco.TRACK = !aruco.TRACK;
-	}
-	if (key == '0')
-	{
+		break;
+	case '0':
 		DISPLAY_MODE = 0;
+		break;
+	case '1':
+		DISPLAY_MODE = 1;
+		break;
+	case '2':
+		DISPLAY_MODE = 2;
+		break;
+	case '3':
+		DISPLAY_MODE = 3;
+		break;
+	case '4':
+	case 'l':
+		DISPLAY_LOUIS = true;
+		break;
+	case '5':
+	case 'i':
+		DISPLAY_INTERACTION = true;
+		break;
+	case '7':
+	case 'v':
+		DEBUG_MODE = !DEBUG_MODE;
+		break;
+	case '8':
+	case 'c':
+		DISPLAY_CAM = !DISPLAY_CAM;
+		break;
+	case '9':
+	case 'm':
+		MUTE = !MUTE;
+		if (MUTE)
+		{
+			sound.setVolume(0);
+		}
+		else
+		{
+			sound.setVolume(5);
+		}
+		break;
+	case '+':
+	case 'w':
+		surfaceGenerator->loadNewSource("water");
+		break;
+	case '-':
+	case 's':
+		surfaceGenerator->loadNewSource("space");
+		break;
+	case '.':
+		if (sound.isPlaying())
+		{
+			sound.stop();
+		}
+		else
+		{
+			sound.play();
+		}
+		break;
+	default:
+		// std::cout << "wrong command used" << key;
+		break;
 	}
+}
+/*	
+	// if (key == 't' || key == '6')
+	// {
+	// 	aruco.TRACK = !aruco.TRACK;
+	// }
+	// if (key == '0')
+	// {
+	// 	DISPLAY_MODE = 0;
+	// }
 	if (key == '1')
 	{
 		DISPLAY_MODE = 1;
@@ -110,31 +179,52 @@ void ofApp::keyPressed(int key)
 		}
 	}
 
-	if (key == 'w' || key == '+')
-	{
-		surfaceGenerator->loadNewSource("water");
-	}
-	if (key == 's' || key == '-')
-	{
-		surfaceGenerator->loadNewSource("space");
-	}
-	if (key == '.')
-	{
-		if (sound.isPlaying())
+
+
+		if (key == 'w' || key == '+')
 		{
-			sound.stop();
+			surfaceGenerator->loadNewSource("water");
 		}
-		else
+		if (key == 's' || key == '-')
 		{
-			sound.play();
+			surfaceGenerator->loadNewSource("space");
 		}
-	}
-}
+		if (key == '.')
+		{
+			if (sound.isPlaying())
+			{
+				sound.stop();
+			}
+			else
+			{
+				sound.play();
+			}
+		}
+	}*/
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key)
 {
-
+	switch (key)
+	{
+	case 't':
+	case '6':
+		aruco.TRACK = false;
+		break;
+	case 'i':
+	case '5':
+		DISPLAY_INTERACTION = false;
+		break;
+	case 'l':
+	case '4':
+		DISPLAY_LOUIS = false;
+		break;
+	default:
+		// std::cout << "wrong command used" << key;
+		break;
+	}
+}
+/*
 	if (key == 't' || key == '6')
 	{
 		aruco.TRACK = false;
@@ -146,9 +236,7 @@ void ofApp::keyReleased(int key)
 	if (key == 'l' || key == '4')
 	{
 		DISPLAY_LOUIS = false;
-	}
-}
-
+	}*/
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y)
 {

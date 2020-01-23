@@ -28,7 +28,7 @@ kids get to choose their props, making the transition to the Operations Room a l
 * Audio shield: [Any](https://www.adafruit.com/product/1752) stereo amplifier
 * Webcam: Logitech C270
 * Power supply: Stadium SRS100
-
+* Remote: any wireless numpad
 
 ## software setup
 
@@ -61,4 +61,20 @@ Openframeworks is an open source C++ based framework, supercharged with addons. 
 * ofxPoco - (included)
 * ofxXmlSettings - (included)
 
+To run the actual application, you will need to build it specifically for your machine, first use the project generator to create the appropriate files. If the build and adding of plugins succeed, us the appropriate editor (xcode for mac, VS code for windows) to build and execute the project. After doing this, the application can be run by using the application that can be found in the `/bin` folder. 
 
+#### OSC
+
+The application has two modes, either preset or live. This can be altered using the numpad remote. To setup the presets, we made use of OSC. 
+
+For those unfamiliar with OSC: it is a communications standard along the lines of MIDI, which uses channels and accompanying values to correspond with another OSC enabled application. 
+
+I specifically used touchOsc, a (sadly paying) app that can connect to the openframeworks application using the IP of the NUC. 
+
+#### Aruco
+
+Aruco markers are used to determine how far the wall is and which orientation should be used. The markers used in the final application are printed on A3 at least. We had to do this to ensure the image would be stable and easily findable by the physicians. 
+
+Each aruco marker has an unique ID, which is (using the OSC app) connected to a certain part of the video, and a certain transformation (width, height, x- and y-offset). This can be set up by having a connected OSC app and only haveing one marker visible by the system. The editmode is automatically activated when only one can be found.
+
+#### Presets

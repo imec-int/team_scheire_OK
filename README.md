@@ -30,6 +30,16 @@ kids get to choose their props, making the transition to the Operations Room a l
 * Power supply: Stadium SRS100
 * Remote: any wireless numpad
 
+
+### Encasing
+
+The entire project was encased in a 3d printed enclosure. This is a good idea to keep everything together, and was very necessary to maintain the sterile environment of the hospital, but is optional. We designed ours to function both as an enclosure, as well as a resonance box for the speakers. 
+
+The entire box was mounted on a [mixer stand](https://www.bax-shop.be/nl/19-inch-racks/quiklok-ql-400-desktopstand?gclid=EAIaIQobChMIs6SFkMzG5QIViIxRCh3yJQK5EAQYGCABEgIFMPD_BwE), which was capable of tilting to adjust for the projector angle.  
+The cables all ran through the casing, even the power cable to the projector . this way the switch on the bottom cut power to the entire setup.
+
+
+
 ## software setup
 
 Visual content created in Unity
@@ -63,6 +73,8 @@ Openframeworks is an open source C++ based framework, supercharged with addons. 
 
 To run the actual application, you will need to build it specifically for your machine, first use the project generator to create the appropriate files. If the build and adding of plugins succeed, us the appropriate editor (xcode for mac, VS code for windows) to build and execute the project. After doing this, the application can be run by using the application that can be found in the `/bin` folder. 
 
+There are ways to run openframeworks by just using `make` and `make run`, by setting the openframeworks path in `.bash_profile`.
+
 #### OSC
 
 The application has two modes, either preset or live. This can be altered using the numpad remote. To setup the presets, we made use of OSC. 
@@ -78,3 +90,8 @@ Aruco markers are used to determine how far the wall is and which orientation sh
 Each aruco marker has an unique ID, which is (using the OSC app) connected to a certain part of the video, and a certain transformation (width, height, x- and y-offset). This can be set up by having a connected OSC app and only haveing one marker visible by the system. The editmode is automatically activated when only one can be found.
 
 #### Presets
+
+The presets can be used in area's where the markers are not available or not an option. This was added after conversations where it became clear sometimes the installation could have been usefull in examine rooms or other area's of the hospital. 
+
+One of the standard presets we added was a fortyfive degrees angle up, so that the projector and setup could be aimed at a corner and work out of the box. These are basically three areas (two for the walls and one for the ceiling), angled at ninety degrees of each other. 
+

@@ -4,7 +4,8 @@
         <position>0</position>
         <scale>34.162303925</scale>
         <outputX>-77</outputX>
-        <outputY>-224</outputY><outputZ>0</outputZ>
+        <outputY>-224</outputY>
+        <outputZ>0</outputZ>
         <outputZ>0</outputZ>
         <outputWidth>147</outputWidth>
         <outputHeight>627</outputHeight>
@@ -32,7 +33,8 @@
         <position>0</position>
         <scale>36.649215698</scale>
         <outputX>-400</outputX>
-        <outputY>-63</outputY><outputZ>0</outputZ>
+        <outputY>-63</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>1024</outputWidth>
         <outputHeight>729</outputHeight>
         <videoX>80</videoX>
@@ -45,7 +47,8 @@
         <position>0</position>
         <scale>36.000000000</scale>
         <outputX>-41</outputX>
-        <outputY>-308</outputY><outputZ>0</outputZ>
+        <outputY>-308</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>243</outputWidth>
         <outputHeight>729</outputHeight>
         <videoX>16</videoX>
@@ -58,7 +61,8 @@
         <position>0</position>
         <scale>94.764396667</scale>
         <outputX>-257</outputX>
-        <outputY>-224</outputY><outputZ>0</outputZ>
+        <outputY>-224</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>565</outputWidth>
         <outputHeight>696</outputHeight>
         <videoX>16</videoX>
@@ -71,7 +75,8 @@
         <position>0</position>
         <scale>33.000000000</scale>
         <outputX>4</outputX>
-        <outputY>-65</outputY><outputZ>0</outputZ>
+        <outputY>-65</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>187</outputWidth>
         <outputHeight>394</outputHeight>
         <videoX>187</videoX>
@@ -84,7 +89,8 @@
         <position>0</position>
         <scale>41.000000000</scale>
         <outputX>-161</outputX>
-        <outputY>-59</outputY><outputZ>0</outputZ>
+        <outputY>-59</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>182</outputWidth>
         <outputHeight>310</outputHeight>
         <videoX>739</videoX>
@@ -97,7 +103,8 @@
         <position>0</position>
         <scale>100.000000000</scale>
         <outputX>-55</outputX>
-        <outputY>-95</outputY><outputZ>0</outputZ>
+        <outputY>-95</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>120</outputWidth>
         <outputHeight>219</outputHeight>
         <videoX>627</videoX>
@@ -110,7 +117,8 @@
         <position>0</position>
         <scale>100.000000000</scale>
         <outputX>-138</outputX>
-        <outputY>-165</outputY><outputZ>0</outputZ>
+        <outputY>-165</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>294</outputWidth>
         <outputHeight>225</outputHeight>
         <videoX>69</videoX>
@@ -123,7 +131,8 @@
         <position>0</position>
         <scale>45.811519623</scale>
         <outputX>-19</outputX>
-        <outputY>-165</outputY><outputZ>0</outputZ>
+        <outputY>-165</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>691</outputWidth>
         <outputHeight>442</outputHeight>
         <videoX>-37</videoX>
@@ -136,7 +145,8 @@
         <position>0</position>
         <scale>16.230367661</scale>
         <outputX>-175</outputX>
-        <outputY>-23</outputY><outputZ>0</outputZ>
+        <outputY>-23</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>922</outputWidth>
         <outputHeight>506</outputHeight>
         <videoX>659</videoX>
@@ -149,7 +159,8 @@
         <position>0</position>
         <scale>21.073297501</scale>
         <outputX>-257</outputX>
-        <outputY>-167</outputY><outputZ>0</outputZ>
+        <outputY>-167</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>932</outputWidth>
         <outputHeight>506</outputHeight>
         <videoX>32</videoX>
@@ -162,7 +173,8 @@
         <position>1</position>
         <scale>26.963350296</scale>
         <outputX>-372</outputX>
-        <outputY>-318</outputY><outputZ>0</outputZ>
+        <outputY>-318</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>1091</outputWidth>
         <outputHeight>943</outputHeight>
         <videoX>85</videoX>
@@ -171,24 +183,12 @@
         <videoHeight>777</videoHeight>
     </marker>
     <marker>
-        <ID>1000</ID>
-        <position>0</position>
-        <scale>36.000000000</scale>
-        <outputX>-400</outputX>
-        <outputY>-207</outputY><outputZ>0</outputZ>
-        <outputWidth>688</outputWidth>
-        <outputHeight>233</outputHeight>
-        <videoX>-75</videoX>
-        <videoY>-21</videoY>
-        <videoWidth>1334</videoWidth>
-        <videoHeight>865</videoHeight>
-    </marker>
-    <marker>
         <ID>678</ID>
         <position>0</position>
         <scale>0.000000000</scale>
         <outputX>-90</outputX>
-        <outputY>-196</outputY><outputZ>0</outputZ>
+        <outputY>-196</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>353</outputWidth>
         <outputHeight>270</outputHeight>
         <videoX>155</videoX>
@@ -201,12 +201,27 @@
         <position>1</position>
         <scale>51.832462311</scale>
         <outputX>116</outputX>
-        <outputY>-148</outputY><outputZ>0</outputZ>
+        <outputY>-148</outputY>
+        <outputZ>0</outputZ>
         <outputWidth>423</outputWidth>
         <outputHeight>251</outputHeight>
         <videoX>294</videoX>
         <videoY>64</videoY>
         <videoWidth>1066</videoWidth>
         <videoHeight>785</videoHeight>
+    </marker>
+    <marker>
+        <ID>1000</ID>
+        <position>0</position>
+        <scale>36.000000000</scale>
+        <outputX>-277</outputX>
+        <outputY>-247</outputY>
+        <outputZ>-49</outputZ>
+        <outputWidth>487</outputWidth>
+        <outputHeight>369</outputHeight>
+        <videoX>187</videoX>
+        <videoY>32</videoY>
+        <videoWidth>1069</videoWidth>
+        <videoHeight>865</videoHeight>
     </marker>
 </markers>

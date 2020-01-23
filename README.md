@@ -18,9 +18,47 @@ kids get to choose their props, making the transition to the Operations Room a l
 
 ## hardware setup
 
-beamer, NUC, etc.
+
+### Components
+* Projector:  H11ST optoma
+* Computer: Intel NUC
+  * Intel core i5
+  * 8GB DDR4
+  * 240GB SSD
+* Audio shield: [Any](https://www.adafruit.com/product/1752) stereo amplifier
+* Webcam: Logitech C270
+* Power supply: Stadium SRS100
+
 
 ## software setup
 
-open frame works
 Visual content created in Unity
+
+### Prerequisits 
+
+OSX: 
+
+* [Openframeworks](https://openframeworks.cc/download/)
+* xcode
+  *	 [Setup guide](https://openframeworks.cc/setup/xcode/) 
+
+Windows: 
+
+* Visual studio
+  * [Setup guide](https://openframeworks.cc/setup/vs)
+
+
+### Openframeworks
+
+Openframeworks is an open source C++ based framework, supercharged with addons. The application uses the following addons:
+
+* [ofxAruco](https://github.com/arturoc/ofxAruco)
+* [ofxCv](https://github.com/kylemcdonald/ofxCv)
+* ofxGui - (included)
+* [ofxHapPlayer](https://github.com/bangnoise/ofxHapPlayer)
+* ofxOpenCv - (included)
+* ofxOsc - (included)
+* ofxPoco - (included)
+* ofxXmlSettings - (included)
+
+

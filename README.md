@@ -29,8 +29,10 @@ kids get to choose their props, making the transition to the Operations Room a l
   * 240GB SSD
 * Audio shield: [Any](https://www.adafruit.com/product/1752) stereo amplifier
 * Webcam: Logitech C270
-* Power supply: Stadium SRS100 => TODO: only for NUC? or who's using it?
-* Remote: any wireless numpad => TODO: which wireless protocol? What is the remote used for?
+* Power supply: Stadium SRS100 
+  * used to power the NUC and the amplifier board
+* Remote: any wireless numpad
+  * The application needs input from a keyboard, but takes both the numeric keys as well as some standard keys (shortcuts further down)
 
 
 ### Encasing
@@ -73,9 +75,7 @@ Openframeworks is an open source C++ based framework, supercharged with addons. 
 * ofxPoco - (included)
 * ofxXmlSettings - (included)
 
-To run the actual application, you will need to compile it specifically for your machine, first use the project generator to create the appropriate files. If the build and adding of plugins succeed, us the appropriate editor (xcode for mac, VS code for windows) to build and execute the project. After doing this, the application can be run by using the application that can be found in the `/bin` folder. 
-
-TODO: can't you crosscompile it for another machine?
+To run the actual application, you will need to compile it specifically for your machine (or crosscompile for the intended machine). First use the project generator to create the appropriate files. If the build and adding of plugins succeed, us the appropriate editor (xcode for mac, VS code for windows) to build and execute the project. After doing this, the application can be run by using the application that can be found in the `/bin` folder. 
 
 There are ways to run openframeworks by just using `make` and `make run`, by setting the openframeworks path in `.bash_profile`.
 
@@ -87,11 +87,40 @@ For those unfamiliar with OSC: it is a communications standard along the lines o
 
 I specifically used touchOsc, a (sadly paying) app that can connect to the openframeworks application using the IP of the NUC. 
 
+TODO: keystone?
+
 #### Aruco
 
 Aruco markers are used to determine how far the wall is and which orientation should be used. The markers used in the final application are printed on A3-size at least. We had to do this to ensure the image would be stable and easily findable by the physicians (TODO: when focusing the projector or how should I interprete this?). 
 
 Each aruco marker has a unique ID, which is (using the OSC app) connected to a certain part of the video, and a certain transformation (width, height, x- and y-offset). This can be set up by having a connected OSC app and only haveing one marker visible by the system. The editmode is automatically activated when only one can be found.
+
+
+#### video settings and surfaces
+
+The video input works with 3 layers for the wall, and 3 layers for the ceiling, all encoded in HAP (to enable transparency). Both for the ceiling and the walls, the setup is the same.
+
+The first layer is the background, and should be named as follows:
+
+* `~/[water or space]/[wall or ceiling]_background.mov`
+* `~/[water or space]/[wall or ceiling]_foreground.mov`
+* `~/[water or space]/[wall or ceiling]_interaction.mov`
+
+These three video's will be layered on top of each other each loop, in an FBO. In the draw function, every surface can ask for a part of the FBO to display in the right orientation.
+
+The hospital makes use of a mascot to calm the kids in the initial intake video they watch. We tried to have it come back in the installation, as a common, recognisable element might calm them down even further. There are three video files used for this, representing three different positions this mascot (called "Groene Louis") can display. 
+
+The touchOsc app allows for adapting the orientation of the video displays. This is applied to each surface individually, and not from a global perspective.
+
+Every surface knows a few properties in the touchOsc setup. 
+initially, you can set the part of the video you want to use. You can set the x- and y-offset, and the width and height of the subsection in the videoframe.
+
+Secondly, you can adjust the positioning and size of the surface, with the following settings:
+
+* X-, Y- and Z-offset
+* Width
+* Height
+* Scale
 
 #### Presets
 
@@ -99,6 +128,35 @@ The presets can be used in area's where the markers are not available or not an 
 
 One of the standard presets we added was a fortyfive degrees angle up, so that the projector and setup could be aimed at a corner and work out of the box. These are basically three areas (two for the walls and one for the ceiling), angled at ninety degrees of each other. 
 
-#### video settings
-TODO: explain briefly the different layers (and stacking of them)
-TODO: explain the impact of the transformation (is this the same as altering the projector?)
+The presets know a lot of settings while adding them, listed bellow
+
+* Width and height
+* X-, Y- and Z-offset
+* Rotation on three axis
+* Video X- and Y-offset
+* Video width and height
+
+
+#### Shortcuts
+
+To work with the application, a few "shortcuts" have been defined. In the initial run, we used a wireless numpad to controll the application
+
+| Function | Key |
+| ------------- |:-------------:|
+| Track markers | 6 / T |
+| Display live | 0 | 
+| Display Preset 1 | 1 |
+| Display Preset 2 | 2 |
+| Display Preset 3 | 3 |
+| Display overlay interaction | 4 / L |
+| Display in-video interaction | 5 / I |
+| Debug mode* | 7 / V |
+| Show webcam image | 8 / C |
+| Mute sound | 9 |
+| Load space scene | - / S |
+| Load water scene | + / W |
+| Play sound | . |
+
+
+
+* Debug mode: Display the boxes around found markers

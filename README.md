@@ -2,21 +2,22 @@
 
 ## project topic
 
-[Team Scheire](https://www.canvas.be/team-scheire) is a canvas production in which they present the maker movement.
+[Team Scheire](https://www.canvas.be/team-scheire) is a TV production by Canvas in which they portray how the maker movement can easily help individuals with a specific problem by hacking together a solution. 
 
-The use-case chosen for the 2nd season of Team Scheire by imec is: creating an aid when anaesthetizing children. Very often they are terrified in the hospitals and respond frightened. If they would be more at ease the operations would be performed more smoothly.
+The use-case chosen for the 2nd season of Team Scheire by imec is: reducing pre-operative and anaesthetic anxiety in children. Children that undergo surgery are taken away from their trusted environment and lose almost every element of control. This can lead to anxiety and make their fight, flight, fight mechanism kick in. On the one hand, the children that demonstrate fight and flight responses can obstruct the sedation process. On the other hand any child that experiences pre-operative anxiety can have a longer post-operative recuperation process, become traumatized, etc. Therefore it is import to reduce the fear of the children as much as possible. 
 
-A solution has been created in the form of an immersive enviroment which the kids themselves can interact with.
-
-TODO: perhaps more info on the things that kids would go through (or ask Lynn?)
+Distraction is a technique that has proved fruitful in hospital environments, for example with VR or tablets. In the OR the standards for introducing regular technologies are very strict and you have to stay out of the patient zone (1.5 meter). Because the room in general and the sedation mask were the most scary elements for children created a solution in the form of an immersive environment, where doctors, children and kids can interact with each other and the environment.  
 
 ### the immersive environment
 
-By ways of projection we create an immersive environment. Kids get to choose between two worlds (ocean or space) in which actions have been mapped which they need to perform in real life. 
+By ways of projection we create an immersive environment. Kids have to choose between two worlds (ocean or space) in which actions have been mapped which they need to perform in real life. 
 
 ### the props
 
-kids get to choose their props, making the transition to the Operations Room a lot smoother. Plus, they are less afraid of the 'tools' being handed to them, as they had the chance to familiarize themselves with it. => TODO No idea what the final props were :-)
+In normal circumstances the children would only be introduced to the mask in the operating room. Because we wanted to give the children more control over the situation and make it theirs, we introduced the mask to the children before the OR, in the preparation room. The children can there choose between two sticker papers each representing thematically one of the environments underwaterworld or space. The stickers were made from the Unity figures created for the environments.
+ 
+Because kids get to choose their props in advance, the transition to the Operations Room runs a lot smoother. Plus, they are less afraid of the mask being handed to them, as they had the chance to familiarize themselves with it. The props in this case where a range of stickers, in either the water- or space theme, which kids can use to add to their mask. 
+
 
 ## hardware setup
 

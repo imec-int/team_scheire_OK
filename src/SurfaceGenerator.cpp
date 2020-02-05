@@ -103,11 +103,13 @@ void SurfaceGenerator::draw(int drawX, int drawY, int drawZ, int drawWidth, int 
 	
 
 	ofPushMatrix();
-	ofScale(scale / 10000);
+
+    // this is a problematic thing
+    ofScale(scale / 10000);
 	ofTranslate(drawWidth / 2, drawHeight / 2);
-	ofRotateY(keyStoneV);
-	ofRotateX(keyStoneH);
-	ofTranslate(-drawWidth / 2, -drawHeight / 2, drawZ);
+	ofRotateYDeg(keyStoneV);
+	ofRotateXDeg(keyStoneH);
+	ofTranslate(-drawWidth / 2, -drawHeight / 2, 0);
 	if (position == 0) {
 		wall_videoFBO.getTexture().drawSubsection(drawX, drawY, drawWidth, drawHeight, subX, subY, subWidth, subHeight);
 		if (wall_background.getError().length())

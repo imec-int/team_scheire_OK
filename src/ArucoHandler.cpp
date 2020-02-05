@@ -16,7 +16,7 @@ void drawMarker(float size, const ofColor & color, int id){
     ofDrawAxis(size);
     ofPushMatrix();
     ofPushStyle();
-    ofTranslate(0,size*0.5,0);
+    ofTranslate(0,0,0);
     ofFill();
     ofSetColor(color,50);
     ofDrawBox(size);
@@ -90,7 +90,8 @@ void ArucoHandler::update() {
 }
 
 void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS, bool DISPLAY_CAM) {
-	fbo.begin();
+	
+    fbo.begin();
 	ofClear(0, 0, 0);
 
 	INTERACTION = DISPLAY_INTERACTION;
@@ -100,12 +101,22 @@ void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLA
         grabber.draw(0, 0, ofGetWidth(), ofGetHeight());
     }
     vector<aruco::Marker> markers = aruco.getMarkers();
-	if (markers.size() == 1) {
-		drawOSC(surfaces, markers, DEBUG_MODE);
-	}
-	else {
-		drawFile(surfaces, markers, DEBUG_MODE);
-	}
+    
+//    for (int i = 0; i < markers.size(); i++) {
+//        
+//        aruco.begin(i);
+//        drawMarker(0.15, ofColor::white, markers.at(i).id);
+////        ofDrawRectangle(-5, -5, 10, 10);
+//        aruco.end();
+//    }
+//    
+    
+    if (markers.size() == 1) {
+        drawOSC(surfaces, markers, DEBUG_MODE);
+    }
+    else {
+        drawFile(surfaces, markers, DEBUG_MODE);
+    }
 
 	fbo.end();
 

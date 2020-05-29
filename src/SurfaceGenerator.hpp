@@ -14,28 +14,26 @@
 #include "ofxHapPlayer.h"
 #include "ofxOsc.h"
 
-class SurfaceGenerator {
-    
+class SurfaceGenerator
+{
+
 public:
 	SurfaceGenerator();
-    void update();
-    void draw(int drawX, int drawY, int drawZ, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION, bool LOUIS);
-    void loadNewSource(std::string source);
+	void update();
+	void draw(int drawX, int drawY, int drawZ, int drawWidth, int drawHeight, int SOURCE, float scale, int subX, int subY, int subWidth, int subHeight, bool INTERACTION, bool LOUIS);
+	void loadNewSource(std::string source);
 	void handleOSC(ofxOscMessage msg);
 
 	float keyStoneH = 0;
 	float keyStoneV = 0;
 
-
 	ofSoundPlayer interactionSound;
 
-
 	ofFbo wall_videoFBO;
-    ofxHapPlayer wall_background;
+	ofxHapPlayer wall_background;
 	ofxHapPlayer wall_foreground;
 	ofxHapPlayer wall_interaction;
 
-	
 	ofFbo ceiling_videoFBO;
 	ofxHapPlayer ceiling_background;
 	ofxHapPlayer ceiling_foreground;
@@ -44,10 +42,9 @@ public:
 	ofxHapPlayer louis_top;
 	ofxHapPlayer louis_left;
 	ofxHapPlayer louis_bottom;
-    
+
 	int WIDTH = 1400;
 	int HEIGHT = 900;
-    
 };
 
 #endif /* SurfaceClass_hpp */

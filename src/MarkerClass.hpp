@@ -11,25 +11,25 @@
 #include <stdio.h>
 #include "ofMain.h"
 
-class MarkerClass {
+class MarkerClass
+{
 public:
-    
-    void setup(int markerId, int p,float oX, float oY, float oZ, float oW, float oH, float vX, float vY, float vW, float vH, float s);
-    
+    void setup(int markerId, int p, float oX, float oY, float oZ, float oW, float oH, float vX, float vY, float vW, float vH, float s);
+
     int id;
-	int position;
-    
+    int position;
+
     int outputX;
     int outputY;
-	int outputZ;
+    int outputZ;
     int outputWidth;
     int outputHeight;
-    
+
     int videoX;
     int videoY;
     int videoWidth;
     int videoHeight;
-    
+
     float scale;
 };
 

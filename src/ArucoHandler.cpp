@@ -10,49 +10,45 @@
 #include <stdio.h>
 #include "ofMain.h"
 
-
-
-void drawMarker(float size, const ofColor & color, int id){
-    ofDrawAxis(size);
-    ofPushMatrix();
-    ofPushStyle();
-    ofTranslate(0,0,0);
-    ofFill();
-    ofSetColor(color,50);
-    ofDrawBox(size);
-    ofNoFill();
-    ofSetColor(color);
-    ofDrawBox(size);
-    ofDrawBitmapString(id, 0, 0);
-    ofPopStyle();
-    ofPopMatrix();
-    
+void drawMarker(float size, const ofColor &color, int id)
+{
+	ofDrawAxis(size);
+	ofPushMatrix();
+	ofPushStyle();
+	ofTranslate(0, size * 0.5, 0);
+	ofFill();
+	ofSetColor(color, 50);
+	ofDrawBox(size);
+	ofNoFill();
+	ofSetColor(color);
+	ofDrawBox(size);
+	ofDrawBitmapString(id, 0, 0);
+	ofPopStyle();
+	ofPopMatrix();
 }
 
-void ArucoHandler::setup(ofxOscSender s) {
-
+void ArucoHandler::setup(ofxOscSender s)
+{
 
 	//     setting aruco track
 	for (int i = 0; i < grabber.listDevices().size(); i++)
-	{		
+	{
 		std::cout << grabber.listDevices().at(i).deviceName << endl;
 	}
 	grabber.setDeviceID(0);
-    grabber.initGrabber(1024, 768);
+	grabber.initGrabber(1024, 768);
 
-    aruco.setup("intrinsics.int", grabber.getWidth(), grabber.getHeight());
-    
-    setupSurfaces();
+	aruco.setup("intrinsics.int", grabber.getWidth(), grabber.getHeight());
+
+	setupSurfaces();
 
 	sender = s;
 
-
 	saveBtn.addListener(this, &ArucoHandler::saveButtonPressed);
-
 
 	ofxXmlSettings settings;
 	settings.loadFile("settings.xml");
-	
+
 	ofVec3f v = ofVec3f(settings.getValue("settings:translateX", 0), settings.getValue("settings:translateY", 0), settings.getValue("settings:translateZ", 0));
 	ofVec3f r = ofVec3f(settings.getValue("settings:rotateX", 0), settings.getValue("settings:rotateY", 0), settings.getValue("settings:rotateZ", 0));
 
@@ -64,80 +60,70 @@ void ArucoHandler::setup(ofxOscSender s) {
 	fbo.allocate(ofGetWidth(), ofGetHeight());
 }
 
-void ArucoHandler::update() {
+void ArucoHandler::update()
+{
 	ofPushMatrix();
-	
+
 	ofRotateXDeg(rotate->x);
 	ofRotateYDeg(rotate->y);
 	ofRotateZDeg(rotate->z);
 
-	
-	
 	ofTranslate(translate->x, translate->y, translate->z);
 
-    if(TRACK) {
+	if (TRACK)
+	{
 		grabber.update();
 
-        if(grabber.isFrameNew()){
+		if (grabber.isFrameNew())
+		{
 
 			grabber.getPixelsRef().mirror(true, false);
-            aruco.detectBoards(grabber.getPixels());
-
-        }
-    }
+			aruco.detectBoards(grabber.getPixels());
+		}
+	}
 	ofPopMatrix();
-
 }
 
-void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS, bool DISPLAY_CAM) {
-	
-    fbo.begin();
+void ArucoHandler::draw(SurfaceGenerator *surfaces, bool DEBUG_MODE, bool DISPLAY_INTERACTION, bool DISPLAY_LOUIS, bool DISPLAY_CAM)
+{
+	fbo.begin();
 	ofClear(0, 0, 0);
 
 	INTERACTION = DISPLAY_INTERACTION;
 	LOUIS = DISPLAY_LOUIS;
 
-    if(DISPLAY_CAM) { 
-        grabber.draw(0, 0, ofGetWidth(), ofGetHeight());
-    }
-    vector<aruco::Marker> markers = aruco.getMarkers();
-    
-//    for (int i = 0; i < markers.size(); i++) {
-//        
-//        aruco.begin(i);
-//        drawMarker(0.15, ofColor::white, markers.at(i).id);
-////        ofDrawRectangle(-5, -5, 10, 10);
-//        aruco.end();
-//    }
-//    
-    
-    if (markers.size() == 1) {
-        drawOSC(surfaces, markers, DEBUG_MODE);
-    }
-    else {
-        drawFile(surfaces, markers, DEBUG_MODE);
-    }
+	if (DISPLAY_CAM)
+	{
+		grabber.draw(0, 0, ofGetWidth(), ofGetHeight());
+	}
+	vector<aruco::Marker> markers = aruco.getMarkers();
+	if (markers.size() == 1)
+	{
+		drawOSC(surfaces, markers, DEBUG_MODE);
+	}
+	else
+	{
+		drawFile(surfaces, markers, DEBUG_MODE);
+	}
 
 	fbo.end();
 
 	ofPushMatrix();
-	
 
 	ofTranslate(translate->x, translate->y, translate->z);
-	
-	
+
 	ofTranslate(fbo.getWidth() / 2, fbo.getHeight() / 2);
 	ofRotateXDeg(rotate->x);
 	ofRotateYDeg(rotate->y);
 	ofRotateZDeg(rotate->z);
 	ofTranslate(-fbo.getWidth() / 2, -fbo.getHeight() / 2);
 
-	
 	//draw FBO
 	fbo.draw(0, 0);
 	ofPopMatrix();
 
-	if (DEBUG_MODE) {
+	if (DEBUG_MODE)
+	{
 		int offset = 200;
 		ofDrawBitmapStringHighlight("ox:" + ofToString(OSCOutputX), 50, offset);
 		ofDrawBitmapStringHighlight("oy:" + ofToString(OSCOutputY), 50, offset + 20);
@@ -154,11 +140,11 @@ void ArucoHandler::draw(SurfaceGenerator* surfaces, bool DEBUG_MODE, bool DISPLA
 		ofDrawBitmapStringHighlight("numMarkers: " + ofToString(markers.size()), 50, offset + 240);
 
 		gui.draw();
-
 	}
 }
 
-void ArucoHandler::saveButtonPressed() {
+void ArucoHandler::saveButtonPressed()
+{
 	ofxXmlSettings settings;
 	settings.setValue("settings:translateX", translate->x);
 	settings.setValue("settings:translateY", translate->y);
@@ -166,16 +152,21 @@ void ArucoHandler::saveButtonPressed() {
 	settings.saveFile("settings.xml");
 }
 
-void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE) {
+void ArucoHandler::drawFile(SurfaceGenerator *surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE)
+{
 
-	for (int i = 0; i < markers.size(); i++) {
+	for (int i = 0; i < markers.size(); i++)
+	{
 
 		aruco.begin(i);
-		if (DEBUG_MODE) {
+		if (DEBUG_MODE)
+		{
 			drawMarker(0.15, ofColor::white, markers.at(i).id);
 		}
-		for (int j = 0; j < markerList.size(); j++) {
-			if (markerList.at(j).id == markers.at(i).id) {
+		for (int j = 0; j < markerList.size(); j++)
+		{
+			if (markerList.at(j).id == markers.at(i).id)
+			{
 				MarkerClass m = markerList.at(j);
 				surfaces->draw(m.outputX, m.outputY, m.outputZ, m.outputWidth, m.outputHeight, m.position, m.scale, m.videoX, m.videoY, m.videoWidth, m.videoHeight, INTERACTION, LOUIS);
 			}
@@ -183,21 +174,26 @@ void ArucoHandler::drawFile(SurfaceGenerator* surfaces, vector<aruco::Marker> ma
 
 		aruco.end();
 	}
-
 }
 
-void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE) {
-	for (int i = 0; i < markers.size(); i++) {
+void ArucoHandler::drawOSC(SurfaceGenerator *surfaces, vector<aruco::Marker> markers, bool DEBUG_MODE)
+{
+	for (int i = 0; i < markers.size(); i++)
+	{
 
 		aruco.begin(i);
-		if (DEBUG_MODE) {
+		if (DEBUG_MODE)
+		{
 			drawMarker(0.15, ofColor::white, markers.at(i).id);
 		}
-		if (curID != markers.at(i).id) {
+		if (curID != markers.at(i).id)
+		{
 
 			curID = markers.at(i).id;
-			for (int j = 0; j < markerList.size(); j++) {
-				if (markerList.at(j).id == curID) {
+			for (int j = 0; j < markerList.size(); j++)
+			{
+				if (markerList.at(j).id == curID)
+				{
 					MarkerClass m = markerList.at(j);
 					OSCPosition = m.position;
 					sendMessage("/videoPosition", m.position);
@@ -225,66 +221,75 @@ void ArucoHandler::drawOSC(SurfaceGenerator* surfaces, vector<aruco::Marker> mar
 				}
 			}
 		}
-		
+
 		surfaces->draw(OSCOutputX, OSCOutputY, OSCOutputZ, OSCOutputWidth, OSCOutputHeight, OSCPosition, OSCScale, OSCVideoX, OSCVideoY, OSCVideoWidth, OSCVideoHeight, INTERACTION, LOUIS);
-			
+
 		aruco.end();
 	}
-
 }
 
-void ArucoHandler::sendMessage(string channel, int value) {
+void ArucoHandler::sendMessage(string channel, int value)
+{
 	ofxOscMessage msg;
 	msg.setAddress(channel);
 	msg.addFloatArg(value);
 	sender.sendMessage(msg);
-} 
-void ArucoHandler::setupSurfaces() {
+}
+void ArucoHandler::setupSurfaces()
+{
 	markerList.clear();
-    if(xml.loadFile("markers.xml")){
-        xml.pushTag("markers");
-        int numberOfMarkers = xml.getNumTags("marker");
-        for(int j = 0; j < numberOfMarkers; j++){
-            xml.pushTag("marker", j);
-            MarkerClass marker;
+	if (xml.loadFile("markers.xml"))
+	{
+		xml.pushTag("markers");
+		int numberOfMarkers = xml.getNumTags("marker");
+		for (int j = 0; j < numberOfMarkers; j++)
+		{
+			xml.pushTag("marker", j);
+			MarkerClass marker;
 
-            marker.setup(xml.getValue("ID", 0), xml.getValue("position", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputZ", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
-            markerList.push_back(marker);
-            xml.popTag();
-        }
-        xml.popTag();
-    }
-    else{
-        ofLogError("Position file did not load!");
-    }
+			marker.setup(xml.getValue("ID", 0), xml.getValue("position", 0), xml.getValue("outputX", 0), xml.getValue("outputY", 0), xml.getValue("outputZ", 0), xml.getValue("outputWidth", 0), xml.getValue("outputHeight", 0), xml.getValue("videoX", 0), xml.getValue("videoY", 0), xml.getValue("videoWidth", 0), xml.getValue("videoHeight", 0), xml.getValue("scale", 0));
+			markerList.push_back(marker);
+			xml.popTag();
+		}
+		xml.popTag();
+	}
+	else
+	{
+		ofLogError("Position file did not load!");
+	}
 }
 
-void ArucoHandler::handleOSC(ofxOscMessage msg) {
+void ArucoHandler::handleOSC(ofxOscMessage msg)
+{
 	string a = msg.getAddress();
 
 	ofDrawBitmapStringHighlight("msg:" + a, 50, 370);
-	if (a == "/accxyz") {
+	if (a == "/accxyz")
+	{
 		// do nothing, always coming in
 	}
-	else if (a == "/write") {
-		// write to the file 
+	else if (a == "/write")
+	{
+		// write to the file
 		std::cout << "saving" << endl;
 		ofxXmlSettings set;
 		set.loadFile("markers.xml");
 		set.pushTag("markers");
 
-
 		int numberOfMarkers = set.getNumTags("marker");
 		int indexFound = -1;
-		for (int j = 0; j < numberOfMarkers; j++) {
+		for (int j = 0; j < numberOfMarkers; j++)
+		{
 			set.pushTag("marker", j);
 			std::cout << set.getValue("ID", 0) << endl;
-			if (set.getValue("ID", 0) == curID) {
+			if (set.getValue("ID", 0) == curID)
+			{
 				indexFound = j;
 			}
 			set.popTag();
 		}
-		if (indexFound != -1) {
+		if (indexFound != -1)
+		{
 			set.removeTag("marker", indexFound);
 		}
 		int lineNum = set.addTag("marker");
@@ -304,43 +309,54 @@ void ArucoHandler::handleOSC(ofxOscMessage msg) {
 		set.saveFile("markers.xml");
 
 		setupSurfaces();
-
 	}
 
-	else if (a == "/videoPosition") {
+	else if (a == "/videoPosition")
+	{
 		OSCPosition = msg.getArgAsInt(0);
 	}
-	else if (a == "/scale") {
+	else if (a == "/scale")
+	{
 		OSCScale = msg.getArgAsFloat(0);
 	}
-	else if (a == "/outputX") {
+	else if (a == "/outputX")
+	{
 		OSCOutputX = msg.getArgAsInt(0);
 	}
-	else if (a == "/outputY") {
+	else if (a == "/outputY")
+	{
 		OSCOutputY = msg.getArgAsInt(0);
 	}
-	else if (a == "/outputZ") {
+	else if (a == "/outputZ")
+	{
 		OSCOutputZ = msg.getArgAsInt(0);
 	}
-	else if (a == "/outputWidth") {
+	else if (a == "/outputWidth")
+	{
 		OSCOutputWidth = msg.getArgAsInt(0);
 	}
-	else if (a == "/outputHeight") {
+	else if (a == "/outputHeight")
+	{
 		OSCOutputHeight = msg.getArgAsInt(0);
 	}
-	else if (a == "/videoX") {
+	else if (a == "/videoX")
+	{
 		OSCVideoX = msg.getArgAsInt(0);
 	}
-	else if (a == "/videoY") {
+	else if (a == "/videoY")
+	{
 		OSCVideoY = msg.getArgAsInt(0);
 	}
-	else if (a == "/videoWidth") {
+	else if (a == "/videoWidth")
+	{
 		OSCVideoWidth = msg.getArgAsInt(0);
 	}
-	else if (a == "/videoHeight") {
+	else if (a == "/videoHeight")
+	{
 		OSCVideoHeight = msg.getArgAsInt(0);
 	}
-	if (a != "/accxyz") {
+	if (a != "/accxyz")
+	{
 
 		std::cout << msg.getAddress() << "val: " << msg.getArgAsInt(0) << endl;
 	}

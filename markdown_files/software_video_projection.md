@@ -7,16 +7,9 @@ Visual content created either :
 
 ### Prerequisites 
 
-OSX: 
 
-* [Openframeworks](https://openframeworks.cc/download/)
-* xcode
-  *	 [Setup guide](https://openframeworks.cc/setup/xcode/) 
+* an installed version of [Openframeworks](https://openframeworks.cc/download/)
 
-Windows: 
-
-* Visual studio
-  * [Setup guide](https://openframeworks.cc/setup/vs)
 
 
 ### Openframeworks

@@ -2,7 +2,7 @@
 
 Visual content created either :
 
-- in Unity (see [video creation](./software_video_creation))
+- in Unity (see [video creation](software_video_creation.md))
 - in directory //TODO// (=> ga ervan uit dat iemand dit net gecloned heeft!)
 
 ### Prerequisites 

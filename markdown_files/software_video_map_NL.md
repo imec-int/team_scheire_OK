@@ -6,6 +6,9 @@ Visual content created either:
 - in directory //TODO// (=> ga ervan uit dat iemand dit net gecloned heeft!)
 
 
+
+
+
 ### Prerequisites 
 
 
@@ -42,7 +45,7 @@ Het builden van het project verschilt van OS tot OS
 
 ##### Mac
 
-!!! ofxHapPlayer is niet beschikbaar voor mac, deze kna vervangen worden door ofVideoPlayer, maar dan moeten bepaalde lijnen (getError) verwijderd worden. Daarnaast mag je ook niet vergeten deze uit de addons.make file te halen.
+!!! ofxHapPlayer is niet beschikbaar voor mac, deze kan vervangen worden door ofVideoPlayer, maar dan moeten bepaalde lijnen (getError) verwijderd worden. Daarnaast mag je ook niet vergeten deze uit de addons.make file te halen.
 
 * Open het project in xcode
 * gebruik de build functionaliteiten om de applicatie te builden en te runnen
@@ -65,14 +68,66 @@ Je kan dit ook builden en runnen met "make" en "make run", daarvoor neem je volg
 * in een terminal, navigeer naar deze folder, en run volgend command: `make && make run`
 
 
+Na het builden van het project kan u de applicatie opstarten. Deze geeft echter initieel een zwart scherm. Dit is omdat de applicatie draait in "Live" modus, en nog geen markers kan detecteren. Markers worden namelijk enkel gedetecteerd indien de tracking modus aan staat. dit gebeurt terwijl de knop "T" of "6" ingehouden wordt. Indien er slechts 1 marker gedetecteerd word, kan je hiervan het te projecteren vlak instellen via OSC (zie hfst OSC). Dit moet natuurlijk initieel gebeuren om de eerste vlakken aan te maken. 
+
+
 
 #### OSC
 
-The application has two modes, either preset or live. This can be altered using the numpad remote. To setup the presets, we made use of OSC. 
+De applicatie kent twee modi, zowel preset als live. je kan dit aanpassen via de remote numpad (0 zijnde live, 1 tot 3 zijnde presets). De presets tonen een vooringestelde configuratie van vlakken, de live view staat toe de camera te gebruiken om markers te detecteren en op basis hiervan vlakken te projecteren. Om deze vlakken, of die van de presets in te stellen maken we gebruik van OSC. OSC is een communicatiemethode die te vergelijken valt met MIDI, waar deze kan communiceren met anderen OSC enabled devices via channels.
 
-For those unfamiliar with OSC: it is a communications standard along the lines of MIDI, which uses channels and accompanying values to correspond with another OSC enabled application. 
-
+TouchOSC werd gebruikt om deze vlakken in te stellen. De file die hiervoor nodig is bevind zich in de "additions" folder.
 I specifically used touchOsc, a (sadly paying) app that can connect to the openframeworks application using the IP of the NUC. 
+
+Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar is, kan je hiervan de view instellen via TouchSOC. Vergeet niet het juiste IP adres in te stellen in `settings.hpp`.
+
+
+##### Live
+
+
+| Name | Function |
+| ------------- |:-------------:|
+| Scale | Schaal van het projectievlak |
+| **Output** | **Projectievlak instellingen** |
+| X | Horizontale positie | 
+| Y | Verticale positie  |
+| Z | Diepte positie |
+| Width | Breedte van het vlak |
+| Height | Hoogte van het vlak |
+| **Video** | **Video input instellingen** |
+| X | Horizontale positie | 
+| Y | Verticale positie  |
+| Width | Breedte van de crop |
+| Height | Hoogte van de crop |
+| Ceiling | Gebruik de ceiling video ipv de wall video | 
+| Write | Instellingen oplaan |
+
+
+##### Presets
+
+❗️❗️❗️ "Manage presets" needs to be enabled before changing anything. ❗️❗️❗️
+
+| Name | Function |
+| ------------- |:-------------:|
+| Previous preset | Vorige preset |
+| Next preset | Volgende preset |
+| Delete preset | Verwijder huidige preset |
+
+| Scale | Schaal van het projectievlak |
+| **Output** | **Projectievlak instellingen** |
+| X | Horizontale positie | 
+| Y | Verticale positie  |
+| Width | Breedte van het vlak |
+| Height | Hoogte van het vlak |
+| **Video** | **Video input instellingen** |
+| X | Horizontale positie | 
+| Y | Verticale positie  |
+| Width | Breedte van de crop |
+| Height | Hoogte van de crop |
+| Ceiling | Gebruik de ceiling video ipv de wall video | 
+| Write | Instellingen oplaan |
+
+
 
 
 #### Aruco
@@ -125,7 +180,7 @@ The presets know a lot of settings while adding them, listed bellow
 
 #### Shortcuts
 
-To work with the application, a few "shortcuts" have been defined. In the initial run, we used a wireless numpad to controll the application
+We gebruikten een draadloze numpad om binnen een steriele omgeving de applicatie te kunnen gebruiken. 
 
 | Function | Key |
 | ------------- |:-------------:|
@@ -147,5 +202,12 @@ To work with the application, a few "shortcuts" have been defined. In the initia
 
 * Debug mode: Display the boxes around found markers
 
-### Tutorial
-//TODO// build tutorial: step by step: copy the git folder, then what?
+### Known issues
+
+Er zijn een paar problemen waar we weet van hebben, maar waar we ten tijde van filmen niet de tijd hadden deze op te lossen
+
+#### Mapping Z-offset
+
+De locatie van de projecties op basis van de markers kent een probleem waarbij de Z offset slecht ingesteld staat. Dit heeft invloed op de multiplier van de grootte van de projecties. 
+
+De OSC layout mist een aantal labels.

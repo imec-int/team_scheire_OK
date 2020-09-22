@@ -3,10 +3,10 @@
 Voor het team scheire project:
 
 - een operatie kamer met daarin:
-	- een projectorsetup (zie [hardware setup](hardware_NL.md)
+	- een projectorsetup (zie [hardware setup](hardware_NL.md))
 	- markers op beide muren en op het plafond.
 
-![Image of physical setup](images/physical-scheme.jpg)
+![Image of physical setup](images/physical-scheme.png)
 
 ![Image of marker locations setup](images/markerloc.png)
 		

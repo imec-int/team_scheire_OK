@@ -6,8 +6,9 @@ Voor het team scheire project:
 	- een projectorsetup (zie [hardware setup](hardware_NL.md)
 	- markers op beide muren en op het plafond.
 
-![Image of physical setup](images/physical_scheme.jpg)
+![Image of physical setup](images/physical-scheme.jpg)
 
+![Image of marker locations setup](images/markerloc.png)
 		
 Waarom is dit zo?
 

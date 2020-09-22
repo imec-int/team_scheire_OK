@@ -7,20 +7,19 @@ Visual content created either:
 
 
 
-
-
 ### Prerequisites 
 
 
 * Een reeds geïnstalleerde versie van [Openframeworks](https://openframeworks.cc/download/), beschikbaar op zowel OSX, windows als op linux.
-* TouchOSX, geïnstalleerd op GSM
+* TouchOSC, geïnstalleerd op GSM
+* [TouchOSC Bridge](https://hexler.net/products/touchosc)
+* [TouchOSC editor](https://hexler.net/products/touchosc)
 
 
 ### Openframeworks
 
 Openframeworks is een open source C++ based framework, supercharged met addons. 
 
-//TODO// Waarom gebruiken we ofx? Wat is dit voor software?
 
 Openframeworks is een framework ontwikkeld door Zach Lieberman als een toolbox voor creative coding (oa dus voor interactieve video installaties zoals in dit project). Het is sindsdien opgenomen door de open source crowd en kent nog steeds uitbreidingen en updates. We kozen voor openframeworks omdat de detectie van Aruco markers (gezien onze deadline) het snelst implementeerbaar was door het gebruik van addons. Daarbij komende de addons voor OSC en interface design.
 
@@ -38,15 +37,17 @@ om het project te kunnen builden hebben we nood aan volgende plugins. Sommigen z
 
 #### Install OpenFrameWorks
 
-//TODO// link plaatsen voor installeren op NUC
+volg de installatieguides op [openframeworks](https://openframeworks.cc/download/)
 
 #### From git to build
 
 * Download en extract deze repository via zipfile of download via git 
 * Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
-* Gebruik de projectGenerator om het project aan te maken
+* Gebruik de [projectGenerator](https://openframeworks.cc/learning/01_basics/create_a_new_project/) om het project aan te maken
+    * Open de projectGenerator
+    * Klik import en navigeer naar de project folder
+    * Druk op "generate" om de project files aan te maken (op mac maakt dit tevens aa)
 
-//TODO// Heb je hier een afbeelding van? (Of nog beter: een GIF! => screen record en dan via ffmpeg converteren, supereasy)
 
 Het builden van het project verschilt van OS tot OS
 
@@ -59,12 +60,12 @@ Het builden van het project verschilt van OS tot OS
 
 Je kan dit ook builden en runnen met "make" en "make run", daarvoor neem je volgende stappen:
 
-* kopieer de emptyproject folder (VAN WAAR NAAR WAAR?)
+* Dupliceer de emptyproject folder en geef deze een nieuwe naam
 * kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
 * kopieer (en vervang dus) de `addons.make` file door deze uit het gedownloade project
 * in een terminal, navigeer naar deze folder, en run volgend command: `make && make run`
 
-//TODO// Probeer hier nog te verduidelijken wat waar komt, geef eventueel een projectstructuur mee hoe die er op het einde moet uitzien
+in de src folder komen de projectfiles, in de bin folder zitten zowel de data files (video en XML files) als de uiteindelijk builds. 
 
 ##### windows
 * Open het project in VSCode
@@ -92,7 +93,7 @@ I specifically used touchOsc, a (sadly paying) app that can connect to the openf
 
 Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar is, kan je hiervan de view instellen via TouchOSC. Vergeet niet het juiste IP adres in te stellen in `settings.hpp`.
 
-//TODO// Voeg de afbeelding toe van je GSM voor touchOSC
+![Image of touchOSC](./images/phone.jpg)
 
 ##### Live
 
@@ -153,17 +154,14 @@ De video input kent drie video lagen voor de muren, en drie voor het plafond, al
 
 De eerste laag is de achtergrond, de opeenvolgenden worden hierover gelegd:
 
-* `~/[water or space]/[wall or ceiling]_background.mov`
-* `~/[water or space]/[wall or ceiling]_foreground.mov`
-* `~/[water or space]/[wall or ceiling]_interaction.mov`
-
-//TODO// Waarvoor de tilde? Refereert dit echt naar /home/pi/ ofzo? 
+* `[water or space]/[wall or ceiling]_background.mov`
+* `[water or space]/[wall or ceiling]_foreground.mov`
+* `[water or space]/[wall or ceiling]_interaction.mov`
 
  Dit kan welliswaar worden aangepast in de code om slechts 1 video te gebruiken, al zou dit ervoor zorgen dat het interactiegedeelte niet meer werkt.
 
-//TODO// FBO?
 
-**Een FBO wordt eerst opgebouwt in de update functie door de drie videolagen opeen gelegd. Deze kan nadien in de draw fucntie gebruikt worden door de transformatie aangehaald door de aruco class.** //TODO// vreemde zinsbouw 
+Een [FBO](https://openframeworks.cc/documentation/gl/ofFbo/) wordt eerst opgebouwt in de update functie dewelke de drie videolagen opeen legt en zo een FBO shader genereerd. Deze kan nadien in de draw functie getekend worden met de transformatie gedetecteerd door de aruco class.
 Dit gebeurt door de transformatie, die de aruco class herkent, aan te vullen met informatie ingegeven door de OSC class. 
 
 Het hospitaal maakt gebruik van een mascotte, genaamd groene Louis. We probeerden deze terug te laten komen in de installatie, om de kinderen een vertrouwd beeld te geven in een onzeker moment. Groene Louis springt in beeld vanuit één zijde door gebruik te maken van shortcut "4" of "L". Hierdoor konden de dokters dit aanroepen wanneer ze deze nodig hadden.
@@ -171,9 +169,7 @@ Het hospitaal maakt gebruik van een mascotte, genaamd groene Louis. We probeerde
 
 #### Presets
 
-De presets kunnen gebruikt worden in locaties waar de markers niet opgehangen kunnen worden of niet aanwezig zijn. Dit bijvoorbeeld in een dokterskwartier of dergelijke. De presets geven een voor-ingestelde opstelling weer van vlakken. De eerste hiervan kan gebruikt worden op de kruising tussen twee muren en het plafond. De tweede is een vast projectievlak (rechtvoor).
-
-//TODO// rechtvoor = recht tegenover de projector?
+De presets kunnen gebruikt worden in locaties waar de markers niet opgehangen kunnen worden of niet aanwezig zijn. Dit bijvoorbeeld in een dokterskwartier of dergelijke. De presets geven een voor-ingestelde opstelling weer van vlakken. De eerste hiervan kan gebruikt worden op de kruising tussen twee muren en het plafond. De tweede is een vast projectievlak (recht tegenover).
 
 Om deze presets in te stellen, zie OSC.
 
@@ -209,5 +205,3 @@ Er zijn een paar problemen waar we weet van hebben, maar waar we ten tijde van f
 #### Mapping Z-offset
 
 1. De locatie van de projecties op basis van de markers kent een probleem waarbij de Z offset slecht ingesteld staat. Dit heeft invloed op de multiplier van de grootte van de projecties. 
-
-2. De OSC layout mist een aantal labels.

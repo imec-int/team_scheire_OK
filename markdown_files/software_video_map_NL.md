@@ -36,11 +36,17 @@ om het project te kunnen builden hebben we nood aan volgende plugins. Sommigen z
 * ofxPoco - (included)
 * ofxXmlSettings - (included)
 
+#### Install OpenFrameWorks
+
+//TODO// link plaatsen voor installeren op NUC
+
 #### From git to build
 
-* Download en extract de zipfile of download via git 
-* copieer `arucoMap` naar  `openframeworks/apps/myApps`
+* Download en extract deze repository via zipfile of download via git 
+* Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
 * Gebruik de projectGenerator om het project aan te maken
+
+//TODO// Heb je hier een afbeelding van? (Of nog beter: een GIF! => screen record en dan via ffmpeg converteren, supereasy)
 
 Het builden van het project verschilt van OS tot OS
 
@@ -51,21 +57,23 @@ Het builden van het project verschilt van OS tot OS
 * Open het project in xcode
 * gebruik de build functionaliteiten om de applicatie te builden en te runnen
 
-Je kan dit ook builden en runnen met "make" en "make run", daarvoor neem je volgende stappen
-* copieer de emptyproject folder
-* copieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
-* copieer (en vervang dus) de `addons.make` file door deze uit het gedownloadde project
+Je kan dit ook builden en runnen met "make" en "make run", daarvoor neem je volgende stappen:
+
+* kopieer de emptyproject folder (VAN WAAR NAAR WAAR?)
+* kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
+* kopieer (en vervang dus) de `addons.make` file door deze uit het gedownloade project
 * in een terminal, navigeer naar deze folder, en run volgend command: `make && make run`
 
+//TODO// Probeer hier nog te verduidelijken wat waar komt, geef eventueel een projectstructuur mee hoe die er op het einde moet uitzien
 
 ##### windows
 * Open het project in VSCode
 * gebruik de build functionaliteiten om de applicatie te builden en te runnen
 
 ##### Linux
-* copieer de emptyproject folder
-* copieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
-* copieer (en vervang dus) de `addons.make` file door deze uit het gedownloadde project
+* kopieer de emptyproject folder
+* kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
+* kopieer (en vervang dus) de `addons.make` file door deze uit het gedownloadde project
 * in een terminal, navigeer naar deze folder, en run volgend command: `make && make run`
 
 
@@ -75,13 +83,16 @@ Na het builden van het project kan u de applicatie opstarten. Deze geeft echter 
 
 #### OSC
 
-De applicatie kent twee modi, zowel preset als live. je kan dit aanpassen via de remote numpad (0 zijnde live, 1 tot 3 zijnde presets). De presets tonen een vooringestelde configuratie van vlakken, de live view staat toe de camera te gebruiken om markers te detecteren en op basis hiervan vlakken te projecteren. Om deze vlakken, of die van de presets in te stellen maken we gebruik van OSC. OSC is een communicatiemethode die te vergelijken valt met MIDI, waar deze kan communiceren met anderen OSC enabled devices via channels.
+//TODO// Hier 'snap' ik niet waarvoor OSC gebruikt wordt, kun je ofwel afbeeldingen toevoegen ofwel eerst vertellen hoe de opstelling eruit ziet? Anders is het moeilijk om in te beelden waarom OSC of projection mapping gebruikt wordt. Vandaar dan zeggen wanneer we 'preset' gebruiken en wanneer 'live'. Ook wat die presets zijn. Ik heb reeds ook [fysieke opstelling](fysieke_opstelling.md) gemaakt om te kunnen verwijzen naar hoe de ruimte eruit had gezien.
+
+De applicatie kent twee modi, zowel preset als live. Je kan dit aanpassen via de remote numpad (0 zijnde live, 1 tot 3 zijnde presets). De presets tonen een vooringestelde configuratie van vlakken, de live view staat toe de camera te gebruiken om markers te detecteren en op basis hiervan vlakken te projecteren. Om deze vlakken, of die van de presets in te stellen maken we gebruik van OSC. OSC is een communicatiemethode die te vergelijken valt met MIDI, waar deze kan communiceren met anderen OSC enabled devices via channels.
 
 TouchOSC werd gebruikt om deze vlakken in te stellen. De file die hiervoor nodig is bevind zich in de "additions" folder.
 I specifically used touchOsc, a (sadly paying) app that can connect to the openframeworks application using the IP of the NUC. 
 
-Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar is, kan je hiervan de view instellen via TouchSOC. Vergeet niet het juiste IP adres in te stellen in `settings.hpp`.
+Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar is, kan je hiervan de view instellen via TouchOSC. Vergeet niet het juiste IP adres in te stellen in `settings.hpp`.
 
+//TODO// Voeg de afbeelding toe van je GSM voor touchOSC
 
 ##### Live
 
@@ -131,14 +142,14 @@ Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar 
 
 #### Aruco
 
-Aruco markers worden gebruikt om de applicatie te vertellen welke vlakken deze behoort te projecteren. De markers die wij gebruikten zijn ten minste A3 formaat om zeker te zijn dat de webcam deze accurraat kan detecteren. Hoe groter deze zijn, hoe beter de resultaten. Eens de applicatie opstart, en de gebruiker activeert de tracking, worden de markers gezocht door de `ArucoHandler.cpp` class. Dit is het moment waarop het belangrijk is de projector en de webcam juist te aligneren. 
+Aruco markers worden gebruikt om de applicatie te vertellen op welke vlakken (de muren, het plafond, ...)  deze behoort te projecteren. De markers die wij gebruikten zijn ten minste A3 formaat om zeker te zijn dat de webcam deze accurraat kan detecteren. Hoe groter deze zijn, hoe beter de resultaten. Eens de applicatie opstart, en de gebruiker de tracking activeert, worden de markers gezocht door de `ArucoHandler.cpp` class. Dit is het moment waarop het belangrijk is de projector en de webcam juist te aligneren. 
 
-Elke aruco marker kent een uniek ID, dat kan gebruikt worden om een bepaald deel van een video te projecteren, met een bepaalde transformatie (width, height, x- and y-offset). 
+Elke aruco marker kent een uniek ID, die gebruikt kan worden om een bepaald deel van een video te projecteren, met een bepaalde transformatie (width, height, x- and y-offset). 
 
 
 #### video settings and surfaces
 
-De video input ket drie video lagen voor de muren, en drie voor het plafond, allen encoded in HAP (om transparantie te ondersteunen).
+De video input kent drie video lagen voor de muren, en drie voor het plafond, allen geëncodeerd in [HAP](https://hap.video/) (om transparantie te ondersteunen).
 
 De eerste laag is de achtergrond, de opeenvolgenden worden hierover gelegd:
 
@@ -146,16 +157,23 @@ De eerste laag is de achtergrond, de opeenvolgenden worden hierover gelegd:
 * `~/[water or space]/[wall or ceiling]_foreground.mov`
 * `~/[water or space]/[wall or ceiling]_interaction.mov`
 
+//TODO// Waarvoor de tilde? Refereert dit echt naar /home/pi/ ofzo? 
+
  Dit kan welliswaar worden aangepast in de code om slechts 1 video te gebruiken, al zou dit ervoor zorgen dat het interactiegedeelte niet meer werkt.
 
-Een FBO wordt eerst opgebouwt in de update functie door de drie videolagen opeen gelegd. Deze kan nadien in de draw fucntie gebruikt worden door de transformatie aangehaald door de aruco class. Dit gebeurt door de transformatie die de aruco class herkend aan te vullen met informatie ingegeven door de OSC class. 
+//TODO// FBO?
 
-Het hospitaal maakt gebruik van een mascotte, genaamd groene Louis. We probeerden deze terug te laten komen in de installatie, om de kinderen een vertrouwd beeld te geven in een onzeker moment. Groene Luouis springt in beeld vanuit een zijde door gebruik te maken van shortcut "4" of "L". Hierdoor konden de dokters dit aanroepen wanneer ze deze nodig hadden.
+**Een FBO wordt eerst opgebouwt in de update functie door de drie videolagen opeen gelegd. Deze kan nadien in de draw fucntie gebruikt worden door de transformatie aangehaald door de aruco class.** //TODO// vreemde zinsbouw 
+Dit gebeurt door de transformatie, die de aruco class herkent, aan te vullen met informatie ingegeven door de OSC class. 
+
+Het hospitaal maakt gebruik van een mascotte, genaamd groene Louis. We probeerden deze terug te laten komen in de installatie, om de kinderen een vertrouwd beeld te geven in een onzeker moment. Groene Louis springt in beeld vanuit één zijde door gebruik te maken van shortcut "4" of "L". Hierdoor konden de dokters dit aanroepen wanneer ze deze nodig hadden.
 
 
 #### Presets
 
-De presets kan gebruikt worden in locaties waar de markers niet opgehangen kunnen worden of niet aanwezig zijn. Dit bijvoorbeeld in een dokterskwartier of dergelijke. De presets geven een voor-ingestelde opstelling weer van vlakken. De eerste hiervan kan gebruikt worden op de kruising tussen twee muren en het plafond. De tweede is een vast p[rojectievlak (rechtvoor).
+De presets kunnen gebruikt worden in locaties waar de markers niet opgehangen kunnen worden of niet aanwezig zijn. Dit bijvoorbeeld in een dokterskwartier of dergelijke. De presets geven een voor-ingestelde opstelling weer van vlakken. De eerste hiervan kan gebruikt worden op de kruising tussen twee muren en het plafond. De tweede is een vast projectievlak (rechtvoor).
+
+//TODO// rechtvoor = recht tegenover de projector?
 
 Om deze presets in te stellen, zie OSC.
 
@@ -186,10 +204,10 @@ We gebruikten een draadloze numpad om binnen een steriele omgeving de applicatie
 
 ### Known issues
 
-Er zijn een paar problemen waar we weet van hebben, maar waar we ten tijde van filmen niet de tijd hadden deze op te lossen
+Er zijn een paar problemen waar we weet van hebben, maar waar we ten tijde van filmen niet de tijd voor hadden om deze op te lossen
 
 #### Mapping Z-offset
 
-De locatie van de projecties op basis van de markers kent een probleem waarbij de Z offset slecht ingesteld staat. Dit heeft invloed op de multiplier van de grootte van de projecties. 
+1. De locatie van de projecties op basis van de markers kent een probleem waarbij de Z offset slecht ingesteld staat. Dit heeft invloed op de multiplier van de grootte van de projecties. 
 
-De OSC layout mist een aantal labels.
+2. De OSC layout mist een aantal labels.

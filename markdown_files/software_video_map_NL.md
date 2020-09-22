@@ -19,7 +19,8 @@ Openframeworks is een open source C++ based framework, supercharged met addons.
 
 //TODO// Waarom gebruiken we ofx? Wat is dit voor software?
 
-Openframeworks is een framework ontwikkeld door Zach Lieberman als een toolbox voor creative coding. Het is sindsdien opgenomen door de open source crowd en kent nog steeds uitbreidingen en updates. We kozen voor openframeworks omdat de detectie van Aruco markers (gezien onze deadline) het snelst implementeerbaar was door het gebruik van addons. Daarbij komende de addons voor OSC en interface desing.
+Openframeworks is een framework ontwikkeld door Zach Lieberman als een toolbox voor creative coding (oa dus voor interactieve video installaties zoals in dit project). Het is sindsdien opgenomen door de open source crowd en kent nog steeds uitbreidingen en updates. We kozen voor openframeworks omdat de detectie van Aruco markers (gezien onze deadline) het snelst implementeerbaar was door het gebruik van addons. Daarbij komende de addons voor OSC en interface design.
+
 
 om het project te kunnen builden hebben we nood aan volgende plugins. Sommigen zijn reeds in openframeworks aanwezig, anderen moeten aan deze folder toegevoegd worden. Je kan dit doen door deze  manueel te downloaden en toe te voegen aan de `addons` folder in openframeworks.
 

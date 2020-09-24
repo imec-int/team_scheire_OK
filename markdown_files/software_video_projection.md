@@ -114,6 +114,3 @@ To work with the application, a few "shortcuts" have been defined. In the initia
 
 
 * Debug mode: Display the boxes around found markers
-
-### Tutorial
-//TODO// build tutorial: step by step: copy the git folder, then what?

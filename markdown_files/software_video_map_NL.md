@@ -77,7 +77,7 @@ Het builden van het project verschilt van OS tot OS, hieronder een korte oplijst
 * Gebruik de [projectGenerator](https://openframeworks.cc/learning/01_basics/create_a_new_project/) om het project aan te maken
     * Open de projectGenerator
     * Klik import en navigeer naar de project folder
-    * Druk op "generate" om de project files aan te maken (op mac maakt dit tevens aa) //TODO// aa?
+    * Druk op "generate" om de project files aan te maken, dit maakt tevens ook de xcode project files aan
 
 * Open het project in xcode
 * gebruik de build functionaliteiten om de applicatie te builden en te runnen
@@ -161,8 +161,13 @@ Indien de applicatie is ingesteld op "live", en er slechts één marker zichtbaa
 
 ##### Presets
 
-❗️❗️❗️ "Edit mode" moet ingeschakeld staan om wijzigingen te kunnen aanbrengen. ❗️❗️❗️
-//TODO// hoe ga je in edit mode?
+❗️❗️❗️ "Edit mode" moet ingeschakeld staan om wijzigingen te kunnen aanbrengen. (tweede scherm onderaan) ❗️❗️❗️
+
+
+| Screen 1 | Screen 2 | Screen 3 |
+| :-------------: |:-------------:| :-------------:|
+| ![Image of TOSC1](./images/TOSC1.PNG) | ![Image of TOSC1](./images/TOSC2.PNG) | ![Image of TOSC1](./images/TOSC3.PNG) |
+
 
 | Name | Function |
 | ------------- |:-------------:|

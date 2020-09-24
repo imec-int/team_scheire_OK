@@ -162,7 +162,7 @@ Indien de applicatie is ingesteld op "live", en er slechts één marker zichtbaa
 ##### Presets
 
 ❗️❗️❗️ "Edit mode" moet ingeschakeld staan om wijzigingen te kunnen aanbrengen. ❗️❗️❗️
-//TODO// hoe ga je in edit mode?
+![Edit mode](images/edit_mode.jpg)
 
 | Name | Function |
 | ------------- |:-------------:|

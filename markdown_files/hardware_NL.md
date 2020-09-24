@@ -50,4 +50,3 @@ We besloten het geheel in een 3d-geprinte case te omvatten. In ons geval was dit
 
 Het totaalpakket werd gemonteerd op een [mixer stand](https://www.bax-shop.be/nl/19-inch-racks/quiklok-ql-400-desktopstand?gclid=EAIaIQobChMIs6SFkMzG5QIViIxRCh3yJQK5EAQYGCABEgIFMPD_BwE). Omdat deze de projector naar boven en naar beneden kon richten, konden we vlot wisselen tussen een projectie op de muren of op het plafond. Deze liet ook enige flexibiliteit toe. Alle bekabeling bevind zich in de case. Voor stroom werd een universal power cable plug aangebracht onderaan de case. Deze had naast een schakelaar (die tegelijk de projector, NUC en speakers uit kon zetten) ook een zekering. 
 
-//TODO// zekering van hoeveel vermogen/ampere?

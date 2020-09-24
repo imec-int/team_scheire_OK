@@ -96,20 +96,28 @@ Na het builden van het project kan u de applicatie opstarten. Deze geeft echter 
 
 #### OSC
 
-//TODO// Hier 'snap' ik niet waarvoor OSC gebruikt wordt, kun je ofwel afbeeldingen toevoegen ofwel eerst vertellen hoe de opstelling eruit ziet? Anders is het moeilijk om in te beelden waarom OSC of projection mapping gebruikt wordt. Vandaar dan zeggen wanneer we 'preset' gebruiken en wanneer 'live'. Ook wat die presets zijn. Ik heb reeds ook [fysieke opstelling](fysieke_opstelling.md) gemaakt om te kunnen verwijzen naar hoe de ruimte eruit had gezien.
+Om de projectie-opstelling aan te kunnen sturen, kunnen we werken in twee modi. We spreken over de 'live' modus (met markers) en de 'preset' modus (zonder markers). 
 
-De applicatie kent twee modi, zowel preset als live. Je kan dit aanpassen via de remote numpad (0 zijnde live, 1 tot 3 zijnde presets). De presets tonen een vooringestelde configuratie van vlakken, de live view staat toe de camera te gebruiken om markers te detecteren en op basis hiervan vlakken te projecteren. Om deze vlakken, of die van de presets in te stellen maken we gebruik van OSC. OSC is een communicatiemethode die te vergelijken valt met MIDI, waar deze kan communiceren met anderen OSC enabled devices via channels.
+Je kan dit aanpassen via de remote numpad (0 zijnde live, 1 tot 3 zijnde presets). 
 
-TouchOSC werd gebruikt om deze vlakken in te stellen. De file die hiervoor nodig is bevind zich in de "additions" folder.
+##### preset modus
+De presets tonen een vooringestelde configuratie van projectievlakken. Om deze vlakken, of die van de presets in te stellen maken we gebruik van OSC. OSC is een communicatiemethode die te vergelijken valt met MIDI, waar deze kan communiceren met anderen OSC enabled devices via channels.
+
+TouchOSC werd gebruikt om deze vlakken in te stellen. De file die hiervoor nodig is, bevindt zich in de "additions" folder.
 
 //TODO// Nederlands:
 I specifically used touchOsc, a (sadly paying) app that can connect to the openframeworks application using the IP of the NUC. 
 
-Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar is, kan je hiervan de view instellen via TouchOSC. Vergeet niet het juiste IP adres in te stellen in `settings.hpp`.
+##### live modus
+
+De live modus staat toe de camera te gebruiken om markers te detecteren en op basis hiervan vlakken te projecteren.
+
+Indien de applicatie is ingesteld op "live", en er slechts één marker zichtbaar is, kan je hiervan de view instellen via TouchOSC. Vergeet niet het juiste IP adres in te stellen in `settings.hpp`.
+
 
 ![Image of touchOSC](./images/phone.jpg)
 
-##### Live
+##### Live 
 
 
 | Name | Function |
@@ -133,6 +141,7 @@ Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar 
 ##### Presets
 
 ❗️❗️❗️ "Edit mode" moet ingeschakeld staan om wijzigingen te kunnen aanbrengen. ❗️❗️❗️
+//TODO// hoe ga je in edit mode?
 
 | Name | Function |
 | ------------- |:-------------:|

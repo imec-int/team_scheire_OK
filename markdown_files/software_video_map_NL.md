@@ -32,6 +32,11 @@ Ga door volgende stappen om eigen beelden toe te voegen:
 * [TouchOSC Bridge](https://hexler.net/products/touchosc)
 * [TouchOSC editor](https://hexler.net/products/touchosc)
 
+windows: gebruik [VSCode](https://openframeworks.cc/setup/vs/)
+mac: Gebruik [XCode](https://openframeworks.cc/setup/xcode/)
+Linux: Gebruik [whatever](https://openframeworks.cc/setup/linux-install/)
+
+
 
 ### Openframeworks
 
@@ -58,13 +63,6 @@ volg de installatieguides op [openframeworks](https://openframeworks.cc/download
 
 #### From git to build
 
-* Download en extract deze repository via zipfile of download via git 
-* Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
-* Gebruik de [projectGenerator](https://openframeworks.cc/learning/01_basics/create_a_new_project/) om het project aan te maken
-    * Open de projectGenerator //TODO// out of curiosity, ik kreeg dat niet aan de praat op RPi of is dat eerder windows?
-    * Klik import en navigeer naar de project folder
-    * Druk op "generate" om de project files aan te maken (op mac maakt dit tevens aa) //TODO// aa?
-
 
 Het builden van het project verschilt van OS tot OS, hieronder een korte oplijsting:
 
@@ -73,6 +71,13 @@ Het builden van het project verschilt van OS tot OS, hieronder een korte oplijst
 ##### Mac
 
 !!! ofxHapPlayer is niet beschikbaar voor mac, deze kan vervangen worden door ofVideoPlayer, maar dan moeten bepaalde lijnen (getError) verwijderd worden. Daarnaast mag je ook niet vergeten deze uit de addons.make file te halen.
+
+* Download en extract deze repository via zipfile of download via git 
+* Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
+* Gebruik de [projectGenerator](https://openframeworks.cc/learning/01_basics/create_a_new_project/) om het project aan te maken
+    * Open de projectGenerator
+    * Klik import en navigeer naar de project folder
+    * Druk op "generate" om de project files aan te maken (op mac maakt dit tevens aa) //TODO// aa?
 
 * Open het project in xcode
 * gebruik de build functionaliteiten om de applicatie te builden en te runnen
@@ -87,10 +92,17 @@ Je kan dit ook builden en runnen met "make" en "make run", daarvoor neem je volg
 in de src folder komen de projectfiles, in de bin folder zitten zowel de data files (video en XML files) als de uiteindelijk builds. 
 
 ##### windows
+
+* Download en extract deze repository via zipfile of download via git 
+* Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
+* kopieer de emptyproject folder
+* kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
 * Open het project in VSCode
 * gebruik de build functionaliteiten om de applicatie te builden en te runnen
 
 ##### Linux
+* Download en extract deze repository via zipfile of download via git 
+* Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
 * kopieer de emptyproject folder
 * kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
 * kopieer (en vervang dus) de `addons.make` file door deze uit het gedownloadde project

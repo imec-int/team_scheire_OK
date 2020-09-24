@@ -21,10 +21,10 @@ Visual content created either:
 Openframeworks is een open source C++ based framework, supercharged met addons. 
 
 
-Openframeworks is een framework ontwikkeld door Zach Lieberman als een toolbox voor creative coding (oa dus voor interactieve video installaties zoals in dit project). Het is sindsdien opgenomen door de open source crowd en kent nog steeds uitbreidingen en updates. We kozen voor openframeworks omdat de detectie van Aruco markers (gezien onze deadline) het snelst implementeerbaar was door het gebruik van addons. Daarbij komende de addons voor OSC en interface design.
+Openframeworks is een framework ontwikkeld door Zach Lieberman als een toolbox voor creative coding (oa dus voor interactieve video installaties zoals in dit project). Het is sindsdien opgenomen door de open source crowd en kent nog steeds uitbreidingen en updates. We kozen voor openframeworks omdat de detectie van Aruco markers (gezien onze deadline) het snelst implementeerbaar was door het gebruik van bestaande openframeworks addons. Daarbij waren de addons voor OSC en interface design meteen ook van waarde.
 
 
-om het project te kunnen builden hebben we nood aan volgende plugins. Sommigen zijn reeds in openframeworks aanwezig, anderen moeten aan deze folder toegevoegd worden. Je kan dit doen door deze  manueel te downloaden en toe te voegen aan de `addons` folder in openframeworks.
+Om het project te kunnen builden hebben we nood aan onderstaande plugins. Sommigen zijn reeds in openframeworks aanwezig, anderen moeten aan deze folder toegevoegd worden. Je kan dit doen door deze  manueel te downloaden en toe te voegen aan de `addons` folder in openframeworks.
 
 * [ofxAruco](https://github.com/arturoc/ofxAruco)
 * [ofxCv](https://github.com/kylemcdonald/ofxCv)
@@ -44,12 +44,14 @@ volg de installatieguides op [openframeworks](https://openframeworks.cc/download
 * Download en extract deze repository via zipfile of download via git 
 * Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
 * Gebruik de [projectGenerator](https://openframeworks.cc/learning/01_basics/create_a_new_project/) om het project aan te maken
-    * Open de projectGenerator
+    * Open de projectGenerator //TODO// out of curiosity, ik kreeg dat niet aan de praat op RPi of is dat eerder windows?
     * Klik import en navigeer naar de project folder
-    * Druk op "generate" om de project files aan te maken (op mac maakt dit tevens aa)
+    * Druk op "generate" om de project files aan te maken (op mac maakt dit tevens aa) //TODO// aa?
 
 
-Het builden van het project verschilt van OS tot OS
+Het builden van het project verschilt van OS tot OS, hieronder een korte oplijsting:
+
+//TODO// geef hierbij de preference aan (as in: welke heb jij gebruikt en getest?)
 
 ##### Mac
 
@@ -80,7 +82,11 @@ in de src folder komen de projectfiles, in de bin folder zitten zowel de data fi
 
 Na het builden van het project kan u de applicatie opstarten. Deze geeft echter initieel een zwart scherm. Dit is omdat de applicatie draait in "Live" modus, en nog geen markers kan detecteren. Markers worden namelijk enkel gedetecteerd indien de tracking modus aan staat. dit gebeurt terwijl de knop "T" of "6" ingehouden wordt. Indien er slechts 1 marker gedetecteerd word, kan je hiervan het te projecteren vlak instellen via OSC (zie hfst OSC). Dit moet natuurlijk initieel gebeuren om de eerste vlakken aan te maken. 
 
+//todo// vlakken = projectievlakken?
 
+## Openframeworks libraries
+
+### remote control
 
 #### OSC
 
@@ -89,6 +95,8 @@ Na het builden van het project kan u de applicatie opstarten. Deze geeft echter 
 De applicatie kent twee modi, zowel preset als live. Je kan dit aanpassen via de remote numpad (0 zijnde live, 1 tot 3 zijnde presets). De presets tonen een vooringestelde configuratie van vlakken, de live view staat toe de camera te gebruiken om markers te detecteren en op basis hiervan vlakken te projecteren. Om deze vlakken, of die van de presets in te stellen maken we gebruik van OSC. OSC is een communicatiemethode die te vergelijken valt met MIDI, waar deze kan communiceren met anderen OSC enabled devices via channels.
 
 TouchOSC werd gebruikt om deze vlakken in te stellen. De file die hiervoor nodig is bevind zich in de "additions" folder.
+
+//TODO// Nederlands:
 I specifically used touchOsc, a (sadly paying) app that can connect to the openframeworks application using the IP of the NUC. 
 
 Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar is, kan je hiervan de view instellen via TouchOSC. Vergeet niet het juiste IP adres in te stellen in `settings.hpp`.
@@ -140,6 +148,7 @@ Indien de applicatie is ingesteld op "live", en er slechts een marker zichtbaar 
 | RY | Verticale rotatie  |
 | RZ | Diepte rotatie  |
 
+### projection mapping - Markers
 
 #### Aruco
 
@@ -147,8 +156,18 @@ Aruco markers worden gebruikt om de applicatie te vertellen op welke vlakken (de
 
 Elke aruco marker kent een uniek ID, die gebruikt kan worden om een bepaald deel van een video te projecteren, met een bepaalde transformatie (width, height, x- and y-offset). 
 
+#### markers 
 
-#### video settings and surfaces
+De markers zijn belangrijk voor de Aruco library. Indien deze gedetecteerd worden door de library kan deze afleiden welke marker het is en in welke orientatie deze zich bevindt. Door deze orientatie dan toe te passen op de beelden komt de automatische mapping tot stand. 
+
+Het is dan ook belangrijk dat de markers groot genoeg zijn (in ons geval minstens A3), en niet op reflecterend papier afgeprint worden (don't make our mistakes). 
+
+Markers kunnen gegenereerd worden met bijvoorbeeld [een online tool](https://chev.me/arucogen/), het is echter aangeraden de ID van de gegenereerde marker reeds toe te voegen aan de `bin/data/presets.xml` file.
+
+![Image of a marker](images/marker.png)
+
+
+## video settings and surfaces
 
 De video input kent drie video lagen voor de muren, en drie voor het plafond, allen geëncodeerd in [HAP](https://hap.video/) (om transparantie te ondersteunen).
 
@@ -167,14 +186,14 @@ Dit gebeurt door de transformatie, die de aruco class herkent, aan te vullen met
 Het hospitaal maakt gebruik van een mascotte, genaamd groene Louis. We probeerden deze terug te laten komen in de installatie, om de kinderen een vertrouwd beeld te geven in een onzeker moment. Groene Louis springt in beeld vanuit één zijde door gebruik te maken van shortcut "4" of "L". Hierdoor konden de dokters dit aanroepen wanneer ze deze nodig hadden.
 
 
-#### Presets
+## Video projection - Presets
 
 De presets kunnen gebruikt worden in locaties waar de markers niet opgehangen kunnen worden of niet aanwezig zijn. Dit bijvoorbeeld in een dokterskwartier of dergelijke. De presets geven een voor-ingestelde opstelling weer van vlakken. De eerste hiervan kan gebruikt worden op de kruising tussen twee muren en het plafond. De tweede is een vast projectievlak (recht tegenover).
 
 Om deze presets in te stellen, zie OSC.
 
 
-#### Shortcuts
+## Shortcuts
 
 We gebruikten een draadloze numpad om binnen een steriele omgeving de applicatie te kunnen gebruiken. 
 
@@ -198,10 +217,10 @@ We gebruikten een draadloze numpad om binnen een steriele omgeving de applicatie
 
 * Debug mode: Weergave van de indicatie rond gevonden aruco markers
 
-### Known issues
+## Known issues
 
 Er zijn een paar problemen waar we weet van hebben, maar waar we ten tijde van filmen niet de tijd voor hadden om deze op te lossen
 
-#### Mapping Z-offset
+### Mapping Z-offset
 
 1. De locatie van de projecties op basis van de markers kent een probleem waarbij de Z offset slecht ingesteld staat. Dit heeft invloed op de multiplier van de grootte van de projecties. 

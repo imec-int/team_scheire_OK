@@ -1,16 +1,27 @@
-## software setup
 
-Visual content created either:
-
-- either make it yourselves, as in Unity (see [video creation](./software_video_creation))
-- find our files in directory //TODO// (=> ga ervan uit dat iemand dit net gecloned heeft!)
-[data link](https://imecinternational-my.sharepoint.com/personal/gillis72_imec_be/_layouts/15/onedrive.aspx?csf=1&web=1&e=z0ktx4&cid=73ca1996%2D364b%2D4101%2D967e%2D3dbfad9ad884&FolderCTID=0x012000265F3069BD488044AC0832407108E2F6&id=%2Fpersonal%2Fgillis72%5Fimec%5Fbe%2FDocuments%2FTeamScheire%2FFinals)
-
-### WHY?
+## WHY?
 
 Omdat het beeld zowel op de muren, als op het plafond geprojecteerd moest worden. Kinderen die het operatiekwartier binnen kwamen keken eerst naar de kasten, en moesten dan op het bed op hun rug gaan liggen, waardoor ze de kasten niet meer zagen en enkel zicht hadden op het plafond. De gemakkelijkste oplossing hier was natuurlijk om meerdere projectors in te schakelen, een voor het plafond, en een voor de muren. Maar dan moesten deze gefixeerd worden om de mapping juist te krijgen. En hadden we voor elke zaal waar dit gebruikt zou worden meerdere projectoren nodig. Meerdere zalen omdat er telkens twee operatiekwartieren tot huhn beschikking zijn, die afwisselend gebruikt worden (terwijl de andere gedesinfecteerd wordt). Dokters en verplegend personeel hebben echter niet de tijd om elke keer opnieuw een volledige setup te doen van de beelden, om de juiste mappings te doen, of om projectors juist te richten. 
 
 Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkheid deze door een plotter op stickerpapier te printen) konden we automatisch detecteren waar de opstelling op moest projecteren, welk vlak wat was en hoe dit georienteerd moest zijn. Op deze manier was het dan ook mogelijk selectief te programmeren, en bijvoorbeeld werkruimten met rust te laten, zodat dokters hun werk konden doen.
+
+
+
+## software setup
+
+Het originele beeldmateriaal werdt geproduceerd in Unity (zie [video creation](./software_video_creation)). Je kan deze echter zelf ok produceren en deze toevoegen aan de applicatie.
+
+Ga door volgende stappen om eigen beelden toe te voegen:
+
+1. Produceer 3 videolagen voor zowel plafond als muur (zij aanzicht en boven aanzicht)
+    1. Een achtergrond
+    1. Een voorgrond (inclusief transparantie)
+    1. Een interactielaag (inclusief transparantie)
+1. Doe dit voor beide thema's (in ons geval onderwater en ruimtereis)
+1. Maak in de `bin/data` folder een map aan genaamd `/space`, en een map genaamd `/water`
+1. copieer de videofiles naar de overeenkomstige mappen
+1. controleer de naamgeving via de  **video settings en oppervlakten** subtitel
+1. build en run de applicatie
 
 
 
@@ -57,7 +68,7 @@ volg de installatieguides op [openframeworks](https://openframeworks.cc/download
 
 Het builden van het project verschilt van OS tot OS, hieronder een korte oplijsting:
 
-//TODO// geef hierbij de preference aan (as in: welke heb jij gebruikt en getest?)
+*Ik begon initieel met development op macOS, daar dit mijn standaard platform is. We stapten over op windows eens we tot de conclusie kwamen dat de RPI3 niet performant genoeg was, en de RPI4 openframeworks nog niet ondersteunde. We hadden tevens ook de tijd niet dit extenstief te testen en de applicatie te optimaliseren. We kochten een NUC aan en zorgden dat de applicatie hierop kon werken. dit onder andere door de toevoeging van de hap video player, ter ondersteuning van video op windows.*
 
 ##### Mac
 
@@ -86,7 +97,7 @@ in de src folder komen de projectfiles, in de bin folder zitten zowel de data fi
 * in een terminal, navigeer naar deze folder, en run volgend command: `make && make run`
 
 
-Na het builden van het project kan u de applicatie opstarten. Deze geeft echter initieel een zwart scherm. Dit is omdat de applicatie draait in "Live" modus, en nog geen markers kan detecteren. Markers worden namelijk enkel gedetecteerd indien de tracking modus aan staat. dit gebeurt terwijl de knop "T" of "6" ingehouden wordt. Indien er slechts 1 marker gedetecteerd word, kan je hiervan het te projecteren vlak instellen via OSC (zie hfst OSC). Dit moet natuurlijk initieel gebeuren om de eerste vlakken aan te maken. 
+Na het builden van het project kan u de applicatie opstarten. Deze geeft echter initieel een zwart scherm. Dit is omdat de applicatie draait in "Live" modus, en nog geen markers kan detecteren. Markers worden namelijk enkel gedetecteerd indien de tracking modus aan staat. dit gebeurt terwijl de knop "T" of "6" ingehouden wordt. Indien er slechts 1 marker gedetecteerd word, kan je hiervan het te projecteren vlak instellen via OSC (zie hfst OSC). Dit moet natuurlijk initieel gebeuren om de eerste projectievlakken aan te maken. 
 
 //todo// vlakken = projectievlakken?
 
@@ -105,8 +116,7 @@ De presets tonen een vooringestelde configuratie van projectievlakken. Om deze v
 
 TouchOSC werd gebruikt om deze vlakken in te stellen. De file die hiervoor nodig is, bevindt zich in de "additions" folder.
 
-//TODO// Nederlands:
-I specifically used touchOsc, a (sadly paying) app that can connect to the openframeworks application using the IP of the NUC. 
+Ik gebruikte (touchOSC)[https://hexler.net/products/touchosc], een (helaas betalende) app waarmee je messages en slider waarden (zie foto voor interface) kan doorsturen naar de applicatie via het IP adress van de computer indien je met hetzelfde netwerk geconnecteerd bent
 
 ##### live modus
 
@@ -182,7 +192,7 @@ Markers kunnen gegenereerd worden met bijvoorbeeld [een online tool](https://che
 ![Image of a marker](images/marker.png)
 
 
-## video settings and surfaces
+## video settings en oppervlakten
 
 De video input kent drie video lagen voor de muren, en drie voor het plafond, allen geëncodeerd in [HAP](https://hap.video/) (om transparantie te ondersteunen).
 

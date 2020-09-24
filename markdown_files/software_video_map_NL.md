@@ -6,9 +6,15 @@ Visual content created either:
 - in directory //TODO// (=> ga ervan uit dat iemand dit net gecloned heeft!)
 
 
+### WHY?
+
+Omdat het beeld zowel op de muren, als op het plafond geprojecteerd moest worden. Kinderen die het operatiekwartier binnen kwamen keken eerst naar de kasten, en moesten dan op het bed op hun rug gaan liggen, waardoor ze de kasten niet meer zagen en enkel zicht hadden op het plafond. De gemakkelijkste oplossing hier was natuurlijk om meerdere projectors in te schakelen, een voor het plafond, en een voor de muren. Maar dan moesten deze gefixeerd worden om de mapping juist te krijgen. En hadden we voor elke zaal waar dit gebruikt zou worden meerdere projectoren nodig. Meerdere zalen omdat er telkens twee operatiekwartieren tot huhn beschikking zijn, die afwisselend gebruikt worden (terwijl de andere gedesinfecteerd wordt). Dokters en verplegend personeel hebben echter niet de tijd om elke keer opnieuw een volledige setup te doen van de beelden, om de juiste mappings te doen, of om projectors juist te richten. 
+
+Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkheid deze door een plotter op stickerpapier te printen) konden we automatisch detecteren waar de opstelling op moest projecteren, welk vlak wat was en hoe dit georienteerd moest zijn. Op deze manier was het dan ook mogelijk selectief te programmeren, en bijvoorbeeld werkruimten met rust te laten, zodat dokters hun werk konden doen.
+
+
 
 ### Prerequisites 
-
 
 * Een reeds geïnstalleerde versie van [Openframeworks](https://openframeworks.cc/download/), beschikbaar op zowel OSX, windows als op linux.
 * TouchOSC, geïnstalleerd op GSM
@@ -19,7 +25,6 @@ Visual content created either:
 ### Openframeworks
 
 Openframeworks is een open source C++ based framework, supercharged met addons. 
-
 
 Openframeworks is een framework ontwikkeld door Zach Lieberman als een toolbox voor creative coding (oa dus voor interactieve video installaties zoals in dit project). Het is sindsdien opgenomen door de open source crowd en kent nog steeds uitbreidingen en updates. We kozen voor openframeworks omdat de detectie van Aruco markers (gezien onze deadline) het snelst implementeerbaar was door het gebruik van addons. Daarbij komende de addons voor OSC en interface design.
 
@@ -147,6 +152,7 @@ Aruco markers worden gebruikt om de applicatie te vertellen op welke vlakken (de
 
 Elke aruco marker kent een uniek ID, die gebruikt kan worden om een bepaald deel van een video te projecteren, met een bepaalde transformatie (width, height, x- and y-offset). 
 
+Aruco markers kunnen gegenereerd worden met bijvoorbeeld [een online tool](https://chev.me/arucogen/), het is echter aangeraden de ID van de gegenereerde marker reeds toe te voegen aan de `bin/data/presets.xml` file.
 
 #### video settings and surfaces
 
@@ -195,7 +201,6 @@ We gebruikten een draadloze numpad om binnen een steriele omgeving de applicatie
 | Play sound | . |
 
 
-
 * Debug mode: Weergave van de indicatie rond gevonden aruco markers
 
 ### Known issues
@@ -205,3 +210,4 @@ Er zijn een paar problemen waar we weet van hebben, maar waar we ten tijde van f
 #### Mapping Z-offset
 
 1. De locatie van de projecties op basis van de markers kent een probleem waarbij de Z offset slecht ingesteld staat. Dit heeft invloed op de multiplier van de grootte van de projecties. 
+2. Het netwerken via OSC had anders gekund, bijvoorbeeld door een lokaal netwerk, of kleine included router.

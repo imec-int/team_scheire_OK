@@ -1,7 +1,7 @@
 
-## WHY?
+## Waarom?
 
-Omdat het beeld zowel op de muren, als op het plafond geprojecteerd moest worden. Kinderen die het operatiekwartier binnen kwamen keken eerst naar de kasten, en moesten dan op het bed op hun rug gaan liggen, waardoor ze de kasten niet meer zagen en enkel zicht hadden op het plafond. De gemakkelijkste oplossing hier was natuurlijk om meerdere projectors in te schakelen, een voor het plafond, en een voor de muren. Maar dan moesten deze gefixeerd worden om de mapping juist te krijgen. En hadden we voor elke zaal waar dit gebruikt zou worden meerdere projectoren nodig. Meerdere zalen omdat er telkens twee operatiekwartieren tot huhn beschikking zijn, die afwisselend gebruikt worden (terwijl de andere gedesinfecteerd wordt). Dokters en verplegend personeel hebben echter niet de tijd om elke keer opnieuw een volledige setup te doen van de beelden, om de juiste mappings te doen, of om projectors juist te richten. 
+Omdat het beeld zowel op de muren, als op het plafond geprojecteerd moest worden. Kinderen die het operatiekwartier binnen kwamen keken eerst naar de kasten, en moesten dan op het bed op hun rug gaan liggen, waardoor ze de kasten niet meer zagen en enkel zicht hadden op het plafond. De gemakkelijkste oplossing hier was natuurlijk om meerdere projectors in te schakelen, een voor het plafond, en een voor de muren. Maar dan moesten deze gefixeerd worden om de mapping juist te krijgen. En hadden we voor elke zaal waar dit gebruikt zou worden meerdere projectoren nodig. Meerdere zalen omdat er telkens twee operatiekwartieren tot hun beschikking zijn, die afwisselend gebruikt worden (terwijl de andere gedesinfecteerd wordt). Dokters en verplegend personeel hebben echter niet de tijd om elke keer opnieuw een volledige setup te doen van de beelden, om de juiste mappings te doen, of om projectors juist te richten. 
 
 Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkheid deze door een plotter op stickerpapier te printen) konden we automatisch detecteren waar de opstelling op moest projecteren, welk vlak wat was en hoe dit georienteerd moest zijn. Op deze manier was het dan ook mogelijk selectief te programmeren, en bijvoorbeeld werkruimten met rust te laten, zodat dokters hun werk konden doen.
 
@@ -111,7 +111,6 @@ in de src folder komen de projectfiles, in de bin folder zitten zowel de data fi
 
 Na het builden van het project kan u de applicatie opstarten. Deze geeft echter initieel een zwart scherm. Dit is omdat de applicatie draait in "Live" modus, en nog geen markers kan detecteren. Markers worden namelijk enkel gedetecteerd indien de tracking modus aan staat. dit gebeurt terwijl de knop "T" of "6" ingehouden wordt. Indien er slechts 1 marker gedetecteerd word, kan je hiervan het te projecteren vlak instellen via OSC (zie hfst OSC). Dit moet natuurlijk initieel gebeuren om de eerste projectievlakken aan te maken. 
 
-//todo// vlakken = projectievlakken?
 
 ## Openframeworks libraries
 

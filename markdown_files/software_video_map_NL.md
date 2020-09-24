@@ -2,8 +2,8 @@
 
 Visual content created either:
 
-- in Unity (see [video creation](./software_video_creation))
-- in directory //TODO// (=> ga ervan uit dat iemand dit net gecloned heeft!)
+- either make it yourselves, as in Unity (see [video creation](./software_video_creation))
+- find our files in directory //TODO// (=> ga ervan uit dat iemand dit net gecloned heeft!)
 
 
 ### WHY?

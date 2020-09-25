@@ -35,7 +35,7 @@ Dit is natuurlijk geen verplichting, indien de ruimte groot genoeg is kan dit we
 De hoeveelheid [(ansi)-lumen](https://nl.wikipedia.org/wiki/Lumen_(eenheid)#:~:text=De%20lumen%20(symbool%3A%20lm),lichtbron%20in%20alle%20richtingen%20uitstraalt.) is ook van belang: afhankelijk van hoeveel licht er in de ruimte valt (zeker zonlicht) dient men voor hogere lichtopbrengst te gaan. 
 
 
-### Raspberry PI
+### Raspberry Pi
 
 In eerste instantie wouden we de oplossing draaiende krijgen op een Raspberry Pi. Na verschillende video problemen op de RPI3, besloten we gebruik te maken van een RPI4 om deze problemen op te lossen. Openframeworks bleek ten tijde van opname nog niet te werken op de RPI4. We verlieten deze piste en besloten verder te gaan met de Intel NUC (beschreven in [Componenten](## Componenten)).
 

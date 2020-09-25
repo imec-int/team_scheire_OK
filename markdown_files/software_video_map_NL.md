@@ -127,7 +127,7 @@ De presets tonen een vooringestelde configuratie van projectievlakken. Om deze v
 
 TouchOSC werd gebruikt om deze vlakken in te stellen. De file die hiervoor nodig is, bevindt zich in de "additions" folder.
 
-Ik gebruikte (touchOSC)[https://hexler.net/products/touchosc], een (helaas betalende) app waarmee je messages en slider waarden (zie foto voor interface) kan doorsturen naar de applicatie via het IP adress van de computer indien je met hetzelfde netwerk geconnecteerd bent
+Ik gebruikte [touchOSC](https://hexler.net/products/touchosc), een (helaas betalende) app waarmee je messages en slider waarden (zie foto voor interface) kan doorsturen naar de applicatie via het IP adress van de computer indien je met hetzelfde netwerk geconnecteerd bent
 
 ##### live modus
 

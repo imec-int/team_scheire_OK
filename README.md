@@ -29,7 +29,10 @@ Because kids get to choose their props in advance, the transition to the Operati
 
 This project is made with a few different software applications and frameworks. Here we'll list them and list their respective licenses if needed:
 
-1. [Unity](https://unity.com/)
-2. [OpenFrameworks (MIT License)](https://openframeworks.cc/about/license/)
-	3. 
+1. [Unity license](https://unity3d.com/legal/as_terms)
+2. [OpenFrameworks (MIT License)](https://openframeworks.cc/about/license/) Libraries:
+	3. [ofxAruco: BSD License](https://github.com/arturoc/ofxAruco)
+	5. [ofxCV: MIT license](https://github.com/kylemcdonald/ofxCv)
+	7. [ofxHapPlayer: custom license](https://github.com/bangnoise/ofxHapPlayer/blob/master/LICENSE)
+8. [Raspberry pi documentation: creative commons license](https://www.raspberrypi.org/documentation/)
 

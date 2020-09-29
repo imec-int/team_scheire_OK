@@ -25,3 +25,11 @@ Because kids get to choose their props in advance, the transition to the Operati
 5. [stickers](markdown_files/stickers.md)
 
 
+### License references
+
+This project is made with a few different software applications and frameworks. Here we'll list them and list their respective licenses if needed:
+
+1. [Unity](https://unity.com/)
+2. [OpenFrameworks (MIT License)](https://openframeworks.cc/about/license/)
+	3. 
+

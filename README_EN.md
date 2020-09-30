@@ -2,7 +2,7 @@
 
 ## project topic
 
-[Team Scheire](https://www.canvas.be/team-scheire) is een TV productie door Canvas in which they portray how the maker movement can easily help individuals with a specific problem by hacking together a solution. 
+[Team Scheire](https://www.canvas.be/team-scheire) is a TV production by Canvas in which they portray how the maker movement can easily help individuals with a specific problem by hacking together a solution. 
 
 The use-case chosen for the 2nd season of Team Scheire by imec is: reducing pre-operative and anaesthetic anxiety in children. Children that undergo surgery are taken away from their trusted environment and lose almost every element of control. This can lead to anxiety and make their fight, flight, fight mechanism kick in. On the one hand, the children that demonstrate fight and flight responses can obstruct the sedation process. On the other hand any child that experiences pre-operative anxiety can have a longer post-operative recuperation process, become traumatized, etc. Therefore it is import to reduce the fear of the children as much as possible. 
 
@@ -26,16 +26,14 @@ Because kids get to choose their props in advance, the transition to the Operati
 5. [stickers](markdown_files/stickers.md)
 
 
-### Licentie referenties
+### License references
 
-Dit project is gebouwd met enkele software paketten en frameworks. Hieronder een oplijsting van deze en hun licenties indien van toepassing:
+This project is made with a few different software applications and frameworks. Here we'll list them and list their respective licenses if needed:
 
 1. [Unity license](https://unity3d.com/legal/as_terms)
-2. [OpenFrameworks (MIT License)](https://openframeworks.cc/about/license/) 
-3. Libraries:
+2. [OpenFrameworks (MIT License)](https://openframeworks.cc/about/license/) Libraries:
 	3. [ofxAruco: BSD License](https://github.com/arturoc/ofxAruco)
 	5. [ofxCV: MIT license](https://github.com/kylemcdonald/ofxCv)
 	7. [ofxHapPlayer: custom license](https://github.com/bangnoise/ofxHapPlayer/blob/master/LICENSE)
-	
 8. [Raspberry pi documentation: creative commons license](https://www.raspberrypi.org/documentation/)
 

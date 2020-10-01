@@ -18,13 +18,16 @@ In normal circumstances the children would only be introduced to the mask in the
  
 Because kids get to choose their props in advance, the transition to the Operations Room runs a lot smoother. Plus, they are less afraid of the mask being handed to them, as they had the chance to familiarize themselves with it. The props in this case where a range of stickers, in either the water- or space theme, which kids can use to add to their mask. 
 
-1. Git installeren
+1. [Git installeren](markdown_files/git.md)
 1. [Fysieke opstelling](markdown_files/fysieke_opstelling.md)
 2. [Hardware setup](markdown_files/hardware_NL.md)
-3. [Software: video projection](markdown_files/software_video_map_NL.md)
-4. [Software: video creation](markdown_files/software_video_creation.md)
+3. [Software: video projectie](markdown_files/software_video_map_NL.md)
+4. [Software: video creatie](markdown_files/software_video_creation.md)
 5. [stickers](markdown_files/stickers.md)
 
+
+### bugs???
+aanvragen via github of via mail?
 
 ### Licentie referenties
 

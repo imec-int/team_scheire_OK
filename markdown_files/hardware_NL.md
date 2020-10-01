@@ -2,17 +2,21 @@
 
 
 ## Componenten
-* Projector:  H11ST optoma
-* Computer: Intel NUC
+* Projector:  H116ST optoma (579€)
+ * Computer: Intel NUC (599€)
   * Intel core i5
   * 8GB DDR4
   * 240GB SSD
-* Audio shield: [Any](https://www.adafruit.com/product/1752) stereo amplifier
-* Webcam: Logitech C270
-* Power supply: Stadium SRS100 
+* Audio shield: [Any](https://www.adafruit.com/product/1752) stereo amplifier (22,74€)
+* Webcam: Logitech C270 (59€)
+* Power supply: Stadium SRS100 (165€)
   * Deze geeft stroom aan zowel de NUC as aan de audio shield (en speakers)
-* Remote: om het even welk draadloos numpad
+* Remote: om het even welk draadloos numpad (13€)
   * De applicatie gebruikt numerieke input om modi te selecteren
+* Speaker:   https://benl.rs-online.com/web/p/speaker-drivers/1218639/ (2* 22,10€)
+  * De projector heeft een ingebouwde speaker, maar om kwalitatief beter geluid te krijgen kan je extra speakers plaatsten
+* Staander voor projector: Quicklock QL400 (https://www.gear4music.be/nl/PA-DJ-and-Verlichting/Quiklok-QL-400-Studio-Locator-Stand-for-Equipment/AEG?origin=product-ads&gclid=EAIaIQobChMIjYqWpLqT7AIVCtd3Ch0fogbVEAQYASABEgL5dvD_BwE) (109€)
+* Plexi plaat om projector te monteren op de staander (30€)
 
 ![Image of inside](images/inside.JPG)
 

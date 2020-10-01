@@ -17,6 +17,7 @@
   * De projector heeft een ingebouwde speaker, maar om kwalitatief beter geluid te krijgen kan je extra speakers plaatsten
 * Staander voor projector: Quicklock QL400 (https://www.gear4music.be/nl/PA-DJ-and-Verlichting/Quiklok-QL-400-Studio-Locator-Stand-for-Equipment/AEG?origin=product-ads&gclid=EAIaIQobChMIjYqWpLqT7AIVCtd3Ch0fogbVEAQYASABEgL5dvD_BwE) (109€)
 * Plexi plaat om projector te monteren op de staander (30€)
+* Kabels: zie schematische voorstelling voor benodigde kabels
 
 ![Image of inside](images/inside.JPG)
 

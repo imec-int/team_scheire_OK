@@ -1,8 +1,8 @@
-# [git](https://git-scm.com/)
+# Git
 
-Om dit project op je eigen computer te kunnen uitvoeren dien je eerst de hele online mapstructuur ("de repository") te downloaden. Dit kun je doen door ofwel een zipfile te downloaden, of door te werken via git.
+Om dit project op je eigen computer te kunnen uitvoeren dien je eerst de hele online mapstructuur ("de repository") te downloaden. Dit kun je doen door ofwel een zipfile te downloaden, of door te werken via [git](https://git-scm.com/).
 
-Git is een versiebeheersysteem dat ervoor zorgt dat je code kan downloaden én kan zien welke aanpassingen er allemaal gebeurd zijn in het verleden. Dus ook als je zélf toevoegingen wilt doen kan dit via Git (denk: zelf code aanpassen, zelf nieuw beeldmateriaal toevoegen, zelf...)
+[git](https://git-scm.com/) is een versiebeheersysteem dat ervoor zorgt dat je code kan downloaden én kan zien welke aanpassingen er allemaal gebeurd zijn in het verleden. Dus ook als je zélf toevoegingen wilt doen kan dit via Git (denk: zelf code aanpassen, zelf nieuw beeldmateriaal toevoegen, zelf...)
 
 Voor dit project wordt er gebruik gemaakt van zowel Git als Git LFS.
 

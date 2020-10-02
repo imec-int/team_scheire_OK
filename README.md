@@ -1,4 +1,4 @@
-# TeamScheire
+# Team Scheire: Interactief, immersief operatiekwartier
 
 ![](./markdown_files/images/scheire.jpg)
 
@@ -31,7 +31,11 @@ Because kids get to choose their props in advance, the transition to the Operati
 
 
 ### bugs & toekomst van het project
-aanvragen via github of via mail?
+1. Bugs: aanvragen via github of via mail?
+2. Toekomstige ontwikkelingen:
+	3. extra verhalen: meer en diverser beeld- en audiomateriaal kan meer kinderen van verschillende leeftijden aanspreken.
+	4. Bekijken of een setup zonder aruco markers mogelijk is
+	5. eigen toevoegingen? 	
 
 
 

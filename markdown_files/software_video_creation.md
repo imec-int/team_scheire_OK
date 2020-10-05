@@ -80,7 +80,7 @@ Let dus op dat je video files rekening houden met de mogelijkheden en beperkinge
 In de afbeelding zie je goed hoe de drie lagen over elkaar gelegd worden om het uiteindelijk resultaat te bekomen. Let op de (voorgrond) visjes die bovenop de kist (interactie laag) zwemmen.
 
 <p align="center">
-  <img src="./images/Compositing.gif" alt="compositing>
+  <img src="./images/Compositing.gif" alt="compositing">
 </p>
 
 ### Achtergrond

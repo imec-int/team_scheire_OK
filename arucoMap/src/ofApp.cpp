@@ -5,7 +5,7 @@
 void ofApp::setup()
 {
 	ofSetFrameRate(_framerate);
-	sound.load("sounds/background.mp3"); //TODO adapt to LUT or define in settings.hpp?
+	sound.load("sounds/background.mp3"); 
 	if (sound.isLoaded())
 	{
 		sound.setVolume(5);
@@ -129,78 +129,6 @@ void ofApp::keyPressed(int key)
 		break;
 	}
 }
-/*	
-	// if (key == 't' || key == '6')
-	// {
-	// 	aruco.TRACK = !aruco.TRACK;
-	// }
-	// if (key == '0')
-	// {
-	// 	DISPLAY_MODE = 0;
-	// }
-	if (key == '1')
-	{
-		DISPLAY_MODE = 1;
-	}
-	if (key == '2')
-	{
-		DISPLAY_MODE = 2;
-	}
-	if (key == '3')
-	{
-		DISPLAY_MODE = 3;
-	}
-	if (key == 'l' || key == '4')
-	{
-		DISPLAY_LOUIS = true;
-	}
-	if (key == 'i' || key == '5')
-	{
-		DISPLAY_INTERACTION = true;
-	}
-	if (key == 'v' || key == '7')
-	{
-		DEBUG_MODE = !DEBUG_MODE;
-	}
-	if (key == 'c' || key == '8')
-	{
-		DISPLAY_CAM = !DISPLAY_CAM;
-	}
-	if (key == 'm' || key == '9')
-	{
-		MUTE = !MUTE;
-		if (MUTE)
-		{
-			sound.setVolume(0);
-		}
-		else
-		{
-			sound.setVolume(5);
-		}
-	}
-
-
-
-		if (key == 'w' || key == '+')
-		{
-			surfaceGenerator->loadNewSource("water");
-		}
-		if (key == 's' || key == '-')
-		{
-			surfaceGenerator->loadNewSource("space");
-		}
-		if (key == '.')
-		{
-			if (sound.isPlaying())
-			{
-				sound.stop();
-			}
-			else
-			{
-				sound.play();
-			}
-		}
-	}*/
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key)
@@ -224,19 +152,7 @@ void ofApp::keyReleased(int key)
 		break;
 	}
 }
-/*
-	if (key == 't' || key == '6')
-	{
-		aruco.TRACK = false;
-	}
-	if (key == 'i' || key == '5')
-	{
-		DISPLAY_INTERACTION = false;
-	}
-	if (key == 'l' || key == '4')
-	{
-		DISPLAY_LOUIS = false;
-	}*/
+
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y)
 {

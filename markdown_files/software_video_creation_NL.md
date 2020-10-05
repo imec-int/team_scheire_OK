@@ -35,9 +35,9 @@ Voorbeelden van andere software die je kan gebruiken:
   - [Kdenlive](https://kdenlive.org/en/) (video software)
 
 - Closed Source
-  - Adobe After Effects (2D software)
-  - Unity (Game engine)
-  - Adobe Premiere Pro (video software)
+  - [Adobe After Effects](https://www.adobe.com/be_nl/products/aftereffects.html) (2D software)
+  - [Unity](https://unity.com/) (Game engine)
+  - [Adobe Premiere Pro](https://www.adobe.com/be_nl/products/premiere.html) (video software)
 
 Welke software je gebruikt maakt niet uit, maar verifieer of de software de onderstaande technische vereisten kan ondersteunen.
 

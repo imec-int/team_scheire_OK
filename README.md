@@ -1,10 +1,11 @@
 # Team Scheire: Interactief, immersief operatiekwartier
 
 ![](./markdown_files/images/scheire.jpg)
+
 &copy; Canvas 2020
 
 
-## project topic
+## project onderwerp
 
 [Team Scheire](https://www.canvas.be/team-scheire) is een TV productie van [Canvas](https://www.canvas.be/) waarin makers aan bod komen die trachten individuen met specifieke problematieken te behelpen. Dit doen ze door op hun manier een oplossing in elkaar te 'hacken'.
 
@@ -12,13 +13,16 @@ Voor het tweede seizoen van Team Scheire heeft [imec](https://www.imec.be/nl) vo
 
 
 Afleiding is een techniek die reeds bewezen heeft succesvol te werken in de omgeving van een ziekenhuis, ondermeer door het gebruik van Virtual Reality toestellen en tablets. In het operatiekwartier zijn de vereisten om reguliere nieuwe technologieën te introduceren zeer strict en dien je weg te blijven uit de onmiddelijke omgeving van de patiënt (tot 1.5 meter).
- Because the room in general and the sedation mask were the most scary elements for children created a solution in the form of an immersive environment, where doctors, children and kids can interact with each other and the environment.  
+Uit onderzoek bleek dat de kamer in het algemeen en het verdovingsmasker de meest angstaanjagende elementen waren voor de kinderen. Daarom hebben we een oplossing bedacht in de vorm van een immersieve (onderdompelende) omgeving, waar zowel dokters, kinderen als ouders met elkaar en met de omgeving kunnen interageren.
 
-### the immersive environment
+### De immersieve omgeving
 
-By ways of projection we create an immersive environment. Kids have to choose between two worlds (ocean or space) in which actions have been mapped which they need to perform in real life. 
+Door gebruik te maken van projectie, creëren we een immersieve omgeving. Kinderen hebben voor hun operatie de keuze tussen twee werelden: de onderwaterwereld of de ruimte. In deze werelden worden acties vorm gegeven die de kinderen eveneens moeten uitvoeren, hun gewenste acties worden dus begeleid vanuit de immersieve wereld.
+
 
 ### the props
+
+In een normaal operatie traject worden kinderen 
 
 In normal circumstances the children would only be introduced to the mask in the operating room. Because we wanted to give the children more control over the situation and make it theirs, we introduced the mask to the children before the OR, in the preparation room. The children can there choose between two sticker papers each representing thematically one of the environments underwaterworld or space. The stickers were made from the Unity figures created for the environments.
  

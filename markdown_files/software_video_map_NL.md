@@ -11,7 +11,7 @@ Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkhei
 
 ## software setup
 
-Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./software_video_creation)). Je kan deze echter zelf ook produceren en deze toevoegen aan de applicatie.
+Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./software_video_creatie)). Je kan deze echter zelf ook produceren en deze toevoegen aan de applicatie.
 
 Ga door volgende stappen om eigen beelden toe te voegen:
 
@@ -20,8 +20,10 @@ Ga door volgende stappen om eigen beelden toe te voegen:
     1. Een voorgrond (inclusief transparantie)
     1. Een interactielaag (inclusief transparantie)
 1. Doe dit voor beide thema's (in ons geval onderwater en ruimtereis)
-1. Maak in de `bin/data` folder een map aan genaamd `/space`, en een map genaamd `/water`
-1. copieer de videofiles naar de overeenkomstige mappen
+1. Maak in de `bin/data` folder, van je openframeworks installatie, een map aan genaamd `/space`, en een map genaamd `/water`
+1. kopieer de videofiles naar de overeenkomstige mappen
+	2. ofwel de bestaande werelden uit `media/video_material`
+	3. ofwel de zelf gemaakte werelden (indien het voorbeeld Unity project, vanuit de map `recordings`)
 1. controleer de naamgeving via de  **video settings en oppervlakten** subtitel
 1. build en run de applicatie
 
@@ -68,7 +70,7 @@ volg de installatieguides op [openframeworks](https://openframeworks.cc/download
 
 Het builden van het project verschilt van OS tot OS, hieronder een korte oplijsting:
 
-*Ik begon initieel met development op macOS, daar dit mijn standaard platform is. We stapten over op windows eens we tot de conclusie kwamen dat de RPI3 niet performant genoeg was, en de RPI4 openframeworks nog niet ondersteunde. We hadden tevens ook de tijd niet dit extenstief te testen en de applicatie te optimaliseren. We kochten een NUC aan en zorgden dat de applicatie hierop kon werken. dit onder andere door de toevoeging van de hap video player, ter ondersteuning van video op windows.*
+*Ik begon initiëel met development op macOS, daar dit mijn standaard platform is. We stapten over op windows eens we tot de conclusie kwamen dat de RPI3 niet performant genoeg was, en de RPI4 openframeworks nog niet ondersteunde. We hadden tevens ook de tijd niet dit extenstief te testen en de applicatie te optimaliseren. We kochten een NUC aan en zorgden dat de applicatie hierop kon werken. dit onder andere door de toevoeging van de hap video player, ter ondersteuning van video op windows.*
 
 ##### Mac
 

@@ -16,7 +16,7 @@ Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./s
 
 Ga door volgende stappen om eigen beelden toe te voegen:
 
-1. Produceer 3 videolagen voor zowel plafond als muur (zij aanzicht en boven aanzicht)
+1. Produceer 3 videolagen voor zowel plafond als muur (zij aanzicht en boven aanzicht, 6 bestanden in totaal dus)
     1. Een achtergrond
     1. Een voorgrond (inclusief transparantie)
     1. Een interactielaag (inclusief transparantie)
@@ -25,7 +25,8 @@ Ga door volgende stappen om eigen beelden toe te voegen:
 1. kopieer de videofiles naar de overeenkomstige mappen
 	2. ofwel de bestaande werelden uit `media/video_material`
 	3. ofwel de zelf gemaakte werelden (indien het voorbeeld Unity project, vanuit de map `recordings`)
-1. controleer de naamgeving via de  **video settings en oppervlakten** subtitel
+	1. controleer de naamgeving via [video settings en oppervlakken](#video-settings-en-oppervlakken) subtitel
+2. In `bin/data/sounds` kun je ook een ander achtergrond `.mp3` plaatsen indien beter passend bij het beeldmateriaal. (gebruik de naamgeving `background.mp3` of pas dit aan in `ofApp.cpp`)
 1. build en run de applicatie
 
 
@@ -213,7 +214,7 @@ Markers kunnen gegenereerd worden met bijvoorbeeld [een online tool](https://che
 ![Image of a marker](images/marker.png)
 
 
-## video settings en oppervlakten
+## video settings en oppervlakken
 
 De video input kent drie video lagen voor de muren, en drie voor het plafond, allen geëncodeerd in [HAP](https://hap.video/) (om transparantie te ondersteunen).
 

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Space/Walls/space_interaction.mov
+  _filePath: ../media/video_material/Space/Walls/space_interaction.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Underwater/Ceiling/LonelyWhale.mov
+  _filePath: ../media/video_material/Underwater/Ceiling/LonelyWhale.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Underwater/Walls/FishesForeground.mov
+  _filePath: ../media/video_material/Underwater/Walls/FishesForeground.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Space/Ceiling/space_top_interaction.mov
+  _filePath: ../media/video_material/Space/Ceiling/space_top_interaction.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Underwater/Ceiling/SmallLonelyWhale.mov
+  _filePath: ../media/video_material/Underwater/Ceiling/SmallLonelyWhale.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Underwater/Ceiling/Bubbles.mov
+  _filePath: ../media/video_material/Underwater/Ceiling/Bubbles.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Underwater/Ceiling/SurfaceFishes.mov
+  _filePath: ../media/video_material/Underwater/Ceiling/SurfaceFishes.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Space/Walls/space_foreground.mov
+  _filePath: ../media/video_material/Space/Walls/space_foreground.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Space/Ceiling/space_top_foreground.mov
+  _filePath: ../media/video_material/Space/Ceiling/space_top_foreground.mov
   _time: 0
   _speed: 1
   _loop: 1
@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathMode: 1
-  _filePath: ../media/video_material/unity_renders/Underwater/Walls/ChestInteraction.mov
+  _filePath: ../media/video_material/Underwater/Walls/ChestInteraction.mov
   _time: 0
   _speed: 1
   _loop: 1

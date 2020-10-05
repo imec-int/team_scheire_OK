@@ -1,28 +1,33 @@
 # Team Scheire: Interactief, immersief operatiekwartier
 
 ![](./markdown_files/images/scheire.jpg)
+
 &copy; Canvas 2020
 
 
-## project topic
+## project onderwerp
 
 [Team Scheire](https://www.canvas.be/team-scheire) is een TV productie van [Canvas](https://www.canvas.be/) waarin makers aan bod komen die trachten individuen met specifieke problematieken te behelpen. Dit doen ze door op hun manier een oplossing in elkaar te 'hacken'.
 
-Voor het tweede seizoen van Team Scheire heeft [imec](https://www.imec.be/nl) volgende project gekozen: Het verminderen van pre-operatieve en anesthetische angst bij kinderen. Kinderen die een operatie moeten ondergaan worden weggenomen uit hun vertrouwde omgeving en verliezen alle controle hierbij. Dit kan leiden tot angst en ervoor zorgen dat hun [vecht-of-vluchtreactie](https://nl.wikipedia.org/wiki/Vecht-of-vluchtreactie) optreedt. Enerzijds kunnen kinderen door hun vecht-of-vluchtreactie het verdovingsproces belemmeren. Anderzijds kan het kind, doordat het pre-operatieve angst ervaart, een langer post-operatieve herstelperiode hebben, getraumatizeerd worden, etc. Het is daarom van groot belang om de angst bij de kinderen zoveel als mogelijk te verminderen.
+Voor het tweede seizoen van Team Scheire heeft [imec](https://www.imec.be/nl) volgende project gekozen: __Het verminderen van pre-operatieve en anesthetische angst bij kinderen.__ Kinderen die een operatie moeten ondergaan worden weggenomen uit hun vertrouwde omgeving en verliezen alle controle hierbij. Dit kan leiden tot angst en ervoor zorgen dat hun [vecht-of-vluchtreactie](https://nl.wikipedia.org/wiki/Vecht-of-vluchtreactie) optreedt. Enerzijds kunnen kinderen door hun vecht-of-vluchtreactie het verdovingsproces belemmeren. Anderzijds kan het kind, doordat het pre-operatieve angst ervaart, een langer post-operatieve herstelperiode hebben, getraumatizeerd worden, etc. Het is daarom van groot belang om de angst bij de kinderen zoveel als mogelijk te verminderen.
 
 
-Afleiding is een techniek die reeds bewezen heeft succesvol te werken in de omgeving van een ziekenhuis, ondermeer door het gebruik van Virtual Reality toestellen en tablets. In het operatiekwartier zijn de vereisten om reguliere nieuwe technologieën te introduceren zeer strict en dien je weg te blijven uit de onmiddelijke omgeving van de patiënt (tot 1.5 meter).
- Because the room in general and the sedation mask were the most scary elements for children created a solution in the form of an immersive environment, where doctors, children and kids can interact with each other and the environment.  
+**Afleiding** is een techniek die reeds bewezen heeft succesvol te werken in de omgeving van een ziekenhuis, ondermeer door het gebruik van Virtual Reality toestellen en tablets. In het operatiekwartier zijn de vereisten om reguliere nieuwe technologieën te introduceren zeer strict en dien je weg te blijven uit de onmiddelijke omgeving van de patiënt (tot 1.5 meter).
+Uit onderzoek bleek dat de kamer in het algemeen en het verdovingsmasker de meest angstaanjagende elementen waren voor de kinderen. Daarom hebben we een oplossing bedacht in de vorm van een immersieve (onderdompelende) omgeving, waar zowel dokters, kinderen als ouders met elkaar en met de omgeving kunnen interageren.
 
-### the immersive environment
+Wat we nog zeker willen meegeven: dit is volgens ons **een mogelijke** tegemoetkoming van het probleem, maar er zullen zeker nog andere oplossingen bestaan, of varianten!
 
-By ways of projection we create an immersive environment. Kids have to choose between two worlds (ocean or space) in which actions have been mapped which they need to perform in real life. 
+### De immersieve omgeving
 
-### the props
+Door gebruik te maken van projectie, creëren we een immersieve omgeving. Kinderen hebben voor hun operatie de keuze tussen twee werelden: de onderwaterwereld of de ruimte. In deze werelden worden acties vorm gegeven die de kinderen eveneens moeten uitvoeren, hun gewenste acties worden dus begeleid vanuit de immersieve wereld.
 
-In normal circumstances the children would only be introduced to the mask in the operating room. Because we wanted to give the children more control over the situation and make it theirs, we introduced the mask to the children before the OR, in the preparation room. The children can there choose between two sticker papers each representing thematically one of the environments underwaterworld or space. The stickers were made from the Unity figures created for the environments.
+
+### de rekwisieten
+
+In een normaal operatie traject komen kinderen pas in het operatiekwartier in contact met het verdovingsmasker. Om de kinderen meer controle te geven in deze situatie en het hun eigen te maken, introduceren we het masker eerder aan de kinderen, nog voor ze het OK binnengaan, in de voorbereidingskamer. Daar kunnen de kinderen zelf stickers kiezen die thematisch aansluiten bij de onderwater- of ruimtewereld die ze kiezen. De stickers hebben we gemaakt uit de Unity figuren die gebruikt werden voor de verschillende werelden vorm te geven.
  
-Because kids get to choose their props in advance, the transition to the Operations Room runs a lot smoother. Plus, they are less afraid of the mask being handed to them, as they had the chance to familiarize themselves with it. The props in this case where a range of stickers, in either the water- or space theme, which kids can use to add to their mask. 
+Aangezien de kinderen zelf hun rekwisieten op voorhand kunnen kiezen, is de overgang naar het operatiekwartier veel behapbaarder voor hun. Meer zelfs, eens ze het mondmasker aangereikt krijgen, hebben ze hiervoor veel minder angst, gezien ze er reeds kennis mee gemaakt hebben. De rekwisieten die voor dit project voornamelijk gebruikt zijn, zijn stickers in ofwel een onderwater, ofwel een ruimte thema. Deze konden de kinderen dan op hun masker plakken.
+
 
 1. [Git installeren](markdown_files/git.md)
 2. [Gebruikersonderzoek](markdown_files/gebruikersonderzoek.md)
@@ -34,13 +39,20 @@ Because kids get to choose their props in advance, the transition to the Operati
 6. [Toekomstige ontwikkelingen?](markdown_files/toekomst.md)
 
 
-### bugs & toekomst van het project
-1. Bugs: aanvragen via github of via mail?
-2. Toekomstige ontwikkelingen:
-	3. extra verhalen: meer en diverser beeld- en audiomateriaal kan meer kinderen van verschillende leeftijden aanspreken.
-	4. Bekijken of een setup zonder aruco markers mogelijk is
-	5. eigen toevoegingen? 	
+### Problemen met het ineen steken of suggesties? 
+Open liefst een nieuw ticket via github, dit maakt het eenvoudiger voor de opvolging van problemen en de documentering ervan.
 
+Klik hiervoor op de github repo door naar [issues](https://github.com/imec-int/team_scheire_OK/issues)
+![github issues](./markdown_files/images/git_issues.png) 
+
+
+### toekomst van het project
+We zouden niets liever zien dan dat dit project een verder leven leidt en moedigen daarom ook iedereen aan om bij te dragen aan dit project. 
+
+- Heb je zelf beeld- en audiomateriaal gemaakt dat andere mogen gebruiken? Dit kan gemakkelijk bijdragen doordat kinderen van verschillende leeftijden verschillende wensen hebben.
+- Heb je een idee om de installatie zonder de Aruco markers te bouwen?
+- Krijg je het werkende op een raspberry pi? Dat zou de installatiekost naar beneden trekken.
+- Heb je nog ideeën, we zijn er altijd benieuwd naar!
 
 
 ### Licentie referenties
@@ -50,6 +62,7 @@ Dit project is gebouwd met enkele software paketten en frameworks. Hieronder een
 1. [Unity license](https://unity3d.com/legal/as_terms)
 2. [OpenFrameworks (MIT License)](https://openframeworks.cc/about/license/) 
 3. Libraries:
+
 	3. [ofxAruco: BSD License](https://github.com/arturoc/ofxAruco)
 	5. [ofxCV: MIT license](https://github.com/kylemcdonald/ofxCv)
 	7. [ofxHapPlayer: custom license](https://github.com/bangnoise/ofxHapPlayer/blob/master/LICENSE)

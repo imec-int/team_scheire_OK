@@ -54,8 +54,8 @@ Voor elk thema hebben we 6 video bestanden nodig:
 
 ### Video afmetingen
 
-- De voorgrond en interactie videos bevatten een alpha kanaal
-  - Het alpha kanaal is nodig om meerdere videos op elkaar leggen, meer hierover later in [Compositing](#compositing)
+- De voorgrond en interactie videos bevatten een transparantie/alpha kanaal
+  - Het transparantie kanaal is nodig om meerdere videos op elkaar leggen, meer hierover later in [Compositing](#compositing)
 - De video moet loopen 
   - Eerste en laatste frame zijn hetzelfde, opdat een gebruiker niet merkt dat er een einde is aan de video
 - De video is 2048x1024 pixels
@@ -172,7 +172,7 @@ Als je klaar bent met je animatie, is het tijd om het uit te renderen: We gaan v
 ![Recorder window](./images/Recorder.png)
 3. Afhankelijk van hoe zwaar je animatie is, kan dit proces even duren. Als je animatie uitgespeeld is, kan je drukken op `Stop recording`.
 
-Je kan nu je volledige animatie terug vinden in de `recordings` folder. Je zal zien dat hier nu een hele hoop `.png` afbeeldingen staan. Deze png's nemen ook het alpha kanaal mee maar moeten nu nog omgezet worden naar een `.mov`, zie [Converteren naar hap formaat](#converteren-naar-hap-formaat).
+Je kan nu je volledige animatie terug vinden in de `recordings` folder. Je zal zien dat hier nu een hele hoop `.png` afbeeldingen staan. Deze png's nemen ook het transparantie kanaal mee maar moeten nu nog omgezet worden naar een `.mov`, zie [Converteren naar hap formaat](#converteren-naar-hap-formaat).
 
 ### Waar kan ik extra modellen vinden?
 

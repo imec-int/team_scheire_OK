@@ -18,15 +18,28 @@
 			- [Animeren](#animeren)
 		- [De animatie uitrenderen](#de-animatie-uitrenderen)
 		- [Waar kan ik extra modellen vinden?](#waar-kan-ik-extra-modellen-vinden)
-	- [Converteren naar hap formaat](#converteren-naar-hap)
+	- [Converteren naar hap formaat](#converteren-naar-hap-formaat)
+		- [Installatie ffmpeg](#installatie-ffmpeg)
+			- [Windows](#windows)
+			- [Mac/Linux](#maclinux)
 		- [Een bestaande video omzetten](#een-bestaande-video-omzetten)
 		- [Een afbeeldingen sequentie omzetten](#een-afbeeldingen-sequentie-omzetten)
 
 Om een mooie interatieve projectie te maken hebben we meerdere video files nodig. Je kan deze video files maken met veel verschillende open en gesloten software of met bestaand beeldmateriaal. Je kan bijvoorbeeld aan de slag gaan met 3D animatie software zoals [Blender](https://www.blender.org/) of misschien werk je liever met 2D animatie software? Voor Team Scheire zijn we gegaan voor een game engine als animatie software: [Unity](https://unity.com/).
 
-Welke software je gebruikt maakt niet uit, maar verifieer of de software de onderstaande technische vereisten kan ondersteunen.
+Voorbeelden van andere software die je kan gebruiken:
+- Open Source
+  - [Blender](https://www.blender.org/) (3D software)
+  - [Synfig](https://www.synfig.org) (2D software)
+  - [Godot](https://godotengine.org/) (Game engine)
+  - [Kdenlive](https://kdenlive.org/en/) (video software)
 
-#TODO: add some more software suggestions
+- Closed Source
+  - Adobe After Effects (2D software)
+  - Unity (Game engine)
+  - Adobe Premiere Pro (video software)
+
+Welke software je gebruikt maakt niet uit, maar verifieer of de software de onderstaande technische vereisten kan ondersteunen.
 
 ## Technische vereisten
 
@@ -41,16 +54,23 @@ Voor elk thema hebben we 6 video bestanden nodig:
 
 ### Video afmetingen
 
-- De voorgrond en interactie videos bevatten een alpha kanaal #todo waarom, waarvoor dient een alpha kanaal
-- De video moet loopen (eerste en laatste frame zijn hetzelfde, opdat een gebruiker niet merkt dat er een einde is aan de video)
-- Bij voorkeur is elke video 2048x1024 pixels #todo minimaal?
-- Bij voorkeur is de framerate 30 afbeeldingen per seconde(fps) #todo minimaal?
+- De voorgrond en interactie videos bevatten een alpha kanaal
+  - Het alpha kanaal is nodig om meerdere videos op elkaar leggen, meer hierover later in [Compositing](#compositing)
+- De video moet loopen 
+  - Eerste en laatste frame zijn hetzelfde, opdat een gebruiker niet merkt dat er een einde is aan de video
+- De video is 2048x1024 pixels
+  - Lagere of hogere resoluties zijn mogelijk maar dit bleek een goede balans tussen beeldkwaliteit en hoe zwaar de video files waren.
+  - ❗Als de video een afwijkend resolutie heeft zorg er dan wel voor dat de [beeldverhouding](https://nl.wikipedia.org/wiki/Beeldverhouding) 2:1 blijft
+- Bij voorkeur is de framerate 30 afbeeldingen per seconde(fps)
+  - Lagere of hogere framerates zijn mogelijk maar dit was wederom een goede balans tussen beeldkwaliteit en hoe zwaar de video files waren
+
+Je video mag dus afwijken van framerate, resolutie of beeldverhouding maar zorg er wel voor dat alle videos dezelfde framerate, resolutie en beeldverhouding zijn. Mixen van videos met andere afmetingen werkt niet.
 
 ### Bestandsformaat
 
 Alle 6 van deze bestanden moeten van het `.mov` formaat zijn en daarbovenop moeten ze in het [hap](https://hap.video/) formaat geëncodeerd worden. Het voordeel van het `hap` formaat is dat het efficiënt kan afgespeeld worden, hierdoor heeft de projectie hardware lagere performantie vereisten. Het formaat kan ook goed om met transparantie in de video files wat we nodig hebben voor de `interactie` en `voorgrond` video files.
 
-Je kan bijna eender welk videoformaat of afbeeldingen sequentie eenvoudig omzetten naar hap zie: [Converteren naar hap](#converteren-naar-hap)
+Je kan bijna eender welk videoformaat of afbeeldingen sequentie eenvoudig omzetten naar hap zie: [Converteren naar hap formaat](#converteren-naar-hap-formaat).
 
 ## Compositing
 
@@ -138,7 +158,7 @@ Vooraleer we beginnen, moeten we ervoor zorgen dat de resolutie correct staat.
 #### Animeren
 1. Start de opnamesessie door op de rode knop te drukken in de timeline 
    - De balk zal rood worden en het knopje zal flikkeren om aan te duiden dat je animatie aan het opnemen is. ![Opname starten](./images/Record.png)
-2. Je kan nu het object bewegen met de gizmo ![Gizmo](./images/Gizmo.png) in de `Scene` view of via de `Transform` in de `Inspector` window. ![Animatie bouwen](./images/Animatie.png) #todo kort zeggen wat gizmo is
+2. Je kan nu het object bewegen met de gizmo (hulpmiddel om objecten te verplaatsen, roteren of verschalen via de interatieve pijltjes zie afbeelding)![Gizmo](./images/Gizmo.png) in de `Scene` view of via de `Transform` in de `Inspector` window. ![Animatie bouwen](./images/Animatie.png), de gizmo is een hulpmiddel om objecten te verplaatsen, roteren of verschalen.
 3. Door stapsgewijs het object te verplaatsen of roteren en de timeline in tijd verder te slepen kan je je animatie opbouwen. ![Voorbeeld animatie](./images/Playback.gif)
 4. Je kan meerdere objecten animeren door ze vanuit de `Hierarchy` Window in je timeline te slepen en ze als `animation track` toe te voegen.
    ![Complexere voorbeeld animatie](./images/LightAnimation.gif)
@@ -152,7 +172,7 @@ Als je klaar bent met je animatie, is het tijd om het uit te renderen: We gaan v
 ![Recorder window](./images/Recorder.png)
 3. Afhankelijk van hoe zwaar je animatie is, kan dit proces even duren. Als je animatie uitgespeeld is, kan je drukken op `Stop recording`.
 
-Je kan nu je volledige animatie terug vinden in de `recordings` folder. Je zal zien dat hier nu een hele hoop `.png` afbeeldingen staan. Deze png's nemen ook het alpha kanaal mee maar moeten nu nog omgezet worden naar een `.mov`, zie [Converteren naar hap](#converteren-naar-hap).
+Je kan nu je volledige animatie terug vinden in de `recordings` folder. Je zal zien dat hier nu een hele hoop `.png` afbeeldingen staan. Deze png's nemen ook het alpha kanaal mee maar moeten nu nog omgezet worden naar een `.mov`, zie [Converteren naar hap formaat](#converteren-naar-hap-formaat).
 
 ### Waar kan ik extra modellen vinden?
 
@@ -169,14 +189,34 @@ Voorbeeld Sketchfab CreativeCommons:
 
 ![Sketchfab CreativeCommons](./images/License.png)
 
-## Converteren naar hap
-
-#TODO: write proper installation guide and on how to open a command line?
+## Converteren naar hap formaat
 
 Om te converteren kan je gebruik maken van [ffmpeg](https://ffmpeg.org).
 
-ffmpeg kan je installeren op Mac, Windows of Linux, de installers kan je hier vinden: [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)
 
+### Installatie ffmpeg
+
+Je kan ffmpeg installeren door het te downloaden via: [ffmpeg.org/download.html](https://ffmpeg.org/download.html) en manueel te extracten en aan je command line path toe te voegen.
+
+Een eenvoudigere manier is via een package manager.
+
+#### Windows
+
+1. Installeer [chocolatey](https://chocolatey.org/)
+   1. Open een admin powershell venster
+![Powershell venster openen](./images/Powershell.png)
+   1. Plak `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))` in het venster en druk op enter
+2. Je kan nu `choco install ffmpeg -y` in hetzelfde venster plakken en op enter drukken
+3. Ziezo je hebt nu ffmpeg geïnstalleerd, als je nu `ffmpeg -version` plakt en op enter drukt krijg je de versie van ffmpeg te zien.
+![Choco install ffmpeg](./images/ChocoInstall.png)
+
+#### Mac/Linux
+
+1. Installeer [brew](https://brew.sh/)
+   1. [Open een terminal venster](https://support.apple.com/nl-nl/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac#:~:text=Voer%20op%20de%20Mac%20een,klik%20dubbel%20op%20'Terminal'.)
+   2. Plak `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"` in het venster en druk op enter
+2. Je kan nu `brew install ffmpeg` in hetzelfde venster plakken en op enter drukken
+3. Ziezo je hebt nu ffmpeg geïnstalleerd, als je nu `ffmpeg -version` plakt en op enter drukt krijg je de versie van ffmpeg te zien.
 
 ### Een bestaande video omzetten
 

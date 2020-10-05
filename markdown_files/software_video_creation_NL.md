@@ -1,29 +1,29 @@
 # Video creatie
 
 - [Video creatie](#video-creatie)
-	- [Technische vereisten](#technische-vereisten)
-		- [Video afmetingen](#video-afmetingen)
-		- [Bestandsformaat](#bestandsformaat)
-	- [Compositing](#compositing)
-		- [Achtergrond](#achtergrond)
-		- [Interactie](#interactie)
-		- [Voorgrond](#voorgrond)
-	- [Beeldmateriaal maken met Unity](#beeldmateriaal-maken-met-unity)
-		- [Unity installeren](#unity-installeren)
-		- [Project openen](#project-openen)
-		- [Opbouw van het project](#opbouw-van-het-project)
-		- [Een simpele animatie maken](#een-simpele-animatie-maken)
-			- [Voorbereiding](#voorbereiding)
-			- [Animatie opzetten](#animatie-opzetten)
-			- [Animeren](#animeren)
-		- [De animatie uitrenderen](#de-animatie-uitrenderen)
-		- [Waar kan ik extra modellen vinden?](#waar-kan-ik-extra-modellen-vinden)
-	- [Converteren naar hap formaat](#converteren-naar-hap-formaat)
-		- [Installatie ffmpeg](#installatie-ffmpeg)
-			- [Windows](#windows)
-			- [Mac/Linux](#maclinux)
-		- [Een bestaande video omzetten](#een-bestaande-video-omzetten)
-		- [Een afbeeldingen sequentie omzetten](#een-afbeeldingen-sequentie-omzetten)
+  - [Technische vereisten](#technische-vereisten)
+    - [Video afmetingen](#video-afmetingen)
+    - [Bestandsformaat](#bestandsformaat)
+  - [Compositing](#compositing)
+    - [Achtergrond](#achtergrond)
+    - [Interactie](#interactie)
+    - [Voorgrond](#voorgrond)
+  - [Beeldmateriaal maken met Unity](#beeldmateriaal-maken-met-unity)
+    - [Unity installeren](#unity-installeren)
+    - [Project openen](#project-openen)
+    - [Opbouw van het project](#opbouw-van-het-project)
+    - [Een simpele animatie maken](#een-simpele-animatie-maken)
+      - [Voorbereiding](#voorbereiding)
+      - [Animatie opzetten](#animatie-opzetten)
+      - [Animeren](#animeren)
+    - [De animatie uitrenderen](#de-animatie-uitrenderen)
+    - [Waar kan ik extra modellen vinden?](#waar-kan-ik-extra-modellen-vinden)
+  - [Converteren naar hap formaat](#converteren-naar-hap-formaat)
+    - [Installatie ffmpeg](#installatie-ffmpeg)
+      - [Windows](#windows)
+      - [Mac/Linux](#maclinux)
+    - [Een bestaande video omzetten](#een-bestaande-video-omzetten)
+    - [Een afbeeldingen sequentie omzetten](#een-afbeeldingen-sequentie-omzetten)
 
 Om een mooie interatieve projectie te maken hebben we meerdere video files nodig. Je kan deze video files maken met veel verschillende open en gesloten software of met bestaand beeldmateriaal. Je kan bijvoorbeeld aan de slag gaan met 3D animatie software zoals [Blender](https://www.blender.org/) of misschien werk je liever met 2D animatie software? Voor Team Scheire zijn we gegaan voor een game engine als animatie software: [Unity](https://unity.com/).
 
@@ -204,7 +204,6 @@ Voorbeeld Sketchfab CreativeCommons:
 ## Converteren naar hap formaat
 
 Om te converteren kan je gebruik maken van [ffmpeg](https://ffmpeg.org).
-
 
 ### Installatie ffmpeg
 

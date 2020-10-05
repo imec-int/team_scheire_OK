@@ -201,7 +201,7 @@ Om te converteren kan je gebruik maken van [ffmpeg](https://ffmpeg.org).
 
 ### Installatie ffmpeg
 
-Je kan ffmpeg installeren door het te downloaden via: [ffmpeg.org/download.html](https://ffmpeg.org/download.html) en manueel te extracten en aan je command line path toe te voegen.
+Je kan ffmpeg installeren door het te downloaden via: [ffmpeg.org/download.html](https://ffmpeg.org/download.html) en manueel te extracten en aan je opdrachtprompt path toe te voegen.
 
 Een eenvoudigere manier is via een package manager.
 
@@ -227,6 +227,8 @@ Een eenvoudigere manier is via een package manager.
 
 Voor achtergrond lagen kan je bijna alles gebruiken van video materiaal omdat transparantie niet nodig is hier.
 
+Open een nieuwe terminal of opdrachtprompt in de locatie van je video file. Je kan het commando `cd` gebruiken om te navigeren, meer info [navigeren in de opdrachtprompt](https://nl.wikibooks.org/wiki/Gebruik_van_de_opdrachtprompt/Naar_de_goede_map_navigeren).
+
 Je kan bijna eender welke video omzetten via:
 `ffmpeg -i mijnVideo.mp4 -c:v hap mijnVideo.mov`
 
@@ -239,6 +241,8 @@ Gebruik dan: `ffmpeg -i mijnVideoBron.mov -c:v hap -format hap_alpha mijnVideoOu
 
 Heb je zelf een afbeeldingen sequentie uitgerendered met Unity of andere software?
 Je kan dan deze afbeeldingen in éen enkele stap samenvoegen en converteren naar een video van het juiste formaat.
+
+Open een nieuwe terminal of opdrachtprompt in de locatie van je afbeeldingen sequentie. Je kan het commando `cd` gebruiken om te navigeren, meer info [navigeren in de opdrachtprompt](https://nl.wikibooks.org/wiki/Gebruik_van_de_opdrachtprompt/Naar_de_goede_map_navigeren).
 
 - Met transparantie: `ffmpeg -r 30 -s 2048x1024 -i image_%04d.png -vcodec hap -format hap_alpha -pix_fmt rgba mijnVideo.mov`
 - Zonder transparantie: `ffmpeg -r 30 -s 2048x1024 -i image_%04d.png -vcodec hap -format hap -pix_fmt rgb mijnVideo.mov`

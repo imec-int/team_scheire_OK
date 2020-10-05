@@ -22,7 +22,7 @@ Because kids get to choose their props in advance, the transition to the Operati
 1. [Fysieke opstelling](markdown_files/fysieke_opstelling.md)
 2. [Hardware setup](markdown_files/hardware_NL.md)
 3. [Software: video projection](markdown_files/software_video_map_NL.md)
-4. [Software: video creation](markdown_files/software_video_creation.md)
+4. [Software: video creation](markdown_files/software_video_creation_NL.md)
 5. [stickers](markdown_files/stickers.md)
 
 
@@ -36,4 +36,3 @@ This project is made with a few different software applications and frameworks. 
 	5. [ofxCV: MIT license](https://github.com/kylemcdonald/ofxCv)
 	7. [ofxHapPlayer: custom license](https://github.com/bangnoise/ofxHapPlayer/blob/master/LICENSE)
 8. [Raspberry pi documentation: creative commons license](https://www.raspberrypi.org/documentation/)
-

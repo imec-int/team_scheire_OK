@@ -78,7 +78,10 @@ De drie videos gaan in lagen over elkaar getoond worden door de [projectie softw
 Let dus op dat je video files rekening houden met de mogelijkheden en beperkingen van compositing.
 
 In de afbeelding zie je goed hoe de drie lagen over elkaar gelegd worden om het uiteindelijk resultaat te bekomen. Let op de (voorgrond) visjes die bovenop de kist (interactie laag) zwemmen.
-![Compositing](./images/Compositing.gif)
+
+<p align="center">
+  <img src="./images/Compositing.gif" alt="compositing>
+</p>
 
 ### Achtergrond
 
@@ -140,10 +143,10 @@ Omdat Unity een game engine is, kan je een animatie maken via code maar ook via 
 Vooraleer we beginnen, moeten we ervoor zorgen dat de resolutie correct staat.
 
 1. Open de game window (zie afbeelding)
-2. Klik op de resolutie knop: `Free Aspect`
-![Capsule maken](./images/SetResolution.png)
-3. Hier kies je voor 2048x1024, als deze preset nog niet bestaat kan je het zelf aanmaken door op het plus icoontje te klikken.
-![Capsule maken](./images/CreateResolution.png)
+2. Klik op de resolutie knop: `Free Aspect`<br/>
+   ![Capsule maken](./images/SetResolution.png)
+3. Hier kies je voor 2048x1024, als deze preset nog niet bestaat kan je het zelf aanmaken door op het plus icoontje te klikken.<br/>
+   ![Capsule maken](./images/CreateResolution.png)
 
 #### Animatie opzetten
 1. Plaats je object in de scene door het vanuit je project folder in de scene te slepen
@@ -151,30 +154,34 @@ Vooraleer we beginnen, moeten we ervoor zorgen dat de resolutie correct staat.
    ![Capsule maken](./images/CreateCapsule.png)
 2. Open de timeline window ![Timeline openen](./images/OpenTimeline.png)
    - Je kan deze timeline overal plaatsen door de titel van de window te slepen naar een andere locatie
-3. Zorg ervoor dat je object geselecteerd is, daarna kan je in de timeline window op create klikken om de animatie director aan te maken. ![Director maken](./images/CreateDirector.png)
+3. Zorg ervoor dat je object geselecteerd is, daarna kan je in de timeline window op create klikken om de animatie director aan te maken.<br/>
+   ![Director maken](./images/CreateDirector.png)
     - Unity gaat vragen waar je deze wil opslaan, dit mag eender waar in het project maar zorg ervoor dat de naam overeenkomt met de naam van je scene om het overzichtelijk te houden.
-4. Open het menu van je nieuwe animatie director door het aan te klikken in de Project window. Zorg ervoor dat de Frame rate op 30 staat ipv van 60. ![Director Settings](./images/InteractionAnimation.png)
+4. Open het menu van je nieuwe animatie director door het aan te klikken in de Project window. Zorg ervoor dat de Frame rate op 30 staat ipv van 60.<br/>
+   ![Director Settings](./images/InteractionAnimation.png)
 
 #### Animeren
 1. Start de opnamesessie door op de rode knop te drukken in de timeline 
-   - De balk zal rood worden en het knopje zal flikkeren om aan te duiden dat je animatie aan het opnemen is. ![Opname starten](./images/Record.png)
+   - De balk zal rood worden en het knopje zal flikkeren om aan te duiden dat je animatie aan het opnemen is.<br/>
+     ![Opname starten](./images/Record.png)
 2. Je kan nu het object bewegen met:
-   - De gizmo (hulpmiddel om objecten te verplaatsen, roteren of verschalen via de interatieve pijltjes zie afbeelding) in de `Scene` view
-![Gizmo](./images/Gizmo.png)
-   - De `Transform` in de `Inspector` window. 
- ![Animatie bouwen](./images/Animatie.png)
-1. Door stapsgewijs het object te verplaatsen of roteren en de timeline in tijd verder te slepen kan je je animatie opbouwen. ![Voorbeeld animatie](./images/Playback.gif)
-2. Je kan meerdere objecten animeren door ze vanuit de `Hierarchy` Window in je timeline te slepen en ze als `animation track` toe te voegen.
-
-![Complexere voorbeeld animatie](./images/LightAnimation.gif)
+   - De gizmo (hulpmiddel om objecten te verplaatsen, roteren of verschalen via de interatieve pijltjes zie afbeelding) in de `Scene` view<br/>
+   ![Gizmo](./images/Gizmo.png)
+   - De `Transform` in de `Inspector` window.<br/>
+   ![Animatie bouwen](./images/Animatie.png)
+3. Door stapsgewijs het object te verplaatsen of roteren en de timeline in tijd verder te slepen kan je je animatie opbouwen.<br/>
+   ![Voorbeeld animatie](./images/Playback.gif)
+4. Je kan meerdere objecten animeren door ze vanuit de `Hierarchy` Window in je timeline te slepen en ze als `animation track` toe te voegen.<br/>
+   ![Complexere voorbeeld animatie](./images/LightAnimation.gif)
 
 ### De animatie uitrenderen
 
 Als je klaar bent met je animatie, is het tijd om het uit te renderen: We gaan van onze animatie een video maken door het eerst uit te renderen als afzonderlijke afbeeldingen.
 
-1. Open de Unity `recorder` window ![Recorder openen](./images/OpenRecorder.png)
-2. Alles staat al vooraf correct ingesteld, je kan dus gewoon op `Start	recording` drukken.
-![Recorder window](./images/Recorder.png)
+1. Open de Unity `recorder` window<br/>
+   ![Recorder openen](./images/OpenRecorder.png)
+2. Alles staat al vooraf correct ingesteld, je kan dus gewoon op `Start	recording` drukken.<br/>
+   ![Recorder window](./images/Recorder.png)
 3. Afhankelijk van hoe zwaar je animatie is, kan dit proces even duren. Als je animatie uitgespeeld is, kan je drukken op `Stop recording`.
 
 Je kan nu je volledige animatie terug vinden in de `recordings` folder. Je zal zien dat hier nu een hele hoop `.png` afbeeldingen staan. Deze png's nemen ook het transparantie kanaal mee maar moeten nu nog omgezet worden naar een `.mov`, zie [Converteren naar hap formaat](#converteren-naar-hap-formaat).
@@ -208,12 +215,12 @@ Een eenvoudigere manier is via een package manager.
 #### Windows
 
 1. Installeer [chocolatey](https://chocolatey.org/)
-   1. Open een admin powershell venster
-![Powershell venster openen](./images/Powershell.png)
+   1. Open een admin powershell venster<br/>
+   ![Powershell venster openen](./images/Powershell.png)
    1. Plak `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))` in het venster en druk op enter
 2. Je kan nu `choco install ffmpeg -y` in hetzelfde venster plakken en op enter drukken
-3. Ziezo je hebt nu ffmpeg geïnstalleerd, als je nu `ffmpeg -version` plakt en op enter drukt krijg je de versie van ffmpeg te zien.
-![Choco install ffmpeg](./images/ChocoInstall.png)
+3. Ziezo je hebt nu ffmpeg geïnstalleerd, als je nu `ffmpeg -version` plakt en op enter drukt krijg je de versie van ffmpeg te zien.<br/>
+   ![Choco install ffmpeg](./images/ChocoInstall.png)
 
 #### Mac/Linux
 

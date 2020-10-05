@@ -158,10 +158,15 @@ Vooraleer we beginnen, moeten we ervoor zorgen dat de resolutie correct staat.
 #### Animeren
 1. Start de opnamesessie door op de rode knop te drukken in de timeline 
    - De balk zal rood worden en het knopje zal flikkeren om aan te duiden dat je animatie aan het opnemen is. ![Opname starten](./images/Record.png)
-2. Je kan nu het object bewegen met de gizmo (hulpmiddel om objecten te verplaatsen, roteren of verschalen via de interatieve pijltjes zie afbeelding)![Gizmo](./images/Gizmo.png) in de `Scene` view of via de `Transform` in de `Inspector` window. ![Animatie bouwen](./images/Animatie.png), de gizmo is een hulpmiddel om objecten te verplaatsen, roteren of verschalen.
-3. Door stapsgewijs het object te verplaatsen of roteren en de timeline in tijd verder te slepen kan je je animatie opbouwen. ![Voorbeeld animatie](./images/Playback.gif)
-4. Je kan meerdere objecten animeren door ze vanuit de `Hierarchy` Window in je timeline te slepen en ze als `animation track` toe te voegen.
-   ![Complexere voorbeeld animatie](./images/LightAnimation.gif)
+2. Je kan nu het object bewegen met:
+   - De gizmo (hulpmiddel om objecten te verplaatsen, roteren of verschalen via de interatieve pijltjes zie afbeelding) in de `Scene` view
+![Gizmo](./images/Gizmo.png)
+   - De `Transform` in de `Inspector` window. 
+ ![Animatie bouwen](./images/Animatie.png)
+1. Door stapsgewijs het object te verplaatsen of roteren en de timeline in tijd verder te slepen kan je je animatie opbouwen. ![Voorbeeld animatie](./images/Playback.gif)
+2. Je kan meerdere objecten animeren door ze vanuit de `Hierarchy` Window in je timeline te slepen en ze als `animation track` toe te voegen.
+
+![Complexere voorbeeld animatie](./images/LightAnimation.gif)
 
 ### De animatie uitrenderen
 

@@ -1,15 +1,17 @@
-
+# Software voor video mapping
 ## Waarom?
 
-Omdat het beeld zowel op de muren, als op het plafond geprojecteerd moest worden. Kinderen die het operatiekwartier binnen kwamen keken eerst naar de kasten, en moesten dan op het bed op hun rug gaan liggen, waardoor ze de kasten niet meer zagen en enkel zicht hadden op het plafond. De gemakkelijkste oplossing hier was natuurlijk om meerdere projectors in te schakelen, een voor het plafond, en een voor de muren. Maar dan moesten deze gefixeerd worden om de mapping juist te krijgen. En hadden we voor elke zaal waar dit gebruikt zou worden meerdere projectoren nodig. Meerdere zalen omdat er telkens twee operatiekwartieren tot hun beschikking zijn, die afwisselend gebruikt worden (terwijl de andere gedesinfecteerd wordt). Dokters en verplegend personeel hebben echter niet de tijd om elke keer opnieuw een volledige setup te doen van de beelden, om de juiste mappings te doen, of om projectors juist te richten. 
+Uit het gebruikersonderzoek is gebleken dat kinderen, die het operatiekwartier binnen komen, eerst naar de kasten en lege muren kijken. Vervolgens moeten ze dan op het bed op hun rug gaan liggen, waardoor ze de kasten niet meer zien en enkel zicht hebben op het plafond.
+Logischerwijs trokken we de conclusie dat het beeld zowel op de muren, als op het plafond geprojecteerd moest worden.  
+De gemakkelijkste oplossing hier was natuurlijk om meerdere projectors in te schakelen, een voor het plafond, en een voor de muren. Maar dan moesten deze gefixeerd worden om de mapping juist te krijgen. En hadden we voor elke zaal waar dit gebruikt zou worden, meerdere projectoren nodig. Meerdere zalen omdat er telkens twee operatiekwartieren tot hun beschikking zijn, die afwisselend gebruikt worden (terwijl de andere gedesinfecteerd wordt). Dokters en verplegend personeel hebben echter niet de tijd om elke keer opnieuw een volledige setup te doen van de beelden, om de juiste mappings te doen of om projectors juist te richten. 
 
-Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkheid deze door een plotter op stickerpapier te printen) konden we automatisch detecteren waar de opstelling op moest projecteren, welk vlak wat was en hoe dit georienteerd moest zijn. Op deze manier was het dan ook mogelijk selectief te programmeren, en bijvoorbeeld werkruimten met rust te laten, zodat dokters hun werk konden doen.
+Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkheid deze door een plotter op stickerpapier te printen) konden we automatisch detecteren waar de opstelling op moest projecteren, welk vlak wat was en hoe dit geörienteerd moest zijn. Op deze manier was het dan ook mogelijk selectief te programmeren, en bijvoorbeeld werkruimten met rust te laten, zodat dokters hun werk konden doen.
 
 
 
 ## software setup
 
-Het originele beeldmateriaal werdt geproduceerd in Unity (zie [video creation](./software_video_creation)). Je kan deze echter zelf ok produceren en deze toevoegen aan de applicatie.
+Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./software_video_creation)). Je kan deze echter zelf ook produceren en deze toevoegen aan de applicatie.
 
 Ga door volgende stappen om eigen beelden toe te voegen:
 

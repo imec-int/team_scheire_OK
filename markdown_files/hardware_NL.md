@@ -1,9 +1,10 @@
 # hardware setup
 
+Hier lees je bondig welke spullen je nodig hebt om de audio-visuele installatie te kunnen bouwen, met een voorstel van mogelijke componenten.
 
 ## Componenten
 * Projector:  H116ST optoma (579€)
- * Computer: Intel NUC (599€)
+* Computer: Intel NUC (599€)
   * Intel core i5
   * 8GB DDR4
   * 240GB SSD
@@ -17,6 +18,7 @@
   * De projector heeft een ingebouwde speaker, maar om kwalitatief beter geluid te krijgen kan je extra speakers plaatsten
 * Staander voor projector: Quicklock QL400 (https://www.gear4music.be/nl/PA-DJ-and-Verlichting/Quiklok-QL-400-Studio-Locator-Stand-for-Equipment/AEG?origin=product-ads&gclid=EAIaIQobChMIjYqWpLqT7AIVCtd3Ch0fogbVEAQYASABEgL5dvD_BwE) (109€)
 * Plexi plaat om projector te monteren op de staander (30€)
+* Kabels: zie schematische voorstelling voor benodigde kabels
 
 ![Image of inside](images/inside.JPG)
 
@@ -32,9 +34,9 @@ Om ervoor te zorgen dat we de encasing niet al te vaak open hoefden te vijzen, b
 
 ### Projector
 
-We besloten voor deze optoma te gaan om een brede projectiehoek te verkrijgen voor een aanvaardbare prijs. de Optoma kon dit bereiken. Deze ondersteund ook seriele input voor latere uitbreidingen.
+We besloten voor deze optoma te gaan om een brede projectiehoek te verkrijgen voor een aanvaardbare prijs. Deze Optoma kon dit bereiken. Deze ondersteund ook seriele input voor latere uitbreidingen.
 De brede projectiehoek zorgt ervoor dat we op een groot oppervlakte kunnen projecteren vanop een korte afstand. 
-Dit is natuurlijk geen verplichting, indien de ruimte groot genoeg is kan dit werken met een standarad projector. vergeet echter niet: de webcam behoort hetzelfde perspectief te hebben als de projector om accuraat te kunnen calculeren waar te projecteren, en hoe verder deze moet kijken, hoe groter de markers behoren te zijn.
+Dit is natuurlijk geen verplichting, indien de ruimte groot genoeg is, kan dit werken met een standaard projector. Vergeet echter niet: de webcam behoort hetzelfde perspectief te hebben als de projector om accuraat te kunnen calculeren waar te projecteren. Dus, hoe verder deze moet kijken, hoe groter de markers behoren te zijn.
 
 De hoeveelheid [(ansi)-lumen](https://nl.wikipedia.org/wiki/Lumen_(eenheid)#:~:text=De%20lumen%20(symbool%3A%20lm),lichtbron%20in%20alle%20richtingen%20uitstraalt.) is ook van belang: afhankelijk van hoeveel licht er in de ruimte valt (zeker zonlicht) dient men voor hogere lichtopbrengst te gaan. 
 

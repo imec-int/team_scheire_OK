@@ -14,9 +14,9 @@ Hier lees je bondig welke spullen je nodig hebt om de audio-visuele installatie 
   * Deze geeft stroom aan zowel de NUC as aan de audio shield (en speakers)
 * Remote: om het even welk draadloos numpad (13€)
   * De applicatie gebruikt numerieke input om modi te selecteren
-* Speaker:   https://benl.rs-online.com/web/p/speaker-drivers/1218639/ (2* 22,10€)
+* [Speaker](https://benl.rs-online.com/web/p/speaker-drivers/1218639/) (2* 22,10€)
   * De projector heeft een ingebouwde speaker, maar om kwalitatief beter geluid te krijgen kan je extra speakers plaatsten
-* Staander voor projector: Quicklock QL400 (https://www.gear4music.be/nl/PA-DJ-and-Verlichting/Quiklok-QL-400-Studio-Locator-Stand-for-Equipment/AEG?origin=product-ads&gclid=EAIaIQobChMIjYqWpLqT7AIVCtd3Ch0fogbVEAQYASABEgL5dvD_BwE) (109€)
+* Staander voor projector: [Quicklock QL400](https://www.gear4music.be/nl/PA-DJ-and-Verlichting/Quiklok-QL-400-Studio-Locator-Stand-for-Equipment/AEG?origin=product-ads&gclid=EAIaIQobChMIjYqWpLqT7AIVCtd3Ch0fogbVEAQYASABEgL5dvD_BwE) (109€)
 * Plexi plaat om projector te monteren op de staander (30€)
 * Kabels: zie schematische voorstelling voor benodigde kabels
 

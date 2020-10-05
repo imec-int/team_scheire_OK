@@ -13,6 +13,7 @@ Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkhei
 
 Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./software_video_creatie)). Je kan deze echter zelf ook produceren en deze toevoegen aan de applicatie.
 
+
 Ga door volgende stappen om eigen beelden toe te voegen:
 
 1. Produceer 3 videolagen voor zowel plafond als muur (zij aanzicht en boven aanzicht)

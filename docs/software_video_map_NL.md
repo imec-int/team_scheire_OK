@@ -23,9 +23,9 @@ Ga door volgende stappen om eigen beelden toe te voegen:
 1. Doe dit voor beide thema's (in ons geval onderwater en ruimtereis)
 1. Maak in de `bin/data` folder, van je openframeworks installatie, een map aan genaamd `/space`, en een map genaamd `/water`
 1. kopieer de videofiles naar de overeenkomstige mappen
-	2. ofwel de bestaande werelden uit `media/video_material`
-	3. ofwel de zelf gemaakte werelden (indien het voorbeeld Unity project, vanuit de map `recordings`)
-	1. controleer de naamgeving via [video settings en oppervlakken](#video-settings-en-oppervlakken) subtitel
+    1. ofwel de bestaande werelden uit `media/video_material`
+    2. ofwel de zelf gemaakte werelden (indien het voorbeeld Unity project, vanuit de map `recordings`)
+    3. controleer de naamgeving via [video settings en oppervlakken](#video-settings-en-oppervlakken) subtitel
 2. In `bin/data/sounds` kun je ook een ander achtergrond `.mp3` plaatsen indien beter passend bij het beeldmateriaal. (gebruik de naamgeving `background.mp3` of pas dit aan in `ofApp.cpp`)
 1. build en run de applicatie
 

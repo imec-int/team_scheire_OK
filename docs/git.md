@@ -27,10 +27,12 @@ om een lokale variant van de repository te hebben kun je in sourcetree volgende 
 1. Open de Sourcetree applicatie
 2. Klik boven in de applicatie op "new..." en "clone from URL" 
 ![sourcetree](images/sourcetree1.png)
+
 3. Vul in het dialoogvenster:
 	1. de link naar de website in: `https://github.com/imec-int/team_scheire_OK`
 	2. de locatie naar waar je de folder wilt kopiëren
 ![sourcetree2](images/sourcetree2.png)
+
 4. klik dan op `clone`
 5. nu wordt de folder lokaal gekopieerd, wijzigingen die je hier in aan brengt zijn enkel aan je lokale kopie.
 6. Heb je toevoegingen die je wilt bijbrengen aan de online repository, zodat alle gebruikers deze kunnen zien, dan kun je een "pull request" aanvragen. Je dient een aanvraag in tot verandering, die goed gekeurd kan worden door iemand anders. Een (engelstalige) tutorial kun je hier vinden: [youtube sourcetree pull request](https://www.youtube.com/watch?v=hxP3hzspSWs)

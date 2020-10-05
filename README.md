@@ -54,6 +54,7 @@ Dit project is gebouwd met enkele software paketten en frameworks. Hieronder een
 1. [Unity license](https://unity3d.com/legal/as_terms)
 2. [OpenFrameworks (MIT License)](https://openframeworks.cc/about/license/) 
 3. Libraries:
+
 	3. [ofxAruco: BSD License](https://github.com/arturoc/ofxAruco)
 	5. [ofxCV: MIT license](https://github.com/kylemcdonald/ofxCv)
 	7. [ofxHapPlayer: custom license](https://github.com/bangnoise/ofxHapPlayer/blob/master/LICENSE)

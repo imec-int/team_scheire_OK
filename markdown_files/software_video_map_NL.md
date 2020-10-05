@@ -11,7 +11,7 @@ Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkhei
 
 ## software setup
 
-Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./software_video_creation)). Je kan deze echter zelf ook produceren en deze toevoegen aan de applicatie.
+Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./software_video_creation_nl.md)). Je kan deze echter zelf ook produceren en deze toevoegen aan de applicatie.
 
 Ga door volgende stappen om eigen beelden toe te voegen:
 

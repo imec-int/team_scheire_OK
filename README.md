@@ -1,12 +1,18 @@
-# TeamScheire
+# Team Scheire: Interactief, immersief operatiekwartier
+
+![](./markdown_files/images/scheire.jpg)
+&copy; Canvas 2020
+
 
 ## project topic
 
-[Team Scheire](https://www.canvas.be/team-scheire) is een TV productie door Canvas in which they portray how the maker movement can easily help individuals with a specific problem by hacking together a solution. 
+[Team Scheire](https://www.canvas.be/team-scheire) is een TV productie van [Canvas](https://www.canvas.be/) waarin makers aan bod komen die trachten individuen met specifieke problematieken te behelpen. Dit doen ze door op hun manier een oplossing in elkaar te 'hacken'.
 
-The use-case chosen for the 2nd season of Team Scheire by imec is: reducing pre-operative and anaesthetic anxiety in children. Children that undergo surgery are taken away from their trusted environment and lose almost every element of control. This can lead to anxiety and make their fight, flight, fight mechanism kick in. On the one hand, the children that demonstrate fight and flight responses can obstruct the sedation process. On the other hand any child that experiences pre-operative anxiety can have a longer post-operative recuperation process, become traumatized, etc. Therefore it is import to reduce the fear of the children as much as possible. 
+Voor het tweede seizoen van Team Scheire heeft [imec](https://www.imec.be/nl) volgende project gekozen: Het verminderen van pre-operatieve en anesthetische angst bij kinderen. Kinderen die een operatie moeten ondergaan worden weggenomen uit hun vertrouwde omgeving en verliezen alle controle hierbij. Dit kan leiden tot angst en ervoor zorgen dat hun [vecht-of-vluchtreactie](https://nl.wikipedia.org/wiki/Vecht-of-vluchtreactie) optreedt. Enerzijds kunnen kinderen door hun vecht-of-vluchtreactie het verdovingsproces belemmeren. Anderzijds kan het kind, doordat het pre-operatieve angst ervaart, een langer post-operatieve herstelperiode hebben, getraumatizeerd worden, etc. Het is daarom van groot belang om de angst bij de kinderen zoveel als mogelijk te verminderen.
 
-Distraction is a technique that has proved fruitful in hospital environments, for example with VR or tablets. In the OR the standards for introducing regular technologies are very strict and you have to stay out of the patient zone (1.5 meter). Because the room in general and the sedation mask were the most scary elements for children created a solution in the form of an immersive environment, where doctors, children and kids can interact with each other and the environment.  
+
+Afleiding is een techniek die reeds bewezen heeft succesvol te werken in de omgeving van een ziekenhuis, ondermeer door het gebruik van Virtual Reality toestellen en tablets. In het operatiekwartier zijn de vereisten om reguliere nieuwe technologieën te introduceren zeer strict en dien je weg te blijven uit de onmiddelijke omgeving van de patiënt (tot 1.5 meter).
+ Because the room in general and the sedation mask were the most scary elements for children created a solution in the form of an immersive environment, where doctors, children and kids can interact with each other and the environment.  
 
 ### the immersive environment
 
@@ -19,15 +25,23 @@ In normal circumstances the children would only be introduced to the mask in the
 Because kids get to choose their props in advance, the transition to the Operations Room runs a lot smoother. Plus, they are less afraid of the mask being handed to them, as they had the chance to familiarize themselves with it. The props in this case where a range of stickers, in either the water- or space theme, which kids can use to add to their mask. 
 
 1. [Git installeren](markdown_files/git.md)
+2. [Gebruikersonderzoek](markdown_files/gebruikersonderzoek.md)
 1. [Fysieke opstelling](markdown_files/fysieke_opstelling.md)
 2. [Hardware setup](markdown_files/hardware_NL.md)
 3. [Software: video projectie](markdown_files/software_video_map_NL.md)
 4. [Software: video creatie](markdown_files/software_video_creation.md)
 5. [stickers](markdown_files/stickers.md)
+6. [Toekomstige ontwikkelingen?](markdown_files/toekomst.md)
 
 
-### bugs???
-aanvragen via github of via mail?
+### bugs & toekomst van het project
+1. Bugs: aanvragen via github of via mail?
+2. Toekomstige ontwikkelingen:
+	3. extra verhalen: meer en diverser beeld- en audiomateriaal kan meer kinderen van verschillende leeftijden aanspreken.
+	4. Bekijken of een setup zonder aruco markers mogelijk is
+	5. eigen toevoegingen? 	
+
+
 
 ### Licentie referenties
 

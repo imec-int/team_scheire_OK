@@ -34,7 +34,7 @@ Aangezien de kinderen zelf hun rekwisieten op voorhand kunnen kiezen, is de over
 1. [Fysieke opstelling](docs/fysieke_opstelling.md)
 2. [Hardware setup](docs/hardware_NL.md)
 3. [Software: video projectie](docs/software_video_map_NL.md)
-4. [Software: video creatie](docs/software_video_creation.md)
+4. [Software: video creatie](docs/software_video_creation_NL.md)
 5. [stickers](docs/stickers.md)
 6. [Toekomstige ontwikkelingen?](docs/toekomst.md)
 

@@ -24,14 +24,6 @@ We plaatsen dit onderzoek openbaar, zodat iedereen verder mee kan denken, bouwen
 We delen geen zaken die terug te herleiden zijn naar individuele patienten, ouders of medisch personeel en zij daar niet expliciet toestemming voor gegeven hebben.
 
 
-MacDown is hosted on GitHub:
-
-[link](https://github.com/MacDownApp/macdown)
-
-![link](https://github.com/MacDownApp/macdown)
-
-Here you can get the source code, read through the issues and start contributing.
-
 ## Thema's en Aanpak
 
 De belangrijkste onderzoeksvragen zijn:
@@ -42,9 +34,9 @@ De belangrijkste onderzoeksvragen zijn:
 
 Dit doen we door:
 
-1. [Observatie](Observatie.md): In de praktijk meelopen met medisch personeel, de patient en ouders
-2. [Desk Research](DeskResearch.md): Via secondaire bronnen leren wat potentieel kan werken als oplossing
-3. [Interviews & Co-creatie](Interviews&Cocreatie.md): Samen met ouders en kind een oplossing co-creëren
+2. [Desk Research](desk_research.md): Via secondaire bronnen leren wat potentieel kan werken als oplossing
+3. [Interviews & Co-creatie](interviews_cocreatie.md): Samen met ouders en kind een oplossing co-creëren
+4. [Eye tracking](eye_tracking.md): We capteren waar de kinderen naar kijken
 4. [Iteratief testen](testen.md): Regelmatig aftoetsen met kinderen of de oplossing voldoet aan de noden
 
 

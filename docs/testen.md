@@ -1,10 +1,10 @@
-#Testen
+# Testen
 
-##Iteratief testen doorheen ontwikkelingsproces
+## Iteratief testen doorheen ontwikkelingsproces
 
 De oplossing wordt iteratief (elke 2 weken) getest om vroegtijdig in het ontwikkelingsproces feedback te geven aan de ontwikkelaars. Zo werden een aantal zaken met kinderen afgestemd: 
 
-**De storyline:** Hoe willen kinderen dat de storyline er uit ziet en naar wat gaat hun voorkeur? De uitkomst hiervan werkt verwerkt in [LINK MET UNITY]
+**De storyline:** Hoe willen kinderen dat de storyline er uit ziet en naar wat gaat hun voorkeur? De uitkomst hiervan werkt verwerkt in #todo [LINK MET UNITY]
 
 *  Kinderen hebben voorkeur voor 2 thema's: onderwater en ruimte
 *  Keuze voor thema is niet leeftijds noch geslachtsgebonden
@@ -21,13 +21,13 @@ Hoe snel ademen kinderen en hoe lang moet de interactie dus duren? 6-8 seconden
 Type van muziek: de voorkeur gaat uit naar relaxerende muziek
 Type van interactie geluid: de voorkeur gaat naar realistische geluiden (lucht in water die zich verplaatst en verplaatsing van een 'gemotoriseerd' toestel)
 
-##Input na langdurig gebruik (real-life veldtest)
+## Input na langdurig gebruik (real-life veldtest)
 
 Over het algemeen wordt de oplossing na langdurig gebruik (1 jaar) nog steeds positief bevonden. 
 De overgrote meerderheid van de kinderen worden afgeleid door de oplossing en werken vlotter mee. 
-Enkel de jongste groep kinderen <2 jaar blijven een moeilijkere doelgroep omdat ze het proces niet begrijpen. Soms helpt de muziek wel bij deze kinderen, de beelden zelf hebben minder effect. Vanaf de leeftijd van 2 jaar is de oplossing in staat de kinderen in een wereld van verwondering te laten binnenwandelen. 
+Enkel de jongste groep kinderen < 2 jaar blijven een moeilijkere doelgroep omdat ze het proces niet begrijpen. Soms helpt de muziek wel bij deze kinderen, de beelden zelf hebben minder effect. Vanaf de leeftijd van 2 jaar is de oplossing in staat de kinderen in een wereld van verwondering te laten binnenwandelen. 
 
-**De projector **
+**De projector**
 
 De projectie komt niet altijd tot het volste recht in een lichtrijke ruimte. 
 

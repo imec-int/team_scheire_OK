@@ -91,7 +91,8 @@ Lerwick et al. (2016): “minimizing pediatric healthcare-induced anxiety and tr
 
 ## Conclusies
 
-Belangrijk bij het ontwikkelen van de oplossing dat we met een aantal zaken rekening houden: ##TODO<link storyline willem en jan hardware>
+Belangrijk bij het ontwikkelen van de oplossing dat we met een aantal zaken rekening houden: 
+##TODO<link storyline willem en jan hardware>
 
 * Zorgen voor actieve afleiding 
 * Vroeg in het proces geintroduceerd (werkgeheugen inpalmen)

@@ -1,6 +1,7 @@
 # Eye tracking
 
- #todo foto
+![eye tracking](./images/eye_tracking2.jpg)
+
 
 Eye tracking is een methode om te achterhalen waar iemand exact naar kijkt.  
 Technisch gebeurt dit met een soort bril die de omtrek van de pupil meet, in combinatie met een camera die zich in het midden van de bril bevindt. 
@@ -26,6 +27,6 @@ In combinatie met een beperkte calibratie is eye tracking in principe geen goede
 Kinderen kijken voornamelijk naar de grote witte opervlaktes in het operatiekwartier en besteden minder aandacht aan de machines, die te hoog staan volgens hun gezichtsveld. 
 De lamp boven de tafel neemt het ganse gezichtsveld in beslag als ze plat gaan liggen. Ook het masker is heel prominent aanwezig in het beeld van het kind. 
 
-De ruimtes die vooral voor afleiding moeten zorgen zijn de vloer, wand en het plafond. De projectie richt zich dus idealiter op deze oppervlaktes en maakt deze immersief. ##TOD<linkmethardwarejan>
+De ruimtes die vooral voor afleiding moeten zorgen zijn de vloer, wand en het plafond. De projectie richt zich dus idealiter op deze oppervlaktes en maakt deze immersief. [zie ook de fysieke inrichting van de ruimte](fysieke_opstelling.md)
 
 

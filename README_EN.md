@@ -1,20 +1,32 @@
-# TeamScheire
+# TeamScheire: Interactive, immersive operating room
 
-## project topic
+![](./docs/images/scheire.jpg)
 
-[Team Scheire](https://www.canvas.be/team-scheire) is a TV production by Canvas in which they portray how the maker movement can easily help individuals with a specific problem by hacking together a solution. 
+&copy; Canvas 2020
 
-The use-case chosen for the 2nd season of Team Scheire by imec is: reducing pre-operative and anaesthetic anxiety in children. Children that undergo surgery are taken away from their trusted environment and lose almost every element of control. This can lead to anxiety and make their fight, flight, freeze mechanism kicks in. On the one hand, the children that demonstrate fight and flight responses can obstruct the sedation process. On the other hand any child that experiences pre-operative anxiety can have a longer post-operative recuperation process, become traumatized, etc. Therefore it is import to reduce the fear of the children as much as possible. 
 
-Distraction is a technique that has proved fruitful in hospital environments, for example with VR or tablets. In the OR the standards for introducing regular technologies are very strict and you have to stay out of the patient zone (1.5 meter). Because the room in general and the sedation mask were the most scary elements for children created a solution in the form of an immersive environment, where doctors, children and kids can interact with each other and the environment.  
+## Project description
 
-### the immersive environment
+[Team Scheire](https://www.canvas.be/team-scheire) is a TV show produced by [Canvas](https://www.canvas.be/) in which a team of makers tries to address relevant challenges. Each maker relies on their unique competences to create and 'hack' a solution.
 
-By ways of projection we create an immersive environment. Kids have to choose between two worlds (ocean or space) in which actions have been mapped which they need to perform in real life. 
+For the second season of the show, [imec](https://www.imec-int.com/en) was contacted by the ZNA Queen Paola Children's Hospital. Debby Callaert, driving force behind the idea, and the rest of the pediatric team asked imec to help them __reduce pre-operative and anaesthetic anxiety among children.__ 
+Children that need to have surgery often have little control over their situation and are placed out of their trusted environment. This may cause anxiety and trigger a [fight-or-flight response](https://en.wikipedia.org/wiki/Fight-or-flight_response). This may both obstruct the sedation process and lead to a longer post-operative On the one hand, the children that demonstrate fight and flight responses can obstruct the sedation process. On the other hand any child that experiences pre-operative anxiety can have a longer post-operative recovery (i.e. due to trauma). Reducing anxiety in the operating room therefore is very valuable to the child.
 
-### the props
+**Distraction** is a technique that has already proven useful in hospital settings, as illustrated by earlier experiments with Virtual Reality and tablets. In the OR, the rules surrounding the introduction of (new) technologies are very strict, and attention has to be paid to respecting the 1.5 meter patient zone. 
+Lynn Coorevits's user research indicated that most of the anxiety in children can be attributed to the emptiness of the operating room and the anaesthetic mask. This helped direct the solution towards an immersive experience in which doctors, children and parents can interact with both each other and the environment.
 
-In normal circumstances the children would only be introduced to the mask in the operating room. Because we wanted to give the children more control over the situation and make it theirs, we introduced the mask to the children before the OR, in the preparation room. The children can there choose between two sticker papers each representing thematically one of the environments underwaterworld or space. The stickers were made from the Unity figures created for the environments.
+Disclaimer: the solution proposed is **one of many** possible solutions. Alternative approaches can certainly be dreamed up!
+
+### The immersive environment
+
+To create the immersive environment, we made use of projection techniques. Before entering surgery, children were asked to choose between two settings: space or the ocean. In each of these settings, children could perform certain actions that impacted the projected world around them (e.g. blowing into the anaesthetic mask causes a treasure chest to open). This way, **desirable behavior is encouraged and directed through the immersive environment**.
+
+
+### The props
+
+In a typical surgery, children will only be introduced to the anaesthetic mask in the operating room itself. This approach, however, opted for introducing the mask **before entering the operatig room**. The children were encouraged to choose their preffered setting (space or ocean world) and to decorate their mask accordingly with themed stickers. By having them choose their props in advance, the stressful transition to the operating room could be mitigated and the mask-induced anxiety reduced. 
+
+To ensure thematic continuity along the way, the stickers were designed using the same Unity assets used to build the virtual environments.
  
 Because kids get to choose their props in advance, the transition to the Operations Room runs a lot smoother. Plus, they are less afraid of the mask being handed to them, as they had the chance to familiarize themselves with it. The props in this case where a range of stickers, in either the water- or space theme, which kids can use to add to their mask. 
 

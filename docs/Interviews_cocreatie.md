@@ -59,18 +59,26 @@ We zorgen ervoor dat er voldoende creatief materiaal voorzien wordt, zodat via v
 ### Conclusies:
 Er zijn 3 moeilijke momenten: 
 
-* Bij het binnenkomen van de operatiekamer 
-* Wanneer ze moeten platliggen 
-* Wanneer ze het masker moeten opzetten 
+1. Bij het binnenkomen van de operatiekamer 
+2. Wanneer ze moeten platliggen 
+3. Wanneer ze het masker moeten opzetten 
 
 De angst stijgt bij elke stap dat ze ondergaan. De kinderen vinden het vooral angstig omdat: 
-De omgeving te overweldigend is 
-Ze geen controle hebben over de situatie  Mogelijke oplossing aangehaald in wetenschappelijke literatuur: actieve afleiding; betrek de patient in het proces van afleiding zodat het ze het gevoel krijgen dat ze controle hebben over de situatie 
 
-Omgeving wordt als overweldigend ervaren  reduceer de stimuli, maak ze aangenamer door met de juiste combinatie van prikkels te werken kan een ‘zen’ ervaring gecreëerd worden. Werk ook met objecten die ze herkennen. 
+* De omgeving te overweldigend is 
+* Ze geen controle hebben over de situatie 
+
+Mogelijke oplossing aangehaald in wetenschappelijke literatuur: 
+
+* actieve afleiding
+* betrek de patient in het proces van afleiding zodat het ze het gevoel krijgen dat ze controle hebben over de situatie 
+
+1. Omgeving wordt als overweldigend ervaren 
+	* reduceer de stimuli, maak ze aangenamer door met de juiste combinatie van prikkels te werken kan een ‘zen’ ervaring gecreëerd worden. Werk ook met objecten die ze herkennen. 
 Visueel: kleuren, trage beelden, ‘snoezel’, ruimte en natuur beelden
 Geluid: voorzie een vorm van muziek of kalmerende geluiden (vb. lopend water)
-De interesses varieren enorm  laat het kind zelf iets kiezen waarin ze geinteresseerd zijn
+2. De interesses varieren enorm 
+	* laat het kind zelf iets kiezen waarin ze geinteresseerd zijn
 
 Tip van een moeder: ‘Hou er rekening mee dat de kinderen de omgeving vanuit een ander perspectief zien. Bij mij in de creche bijvoorbeeld zijn de allerjongsten gefascineerd door kleuren en gaan ze bijvoorbeeld meteen naar de kleurmat die op de grond ligt.' 
 

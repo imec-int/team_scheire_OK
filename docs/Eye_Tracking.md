@@ -26,6 +26,6 @@ In combinatie met een beperkte calibratie is eye tracking in principe geen goede
 Kinderen kijken voornamelijk naar de grote witte opervlaktes in het operatiekwartier en besteden minder aandacht aan de machines, die te hoog staan volgens hun gezichtsveld. 
 De lamp boven de tafel neemt het ganse gezichtsveld in beslag als ze plat gaan liggen. Ook het masker is heel prominent aanwezig in het beeld van het kind. 
 
-De ruimtes die vooral voor afleiding moeten zorgen zijn de vloer, wand en het plafond. De projectie richt zich dus idealiter op deze oppervlaktes en maakt deze immersief. 
+De ruimtes die vooral voor afleiding moeten zorgen zijn de vloer, wand en het plafond. De projectie richt zich dus idealiter op deze oppervlaktes en maakt deze immersief. ##TOD<linkmethardwarejan>
 
 

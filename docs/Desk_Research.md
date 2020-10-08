@@ -89,7 +89,7 @@ Lerwick et al. (2016): “minimizing pediatric healthcare-induced anxiety and tr
 
 
 
-##Conclusies
+## Conclusies
 
 Belangrijk bij het ontwikkelen van de oplossing dat we met een aantal zaken rekening houden: 
 

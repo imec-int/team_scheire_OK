@@ -74,7 +74,7 @@ Lerwick et al. (2016): “minimizing pediatric healthcare-induced anxiety and tr
 
 ## Bestaande oplossingen
 
-**Medipuppet**, is een pop gemaakt uit materialen die rondom de smartphone geplaatst worden. (Bron: https://www.researchgate.net/publication/221629661_mediPuppet_an_interactive_comforting_companion_for_children_while_visiting_a_doctor)
+**Medipuppet**, is een pop gemaakt uit materialen die rondom de smartphone geplaatst worden. (Bron: https://www.researchgate.net/publication/221629661\_mediPuppet\_an\_interactive\_comforting\_companion\_for\_children\_while\_visiting\_a\_doctor
 
 **BERT** (Bedside Entertainment & Relaxation Theater) is een scherm die aan het bed van het kind gemonteerd kan worden. SEVO de draak blaast vuur uit als je in het maskertje blaast. (https://healthier.stanfordchildrens.org/en/doctors-garage-lucile-packard-childrens-hospital-stanford-launches-innovative-program-reduce-anxiety-kids-going-surgery/)
 

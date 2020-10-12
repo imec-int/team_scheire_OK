@@ -1,4 +1,4 @@
-﻿# Team Scheire: Interactief, immersief operatiekwartier
+# Team Scheire: Interactief, immersief operatiekwartier
 
 ![](./docs/images/scheire.jpg)
 
@@ -30,7 +30,7 @@ Tijdens een traditioneel operatieproces komen kinderen pas in het operatiekwarti
 Om het immersieve verhaal over heel de lijn door te trekken, werden de stickers ontworpen op basis van de Unity-assets die ook gebruikt werden bij het creëren van de virtuele werelden.
 
 
-1. [Git installeren](docs/git.md)
+1. [Zelf aan de slag gaan/ Git installeren](docs/git.md)
 2. [Gebruikersonderzoek](docs/gebruikersonderzoek.md)
 1. [Fysieke opstelling](docs/fysieke_opstelling.md)
 2. [Hardware setup](docs/hardware_NL.md)

@@ -1,4 +1,4 @@
-# Zelf aan de slag gaan - Git
+# Zelf aan de slag gaan
 
 Om dit project op je eigen computer te kunnen uitvoeren dien je eerst de hele online mapstructuur ("de repository") te downloaden naar je eigen lokale computer. Dit kun je doen door ofwel een `zip`file te downloaden, of door te werken via [git](https://git-scm.com/).
 
@@ -34,10 +34,10 @@ om een lokale variant van de repository te hebben kun je in sourcetree volgende 
 
 ## Stap 3: Downloaden van media files
 
-In de folder `team_scheire_OK/media` dienen audio- en video bestanden geplaatst te worden. Deze kun je downloaden via [volgende link](https://teamscheire2020.blob.core.windows.net/operatiekwartier). Download en plaats ze in deze folder zo dat de folderstructuur eruit ziet als:
-`team_scheire_OK/media`
+In de folder `team_scheire_OK/media` dienen audio- en video bestanden geplaatst te worden. Deze kun je downloaden via [volgende link](https://teamscheire2020.blob.core.windows.net/operatiekwartier/files.zip). Download de files, pak ze uit en plaats ze in deze folder zo dat de folderstructuur eruit ziet als:
+`team_scheire_OK/media/`
 
-* `/audio_material`
-* `/video_material`
+* `audio_material/`
+* `video_material/`
 * `file_format_NL.md`
 

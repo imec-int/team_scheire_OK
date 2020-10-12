@@ -6,7 +6,7 @@ Om dit project op je eigen computer te kunnen uitvoeren dien je eerst de hele on
 
 Voor dit project wordt er gebruik gemaakt van zowel Git als Git LFS.
 
-## git installeren
+## Stap 1: git installeren
 
 Enkele intuïtieve grafische git programma's vind je op: [GUI clients](https://git-scm.com/downloads/guis/)
 
@@ -14,13 +14,13 @@ Voor Windows en Mac OS X kunnen we [Sourcetree](https://www.sourcetreeapp.com/) 
 
 
 
-## git lfs
+## Stap 2: git lfs
 
 Typisch wordt git gebruikt voor broncode en documentatie: Kleine bestanden. Dit project bevat ook video's en audio, dewelke van grotere aard zijn. Daarom is het nodig om naast de reguliere git eveneens git Large File Storage (grote bestanden opslag) te installeren. Dit doe je via: [git lfs](https://git-lfs.github.com/).
 
 Na dit te installeren kan je verder gaan met het clonen of kopieren van onze online repository.
 
-## deze repository clonen via sourcetree
+## Stap 3: deze repository clonen via sourcetree
 
 om een lokale variant van de repository te hebben kun je in sourcetree volgende stappen ondernemen.
 

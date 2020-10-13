@@ -1,14 +1,12 @@
 # fysieke opstelling
 
-Voor het team scheire project dienden we het volgende in het operatiekwartier te plaatsen:
+Voor het Team Scheire project:
 
-- een operatie kamer met daarin:
-	- een projectorsetup (zie [hardware setup](hardware_NL.md))
+- Een operatie kamer met daarin:
+	- Een projectorsetup (zie [hardware setup](hardware_NL.md))
 ![Image of physical setup](images/physical-scheme.png)
-	- markers voor projection mapping op beide muren en op het plafond.
+	- Markers voor projection mapping op beide muren en het plafond. Waar er geen markers werden gebruikt, gebruikten we presets in de videoprojectie. Dit vereist echter meer manueel werk.
 ![Image of marker locations setup](images/markerloc.png)
-	- Niet overal zijn er markers, indien niet maken we gebruik van presets in de videoprojectie. Dit vergt echter meer manueel werk.
-
 	
 ## kale muren als projectievlakken
 		

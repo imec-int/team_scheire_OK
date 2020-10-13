@@ -27,8 +27,7 @@ Om een lokale variant van de repository te hebben, kan je in Sourcetree volgende
 
 4. Klik op "Clone"
 5. De folder wordt nu lokaal gekopiëerd. Wijzigingen die je hier aanbrengt worden *enkel* lokaal opgeslagen!
-6. Wil je toevoegingen of wijzigingen delen met andere gebruikers in de online repository? Vraag dan een "Pull request" aan in Sourcetree. Je dient dan een aanvraag tot verandering in die goedgekeurd kan worden door iemand anders. Een Engelstalige tutorial kan je hier vinden: [YouTube sourcetree pull request](https://www.youtube.com/watch?v=hxP3hzspSWs)
-
+6.
 
 
 ## Stap 3: Downloaden van media files
@@ -40,3 +39,5 @@ In de folder `team_scheire_OK/media` dienen audio- en video bestanden geplaatst 
 * `video_material/`
 * `file_format_NL.md`
 
+## Stap 4: bijdragen aan de repo
+Wil je toevoegingen of wijzigingen delen met andere gebruikers in de online repository? Fork dan de repository en vraag dan een "Pull request" aan in Sourcetree. Je dient dan een aanvraag tot verandering in die goedgekeurd kan worden door iemand anders. [Een Nederlandstalige tutorial kan je hier vinden.](https://git-scm.com/book/nl/v2/GitHub-Aan-een-project-bijdragen) Let op, het lijkt misschien overweldigend, maar valt best mee!

@@ -68,4 +68,4 @@ Dit project werd gebouwd met enkele softwarepaketten en -frameworks. Hieronder v
 	2. [ofxCV: MIT license](https://github.com/kylemcdonald/ofxCv)
 	3. [ofxHapPlayer: custom license](https://github.com/bangnoise/ofxHapPlayer/blob/master/LICENSE)
 	
-8. [Raspberry pi documentation: creative commons license](https://www.raspberrypi.org/documentation/)
+4. [Raspberry pi documentation: creative commons license](https://www.raspberrypi.org/documentation/)

@@ -46,6 +46,8 @@ Maak dan liefst een nieuw ticket aan via github. Dit maakt het eenvoudiger om ev
 Dit kan je doen door op de github repo door te klikken naar [issues](https://github.com/imec-int/team_scheire_OK/issues)
 ![github issues](./docs/images/git_issues.png) 
 
+Indien je zelf aanpassingen of bijdrages hebt geschreven kun je ook altijd een pull request openen, deze uitleg vind je [hier](docs/git.md#Stap-4:-bijdragen-aan-de-repo).
+
 
 ### Toekomst van het project
 We zouden niets liever zien dan dat het project een verder leven leidt, en moedigen daarom iedereen aan om bij te dragen aan dit project. Voorbeelden van domeinen waarop je kan bijdragen:

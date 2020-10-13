@@ -1,24 +1,24 @@
-# hardware setup
+﻿# Hardware setup
 
-Hier lees je bondig welke spullen je nodig hebt om de audio-visuele installatie te kunnen bouwen, met een voorstel van mogelijke componenten.
+Hier lees je bondig welke materialen je nodig hebt om de audiovisuele installatie te kunnen bouwen, met een voorstel van mogelijke componenten en prijsindicaties.
 
 ## Componenten
-* Projector:  H116ST optoma (579€)
+* Projector:  H116ST Optoma (579€)
 * Computer: Intel NUC (599€)
-  * Intel core i5
+  * Intel Core i5
   * 8GB DDR4
   * 240GB SSD
 * Audio shield: [Any](https://www.adafruit.com/product/1752) stereo amplifier (22,74€)
 * Webcam: Logitech C270 (59€)
 * Power supply: Stadium SRS100 (165€)
-  * Deze geeft stroom aan zowel de NUC als aan het audio shield (en speakers)
-* afstandsbediening: om het even welk draadloos numpad (13€)
+  * Deze voorziet zowel de NUC als het audio shield (en de speakers) van stroom
+* Remote: om het even welke draadloze numpad (13€)
   * De applicatie gebruikt numerieke input om modi te selecteren
-* [Speaker](https://benl.rs-online.com/web/p/speaker-drivers/1218639/) (2* 22,10€)
-  * De projector heeft een ingebouwde speaker, maar om kwalitatief beter geluid te krijgen kan je extra speakers plaatsten
+* [Speaker](https://benl.rs-online.com/web/p/speaker-drivers/1218639/) (2 x 22,10€)
+  * De projector heeft een ingebouwde speaker, maar om kwalitatief beter geluid te krijgen plaats je best extra speakers
 * Staander voor projector: [Quicklock QL400](https://www.gear4music.be/nl/PA-DJ-and-Verlichting/Quiklok-QL-400-Studio-Locator-Stand-for-Equipment/AEG?origin=product-ads&gclid=EAIaIQobChMIjYqWpLqT7AIVCtd3Ch0fogbVEAQYASABEgL5dvD_BwE) (109€)
-* Plexi plaat om projector te monteren op de staander (30€)
-* Kabels: zie schematische voorstelling voor benodigde kabels
+* Plexiplaat om projector te monteren op de staander (30€)
+* Kabels: zie schematische voorstelling voor de benodigde kabels
 
 ![Image of inside](images/inside.JPG)
 
@@ -26,33 +26,33 @@ Hier lees je bondig welke spullen je nodig hebt om de audio-visuele installatie 
 ![Image of inside](images/schematic.png)
 
 
-### Assembly
+### Assemblage
 
-⚠️⚠️⚠️ Werken met power supply units wil zeggen werken met hoge ontblootte stroom, wees voorzichtig en werk onder toezicht ⚠️⚠️⚠️
+⚠️⚠️⚠️ *Werken met Power Supply Units houdt in dat je met blootliggende kabels onder hoge stroom werkt. Wees dus voorzichtig en werk onder toezicht!* ⚠️⚠️⚠️
 
-Om ervoor te zorgen dat we de encasing niet al te vaak open hoefden te vijzen, besloten we te werken met throughplug adaptors, invijsbaare 
+Om ervoor te zorgen dat de encasing (zie onder) niet al te vaak moet worden opengevezen, besloten we te werken met invijsbare _throughplug adapters_.
 
 ### Projector
 
-We besloten voor deze optoma te gaan om een brede projectiehoek te verkrijgen voor een aanvaardbare prijs. Deze Optoma kon dit bereiken. Deze ondersteund ook seriele input voor latere uitbreidingen.
-De brede projectiehoek zorgt ervoor dat we op een groot oppervlakte kunnen projecteren vanop een korte afstand. 
-Dit is natuurlijk geen verplichting, indien de ruimte groot genoeg is, kan dit werken met een standaard projector. Vergeet echter niet: de webcam behoort hetzelfde perspectief te hebben als de projector om accuraat te kunnen calculeren waar te projecteren. Dus, hoe verder deze moet kijken, hoe groter de markers behoren te zijn.
+We selecteerden de H116ST Optoma omdat deze een voldoende brede projectiehoek aanbiedt tegen een aanvaardbare prijs. Bovendien ondersteunt de Optoma ook seriële input voor eventuele latere uitbreidingen.
+De brede projectiehoek zorgt ervoor dat we vanop korte afstand toch op een groot oppervlak kunnen projecteren. Dit is uiteraard geen verplichting: als de ruimte groot genoeg is, kan men ook met een standaard projector werken. 
+Let wel op: de webcam moet hetzelfde perspectief hebben als de projector om accuraat te calculeren waar die moet projecteren. Dit wil ook zeggen dat hoe verder de webcam moet 'kijken', hoe groter de markers moeten zijn.
 
-De hoeveelheid [(ansi)-lumen](https://nl.wikipedia.org/wiki/Lumen_(eenheid)#:~:text=De%20lumen%20(symbool%3A%20lm),lichtbron%20in%20alle%20richtingen%20uitstraalt.) is ook van belang: afhankelijk van hoeveel licht er in de ruimte valt (zeker zonlicht) dient men voor hogere lichtopbrengst te gaan. 
+De hoeveelheid [(ansi)-lumen](https://nl.wikipedia.org/wiki/Lumen_(eenheid)#:~:text=De%20lumen%20(symbool%3A%20lm),lichtbron%20in%20alle%20richtingen%20uitstraalt.) is ook van belang bij het selecteren van de projector: afhankelijk van hoeveel licht er in de ruimte valt, moet men al dan niet voor een hogere lichtopbrengst gaan. Dit is zeker het geval bij veel direct zonlicht.
 
 
 ### Raspberry Pi
 
-In eerste instantie wouden we de oplossing draaiende krijgen op een Raspberry Pi. Na verschillende video problemen op de RPI3, besloten we gebruik te maken van een RPI4 om deze problemen op te lossen. Openframeworks bleek ten tijde van opname nog niet te werken op de RPI4. We verlieten deze piste en besloten verder te gaan met de Intel NUC (beschreven in [Componenten](## Componenten)).
+In eerste instantie werd ernaar gekeken om de oplossing op een Raspberry Pi te laten draaien. Na verschillende videoproblemen met de RPI3 werd gekeken naar de RPI4 om ze op te lossen. Openframeworks bleken op het moment van opname van het tweede seizoen van Team Scheire (najaar 2019) nog niet te werken op de RPI4. We verlieten deze piste en besloten verder te gaan met de Intel NUC (beschreven in [Componenten](## Componenten)).
 
-Ten tijde van schrijven (september 2020) deden we nieuwe tests met de RPI4. Openframeworks is compileerbaar, en de oplossing lijkt te builden. Er blijken echter nog problemen te zijn met het loopen van de video, het gebruik van transparante video en het algemeen gebruik van de computing power: het was niet zeker of we een aanvaardbare framerate gingen krijgen. 
+Ten tijde van dit schrijven (september 2020) deden we nieuwe tests met de RPI4. Openframeworks is nu compileerbaar, en de oplossing lijkt te builden. Helaas waren er nog steeds problemen met het loopen van video, het gebruik van transparante video en het algemeen gebruik van de computing power. Zo was het niet duidelijk of we een aanvaardbare framerate zouden verkrijgen. 
 
-Om dit werkende te krijgen zou het nodig zijn de rendering op te delen in verschillende threads, de transparante video te vervangen door een lichter alternatief (GIF, ...). Momenteel is dit niet uitgevoerd maar zou een logische, nuttige next-step zijn.
+Om de oplossing op de RPI4 te laten draaien moet de rendering opgedeeld worden in verschillende threads, en moet de transparante video vervangen worden door een minder zwaar alternatief (bijvorbeeld GIF). Dit werd nog niet gerealiseerd, maar zou een logische en nuttige next step kunnen zijn.
 
 ## Encasing
 
-We besloten het geheel in een 3d-geprinte case te omvatten. In ons geval was dit een must om de steriele omgeving van het hospitaal te garanderen, maar is voor thuisgebruik volledig optioneel, doch handig om alles bijeen te houden. We besloten de case die wij gebruikten tevens te laten dienen als klankkast voor de speakers. 
+We besloten het geheel in een 3D-geprinte case te omvatten. Dit was noodzakelijk om de steriele omgeving van het operatiekwartier te garanderen. Voor thuisgebruik is dit uiteraard optioneel (maar aan te raden om de setup bij elkaar te houden). We kozen ervoor de case meteen ook te gebruiken als klankkast voor de speakers. 
+Alle bekabeling zit in de case. Onderaan de case werd een universal power cable plug voorzien voor stroom. Deze had zowel een schakelaar (om projector, NUC en speakers uit te zetten) als een zekering.
 
-
-Het totaalpakket werd gemonteerd op een [mixer stand](https://www.bax-shop.be/nl/19-inch-racks/quiklok-ql-400-desktopstand?gclid=EAIaIQobChMIs6SFkMzG5QIViIxRCh3yJQK5EAQYGCABEgIFMPD_BwE). Omdat deze de projector naar boven en naar beneden kon richten, konden we vlot wisselen tussen een projectie op de muren of op het plafond. Deze liet ook enige flexibiliteit toe. Alle bekabeling bevind zich in de case. Voor stroom werd een universal power cable plug aangebracht onderaan de case. Deze had naast een schakelaar (die tegelijk de projector, NUC en speakers uit kon zetten) ook een zekering. 
+Het resultaat werd gemonteerd op een [mixer stand](https://www.bax-shop.be/nl/19-inch-racks/quiklok-ql-400-desktopstand?gclid=EAIaIQobChMIs6SFkMzG5QIViIxRCh3yJQK5EAQYGCABEgIFMPD_BwE). Omdat deze de projector zowel naar boven als naar beneden kan richten, kan er vlot gewisseld worden tussen muur- of plafondprojectie. 
 

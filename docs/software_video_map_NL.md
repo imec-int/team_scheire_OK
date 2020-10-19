@@ -1,58 +1,53 @@
 # Software voor video mapping
 ## Waarom?
 
-Uit het gebruikersonderzoek is gebleken dat kinderen, die het operatiekwartier binnen komen, eerst naar de kasten en lege muren kijken. Vervolgens moeten ze dan op het bed op hun rug gaan liggen, waardoor ze de kasten niet meer zien en enkel zicht hebben op het plafond.
-Logischerwijs trokken we de conclusie dat het beeld zowel op de muren, als op het plafond geprojecteerd moest worden.  
-De gemakkelijkste oplossing hier was natuurlijk om meerdere projectors in te schakelen, een voor het plafond, en een voor de muren. Maar dan moesten deze gefixeerd worden om de mapping juist te krijgen. En hadden we voor elke zaal waar dit gebruikt zou worden, meerdere projectoren nodig. Meerdere zalen omdat er telkens twee operatiekwartieren tot hun beschikking zijn, die afwisselend gebruikt worden (terwijl de andere gedesinfecteerd wordt). Dokters en verplegend personeel hebben echter niet de tijd om elke keer opnieuw een volledige setup te doen van de beelden, om de juiste mappings te doen of om projectors juist te richten. 
+Uit het gebruikersonderzoek is gebleken dat kinderen vooral naar de _kasten en lege muren_ kijken bij het binnenkomen van het operatiekwartier. Wannneer ze gaan liggen op het bed wordt hun zicht beperkt tot enkel het _plafond_. Daarom werd beslist om projectiemateriaal te ontwikkelen voor zowel de muren als het plafond. 
 
-Door grote aruco markers tegen de kasten op te hangen (wij hadden de mogelijkheid deze door een plotter op stickerpapier te printen) konden we automatisch detecteren waar de opstelling op moest projecteren, welk vlak wat was en hoe dit geörienteerd moest zijn. Op deze manier was het dan ook mogelijk selectief te programmeren, en bijvoorbeeld werkruimten met rust te laten, zodat dokters hun werk konden doen.
+De meest voor de hand liggende oplossing was om meerdere projectors in te zetten, in functie van het gekozen oppervlak. Het nadeel hierbij is dat elke projector gefixeerd zou moeten worden om de mapping juist te krijgen. Bovendien vereist deze oplossing redelijk wat hardware per operatiezaal. _(Opm: elk operatiekwartier beschikt over meerdere zalen die in rotatie gebruikt worden. Zo kan elke zaal na gebruik gedesinfecteerd worden, terwijl de andere in gebruik wordt genomen)._ Dokters en verpleegkundig personeel hebben echter niet de tijd om iedere keer een volledige setup te doen van de mappings, of om de projectors juist te richten. 
 
+We kozen dus voor een andere oplossing. Daarbij werden grote Aruco-markers (geprint op stickerpapier via een plotter) tegen de kasten gehangen, wat toeliet om automatisch te detecteren waar de projector zich naar moest richten. Deze stickers voorzagen de oplossing van de juiste info rond het type oppervlak en de nodige mapping en oriëntatie. Bovendien konden we de oplossing selectief programmeren, zodat bijvoorbeeld werkruimten met rust konden worden gelaten en het medisch personaal ongestoord zijn werk kon doen.
 
 
 ## software setup
 
-Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./software_video_creation_NL)). Je kan deze echter zelf ook produceren en deze toevoegen aan de applicatie.
+Het originele beeldmateriaal werd geproduceerd in Unity (zie [video creatie](./software_video_creation_NL)). Je kan echter ook zelf beeldmateriaal produceren en toevoegen aan de applicatie.
 
+Dit kan je op volgende manier doen:
 
-Ga door volgende stappen om eigen beelden toe te voegen:
-
-1. Produceer 3 videolagen voor zowel plafond als muur (zij aanzicht en boven aanzicht, 6 bestanden in totaal dus)
-    1. Een achtergrond
-    1. Een voorgrond (inclusief transparantie)
-    1. Een interactielaag (inclusief transparantie)
-1. Doe dit voor beide thema's (in ons geval onderwater en ruimtereis)
-1. Maak in de `bin/data` folder, van je openframeworks installatie, een map aan genaamd `/space`, en een map genaamd `/water`
-1. kopieer de videofiles naar de overeenkomstige mappen
-    1. ofwel de bestaande werelden uit `media/video_material`
-    2. ofwel de zelf gemaakte werelden (indien het voorbeeld Unity project, vanuit de map `recordings`)
-    3. controleer de naamgeving via [video settings en oppervlakken](#video-settings-en-oppervlakken) subtitel
-2. In `bin/data/sounds` kun je ook een ander achtergrond `.mp3` plaatsen indien beter passend bij het beeldmateriaal. (gebruik de naamgeving `background.mp3` of pas dit aan in `ofApp.cpp`)
-1. build en run de applicatie
-
+1. Produceer drie videolagen voor zowel het plafond als de muur (m.a.w., in bovenaanzicht en zijaanzicht). Dit brengt het totaal op zes bestanden per thema:
+    1. Een achtergrond voor plafond en muur
+    1. Een voorgrond (inclusief transparantie) voor plafond en muur
+    1. Een interactielaag (inclusief transparantie) voor plafond en muur
+1. Doe dit voor elk van de gekozen thema's (in dit geval: onderwater en ruimtereis)
+1. Maak in de `bin/data`-folder van je openframeworksinstallatie een map aan, en vernoem deze naar je thema (bv. `/space` of `/water`)
+1. Kopieer de videofiles naar de overeenkomstige mappen
+    1. Ofwel de bestaande werelden uit `media/video_material` op onze git
+    2. Ofwel de zelfgemaakte werelden (indien je het voorbeeld Unity-project neemt: vanuit de map `recordings`)
+    3. Controleer daarna de naamgeving via [videosettings en oppervlakken](#video-settings-en-oppervlakken)
+2. In `bin/data/sounds` kan je ook een ander achtergrondmuziekje (.mp3) plaatsen dat beter bij jouw beeldmateriaal past. Gebruik hierbij de naamgeving `background.mp3` of pas dit aan in `ofApp.cpp`)
+1. Build en run de applicatie
 
 
 ### Prerequisites 
 
-* Een reeds geïnstalleerde versie van [Openframeworks](https://openframeworks.cc/download/), beschikbaar op zowel OSX, windows als op linux.
+* Een reeds geïnstalleerde versie van [Openframeworks](https://openframeworks.cc/download/), beschikbaar voor zowel OSX, Windows als Linux.
 * TouchOSC, geïnstalleerd op GSM
 * [TouchOSC Bridge](https://hexler.net/products/touchosc)
 * [TouchOSC editor](https://hexler.net/products/touchosc)
 
-windows: gebruik [VSCode](https://openframeworks.cc/setup/vs/)
-mac: Gebruik [XCode](https://openframeworks.cc/setup/xcode/)
+Windows: gebruik [VSCode](https://openframeworks.cc/setup/vs/)
+Mac: Gebruik [XCode](https://openframeworks.cc/setup/xcode/)
 Linux: Gebruik [whatever](https://openframeworks.cc/setup/linux-install/)
 
 
 
 ### Openframeworks
 
-Openframeworks is een open source C++ based framework, supercharged met addons. 
+OpenFrameworks is een opensource, C++-based framework, supercharged met add-ons. 
 
+Openframeworks werd ontwikkeld door Zach Lieberman als een toolbox voor _creative coding_ (o.a. dus voor interactieve videoinstallaties zoals in dit project). Het werd sindsdien omarmd door de opensource crowd en kent nog steeds uitbreidingen en updates. We kozen voor OpenFrameworks omdat de detectie van Aruco-markers het snelst implementeerbaar was via bestaande OpenFrameworks add-ons, wat van belang was gezien de strakke deadline van het project. Bovendien waren de add-ons voor OSC en interface design ook van waarde.
 
-Openframeworks is een framework ontwikkeld door Zach Lieberman als een toolbox voor creative coding (oa dus voor interactieve video installaties zoals in dit project). Het is sindsdien opgenomen door de open source crowd en kent nog steeds uitbreidingen en updates. We kozen voor openframeworks omdat de detectie van Aruco markers (gezien onze deadline) het snelst implementeerbaar was door het gebruik van bestaande openframeworks addons. Daarbij waren de addons voor OSC en interface design meteen ook van waarde.
-
-
-Om het project te kunnen builden hebben we nood aan onderstaande plugins. Sommigen zijn reeds in openframeworks aanwezig, anderen moeten aan deze folder toegevoegd worden. Je kan dit doen door deze  manueel te downloaden en toe te voegen aan de `addons` folder in openframeworks.
+Om het project te kunnen builden hadden we nood aan onderstaande plugins. Sommigen zijn reeds beschikbaar in OpenFrameworks, anderen moeten nog toegevoegd worden. Je kan dit doen door ze manueel te downloaden en toe te voegen aan de 'addons'-folder in openframeworks.
 
 * [ofxAruco](https://github.com/arturoc/ofxAruco)
 * [ofxCv](https://github.com/kylemcdonald/ofxCv)
@@ -63,84 +58,82 @@ Om het project te kunnen builden hebben we nood aan onderstaande plugins. Sommig
 * ofxPoco - (included)
 * ofxXmlSettings - (included)
 
-#### Install OpenFrameWorks
+#### Installeren OpenFrameWorks
 
-volg de installatieguides op [openframeworks](https://openframeworks.cc/download/)
+Volg de Engelstalige installatiegidsen op [OpenFrameworks](https://openframeworks.cc/download/)
 
 #### From git to build
 
 
-Het builden van het project verschilt van OS tot OS, hieronder een korte oplijsting:
+Het builden van het project verschilt van OS tot OS. We lijsten hieronder kort even wat aandachtspunten op: 
 
-*Ik begon initiëel met development op macOS, daar dit mijn standaard platform is. We stapten over op windows eens we tot de conclusie kwamen dat de RPI3 niet performant genoeg was, en de RPI4 openframeworks nog niet ondersteunde. We hadden tevens ook de tijd niet dit extenstief te testen en de applicatie te optimaliseren. We kochten een NUC aan en zorgden dat de applicatie hierop kon werken. dit onder andere door de toevoeging van de hap video player, ter ondersteuning van video op windows.*
+_Opm: initiëel gingen we van start met development op macOS, maar we stapten over op Windows wanneer bleek dat de RPI3 niet performant genoeg was, en dat de RPI4 nog geen ondersteuning bood voor OpenFrameworks. Wegens tijdsgebrek was het ook niet mogelijk dit extenstief te testen of de applicatie verder te optimaliseren. We kochten een NUC aan en zorgden dat de applicatie hierop kon draaien, onder andere door de toevoeging van de hap video player._
 
 ##### Mac
 
-!!! ofxHapPlayer is niet beschikbaar voor mac, deze kan vervangen worden door ofVideoPlayer, maar dan moeten bepaalde lijnen (getError) verwijderd worden. Daarnaast mag je ook niet vergeten deze uit de addons.make file te halen.
+!!! ofxHapPlayer is niet beschikbaar voor mac. Je kan deze vervangen door ofVideoPlayer, maar dan moeten bepaalde lijnen (getError) verwijderd worden. Vergeet ook niet deze uit de addons.make file te halen.
 
-* Download en extract deze repository via zipfile of download via git 
+* Download en extract de repository via zipfile of download via git 
 * Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
-* Gebruik de [projectGenerator](https://openframeworks.cc/learning/01_basics/create_a_new_project/) om het project aan te maken
-    * Open de projectGenerator
-    * Klik import en navigeer naar de project folder
-    * Druk op "generate" om de project files aan te maken, dit maakt tevens ook de xcode project files aan
-
+* Gebruik de [ProjectGenerator](https://openframeworks.cc/learning/01_basics/create_a_new_project/) om het project aan te maken
+    * Open de ProjectGenerator
+    * Klik 'import' en navigeer naar de projectfolder
+    * Druk op 'generate' om de projectfiles aan te maken. Dit maakt meteen ook de xcode projectfiles aan
 * Open het project in xcode
-* gebruik de build functionaliteiten om de applicatie te builden en te runnen
+* Gebruik de build-functionaliteiten om de applicatie te builden en te runnen
 
-Je kan dit ook builden en runnen met "make" en "make run", daarvoor neem je volgende stappen:
+Je kan dit ook builden en runnen met `make` en `make run`. Neem daarvoor volgende stappen:
 
-* Dupliceer de emptyproject folder en geef deze een nieuwe naam
-* kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
-* kopieer (en vervang dus) de `addons.make` file door deze uit het gedownloade project
-* in een terminal, navigeer naar deze folder, en run volgend command: `make && make run`
 
-in de src folder komen de projectfiles, in de bin folder zitten zowel de data files (video en XML files) als de uiteindelijk builds. 
+* Dupliceer de `emptyproject`-folder en geef deze een nieuwe naam
+* Kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
+* Vervang de `addons.make`-file door deze uit het gedownloade project
+* Navigeer via een terminal naar deze folder en run de commands `make` en `make run`
+
+De projectfiles komen in de '/src'-folder, de datafiles (video en XML) en de uiteindelijke builds komen in de '/bin'-folder.
 
 ##### windows
 
-* Download en extract deze repository via zipfile of download via git 
-* Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
-* kopieer de emptyproject folder
-* kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
+* Download en extract de repository via zipfile of download via git 
+* Kopieer `arucoMap` naar `openframeworks/apps/myApps`
+* Kopieer de `emptyproject`-folder
+* Kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
 * Open het project in VSCode
-* gebruik de build functionaliteiten om de applicatie te builden en te runnen
+* Gebruik de build-functionaliteiten om de applicatie te builden en te runnen
 
 ##### Linux
-* Download en extract deze repository via zipfile of download via git 
-* Kopieer `arucoMap` naar  `openframeworks/apps/myApps`
-* kopieer de emptyproject folder
-* kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
-* kopieer (en vervang dus) de `addons.make` file door deze uit het gedownloadde project
-* in een terminal, navigeer naar deze folder, en run volgend command: `make && make run`
+* Download en extract de repository via zipfile of download via git 
+* Kopieer `arucoMap` naar `openframeworks/apps/myApps`
+* Kopieer de `emptyproject`-folder
+* Kopieer de `/src` en `/bin` folder naar de nieuw aangemaakte folder
+* Vervang de `addons.make`-file door deze uit het gedownloade project
+* Navigeer via een terminal naar deze folder en run de commands `make` en `make run`
+
+Na het builden van het project kan je de applicatie opstarten. Dit geeft initieel een zwart scherm omdat de applicatie in _live_-modus draait en nog geen markers kan detecteren. Markers worden namelijk enkel gedetecteerd wanneer de _tracking_-modus aan staat. Dit kan je doen door de knop "T" of "6" langdurig in te drukken. Indien er slechts 1 marker gedetecteerd wordt, kan je het te projecteren vlak voor deze marker instellen via OSC (zie onder). Dit moet natuurlijk gebeuren om de eerste projectievlakken aan te maken. 
 
 
-Na het builden van het project kan u de applicatie opstarten. Deze geeft echter initieel een zwart scherm. Dit is omdat de applicatie draait in "Live" modus, en nog geen markers kan detecteren. Markers worden namelijk enkel gedetecteerd indien de tracking modus aan staat. dit gebeurt terwijl de knop "T" of "6" ingehouden wordt. Indien er slechts 1 marker gedetecteerd word, kan je hiervan het te projecteren vlak instellen via OSC (zie hfst OSC). Dit moet natuurlijk initieel gebeuren om de eerste projectievlakken aan te maken. 
+## OpenFrameworks libraries
 
-
-## Openframeworks libraries
-
-### remote control
+### Remote control
 
 #### OSC
 
-Om de projectie-opstelling aan te kunnen sturen, kunnen we werken in twee modi. We spreken over de 'live' modus (met markers) en de 'preset' modus (zonder markers). 
+Om de projectie-opstelling aan te kunnen sturen, kan er in twee modi gewerkt worden: de 'live'-modus (met markers) en de 'preset'-modus (zonder markers). 
 
-Je kan dit aanpassen via de remote numpad (0 zijnde live, 1 tot 3 zijnde presets). 
+Je kan dit aanpassen via de remote numpad (waarbij 0 = live, 1 tot 3 = presets). 
 
-##### preset modus
-De presets tonen een vooringestelde configuratie van projectievlakken. Om deze vlakken, of die van de presets in te stellen maken we gebruik van OSC. OSC is een communicatiemethode die te vergelijken valt met MIDI, waar deze kan communiceren met anderen OSC enabled devices via channels.
+##### Preset modus
+De presets tonen een vooringestelde configuratie van projectievlakken. Om deze vlakken in te stellen maken we gebruik van *OSC*. OSC is een communicatiemethode die te vergelijken valt met MIDI. OSC kan met andere OSC-enabled toestellen communiceren via channels.
 
-TouchOSC werd gebruikt om deze vlakken in te stellen. De file die hiervoor nodig is, bevindt zich in de "additions" folder.
+Om de vlakken in te stellen, maakten we gebruik van [TouchOSC](https://hexler.net/products/touchosc). De file die hiervoor nodig is bevindt zich in de 'additions'-folder.
 
-Ik gebruikte [touchOSC](https://hexler.net/products/touchosc), een (helaas betalende) app waarmee je messages en slider waarden (zie foto voor interface) kan doorsturen naar de applicatie via het IP adress van de computer indien je met hetzelfde netwerk geconnecteerd bent
+TouchOSC is een (betalende) app waarmee je messages en slider-waarden (zie foto voor interface) kan doorsturen naar de applicatie via het IP-adres van de computer (op voorwaarde dat je met eenzelfde netwerk geconnecteerd bent).
 
-##### live modus
+##### Live modus
 
-De live modus staat toe de camera te gebruiken om markers te detecteren en op basis hiervan vlakken te projecteren.
+De live-modus staat toe dat de webcam markers detecteert. Op basis hiervan wordt automatisch bepaald welke vlakken er geprojecteerd moeten worden.
 
-Indien de applicatie is ingesteld op "live", en er slechts één marker zichtbaar is, kan je hiervan de view instellen via TouchOSC. Vergeet niet het juiste IP adres in te stellen in `settings.hpp`.
-
+Indien de applicatie is ingesteld op _live_ en er slechts één marker zichtbaar is, kan je de view hiervan instellen via TouchOSC. Vergeet niet het juiste IP-adres in te stellen in `settings.hpp`.
 
 ![Image of touchOSC](./images/phone.jpg)
 
@@ -167,7 +160,7 @@ Indien de applicatie is ingesteld op "live", en er slechts één marker zichtbaa
 
 ##### Presets
 
-❗️❗️❗️ "Edit mode" moet ingeschakeld staan om wijzigingen te kunnen aanbrengen. (tweede scherm onderaan) ❗️❗️❗️
+❗️❗️❗️ 'Edit mode' moet ingeschakeld zijn om wijzigingen te kunnen aanbrengen (zie ook tweede scherm onderaan) ❗️❗️❗️
 
 
 | Screen 1 | Screen 2 | Screen 3 |
@@ -195,47 +188,46 @@ Indien de applicatie is ingesteld op "live", en er slechts één marker zichtbaa
 | RY | Verticale rotatie  |
 | RZ | Diepte rotatie  |
 
-### projection mapping - Markers
+### Projection mapping - Markers
 
 #### Aruco
 
-Aruco markers worden gebruikt om de applicatie te vertellen op welke vlakken (de muren, het plafond, ...)  deze behoort te projecteren. De markers die wij gebruikten zijn ten minste A3 formaat om zeker te zijn dat de webcam deze accurraat kan detecteren. Hoe groter deze zijn, hoe beter de resultaten. Eens de applicatie opstart, en de gebruiker de tracking activeert, worden de markers gezocht door de `ArucoHandler.cpp` class. Dit is het moment waarop het belangrijk is de projector en de webcam juist te aligneren. 
+Aruco-markers worden gebruikt om de applicatie te vertellen op welk oppervlak (muren, plafond, ...)  deze moet projecteren. De markers die wij gebruikten waren minstens A3, om er zeker van te zijn dat de webcam deze accurraat kon detecteren. Hoe groter de markers, hoe beter de resultaten. Eens de applicatie wordt opgestart en de gebruiker de tracking activeert, worden de markers gezocht door de `ArucoHandler.cpp`-class. Dit is het moment waarop het belangrijk is de projector en de webcam juist te aligneren. 
 
-Elke aruco marker kent een uniek ID, die gebruikt kan worden om een bepaald deel van een video te projecteren, met een bepaalde transformatie (width, height, x- and y-offset). 
+Elke Aruco-marker kent een uniek ID die gebruikt kan worden om een bepaald deel van een video te projecteren, met een bepaalde transformatie (width, height, x- / y-offset). 
 
-#### markers 
+#### Markers 
 
-De markers zijn belangrijk voor de Aruco library. Indien deze gedetecteerd worden door de library kan deze afleiden welke marker het is en in welke orientatie deze zich bevindt. Door deze orientatie dan toe te passen op de beelden komt de automatische mapping tot stand. 
+De markers zijn belangrijk voor de Aruco-library. Wanneer de library de markers detecteert, kan deze afleiden welke marker het is en in welke oriëntatie die zich bevindt. Door deze oriëntatie dan toe te passen op de beelden komt een automatische mapping tot stand. 
 
-Het is dan ook belangrijk dat de markers groot genoeg zijn (in ons geval minstens A3), en niet op reflecterend papier afgeprint worden (don't make our mistakes). 
+Het is hierbij belangrijk dat de markers voldoende groot zijn (in ons geval minstens A3), en op niet-reflecterend papier afgeprint worden (don't repeat our mistakes). 
 
-Markers kunnen gegenereerd worden met bijvoorbeeld [een online tool](https://chev.me/arucogen/), het is echter aangeraden de ID van de gegenereerde marker reeds toe te voegen aan de `bin/data/presets.xml` file.
+Markers kunnen gegenereerd worden met bijvoorbeeld [deze online tool](https://chev.me/arucogen/). We raden sterk aan de ID van de gegenereerde marker reeds toe te voegen aan de `bin/data/presets.xml` file.
 
 ![Image of a marker](images/marker.png)
 
 
-## video settings en oppervlakken
+## Videosettings en oppervlakken
 
-De video input kent drie video lagen voor de muren, en drie voor het plafond, allen geëncodeerd in [HAP](https://hap.video/) (om transparantie te ondersteunen).
+De videoinput kent drie videolagen voor de muren, en drie voor het plafond - allen geëncodeerd in [HAP](https://hap.video/) om transparantie te ondersteunen.
 
-De eerste laag is de achtergrond, de opeenvolgenden worden hierover gelegd:
+De eerste laag is de achtergrond, waar de andere lagen overheen worden gelegd:
 
-* `[water or space]/[wall or ceiling]_background.mov`
-* `[water or space]/[wall or ceiling]_foreground.mov`
-* `[water or space]/[wall or ceiling]_interaction.mov`
+* [water or space]/[wall or ceiling]_background.mov
+* [water or space]/[wall or ceiling]_foreground.mov
+* [water or space]/[wall or ceiling]_interaction.mov
 
- Dit kan welliswaar worden aangepast in de code om slechts 1 video te gebruiken, al zou dit ervoor zorgen dat het interactiegedeelte niet meer werkt.
+Uiteraard kan men de code wijzigen zodat slechts 1 videofile wordt gebruikt, maar dit schakelt ook de interactieve component uit.
+
+Eerst wordt een [FBO](https://openframeworks.cc/documentation/gl/ofFbo/) opgebouwd in de update-functie. Daar worden de drie videolagen over elkaar heen gelegd en een FBO-shader gegenereerd. Vervolgens kan deze in de draw-functie getekend worden met de transformatie gedetecteerd door de Aruco class.
+Dit kan omdat de transformatie, herkend door de Aruco class, aangevuld wordt met informatie die wordt ingegeven door de OSC class. 
+
+Het ZNA Kinderziekenhuis Koningin Paolo had reeds een mascotte, _Groene Louis_, die we integreerden in de eigen visualisaties. Groene Louis kan in beeld springen vanuit één zijde van de projectie door gebruik te maken van de shortcut "4" of "L". Dit gebeurt manueel, zodat het medisch personeel Groene Louis konden oproepen wanneer ze dit zelf zinvol vonden.
 
 
-Een [FBO](https://openframeworks.cc/documentation/gl/ofFbo/) wordt eerst opgebouwt in de update functie dewelke de drie videolagen opeen legt en zo een FBO shader genereerd. Deze kan nadien in de draw functie getekend worden met de transformatie gedetecteerd door de aruco class.
-Dit gebeurt door de transformatie, die de aruco class herkent, aan te vullen met informatie ingegeven door de OSC class. 
+## Videoprojectie - Presets
 
-Het hospitaal maakt gebruik van een mascotte, genaamd groene Louis. We probeerden deze terug te laten komen in de installatie, om de kinderen een vertrouwd beeld te geven in een onzeker moment. Groene Louis springt in beeld vanuit één zijde door gebruik te maken van shortcut "4" of "L". Hierdoor konden de dokters dit aanroepen wanneer ze deze nodig hadden.
-
-
-## Video projection - Presets
-
-De presets kunnen gebruikt worden in locaties waar de markers niet opgehangen kunnen worden of niet aanwezig zijn. Dit bijvoorbeeld in een dokterskwartier of dergelijke. De presets geven een voor-ingestelde opstelling weer van vlakken. De eerste hiervan kan gebruikt worden op de kruising tussen twee muren en het plafond. De tweede is een vast projectievlak (recht tegenover).
+De presets kunnen gebruikt worden op locaties waar de markers niet opgehangen kunnen worden of niet aanwezig zijn. We denken daarbij bijvoorbeeld aan het dokterskwartier. De presets geven een vooringestelde opstelling weer van de vlakken. Het eerste kan gebruikt worden op de kruising van twee muren en het plafond; het tweede vertegenwoordigt een vast projectievlak (recht tegenover de projector).
 
 Om deze presets in te stellen, zie OSC.
 
@@ -261,13 +253,13 @@ We gebruikten een draadloze numpad om binnen een steriele omgeving de applicatie
 | Play sound | . |
 
 
-* Debug mode: Weergave van de indicatie rond gevonden aruco markers
+* Debug mode: Weergave van de indicatie rond gevonden Aruco-markers
 
 ## Known issues
 
-Er zijn een paar problemen waar we weet van hebben, maar waar we ten tijde van filmen niet de tijd voor hadden om deze op te lossen
+Er zijn een paar problemen waar we weet van hebben, maar waar we onvoldoende tijd voor hadden om ze op te lossen:
 
 ### Mapping Z-offset
 
-1. De locatie van de projecties op basis van de markers kent een probleem waarbij de Z offset slecht ingesteld staat. Dit heeft invloed op de multiplier van de grootte van de projecties. 
-2. Het netwerken via OSC had anders gekund, bijvoorbeeld door een lokaal netwerk, of kleine included router.
+1. De locatie van de projecties op basis van de markers kent een probleem waarbij de Z-offset slecht ingesteld staat. Dit heeft invloed op de multiplier van de grootte van de projecties. 
+2. Het netwerken via OSC had anders gekund, bijvoorbeeld via een lokaal netwerk of een kleine included router.

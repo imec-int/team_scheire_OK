@@ -1,4 +1,4 @@
-﻿# Gebruikersonderzoek
+# Gebruikersonderzoek
 
 ## Doelstelling
 
@@ -30,9 +30,9 @@ De belangrijkste onderzoeksvragen zijn:
 
 Dit doen we door:
 
-2. [Desk Research](desk_research.md): Via secundaire bronnen werd gekeken naar wat potentieel als oplossing kon dienen
-3. [Interviews & Co-creatie](interviews_cocreatie.md): Samen met ouders en kinderen werd een oplossing geco-creëerd
-4. [Eyetracking](eye_tracking.md): Via eyetrackingtechnologie werd gecapteerd hoe kinderen naar de operatiekamer kijken
+1. [Desk Research](desk_research.md): Via secundaire bronnen werd gekeken naar wat potentieel als oplossing kon dienen
+2. [Interviews & Co-creatie](interviews_cocreatie.md): Samen met ouders en kinderen werd een oplossing geco-creëerd
+3. [Eyetracking](eye_tracking.md): Via eyetrackingtechnologie werd gecapteerd hoe kinderen naar de operatiekamer kijken
 4. [Iteratief testen](testen.md): De oplossing werd regelmatig afgetoetst met kinderen om te valideren dat ze aan de noden voldeed
 
 

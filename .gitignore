@@ -22,3 +22,5 @@ bin/TeamScheireV2_debug.ilk
 bin/TeamScheireV2_debug.lib
 bin/TeamScheireV2_debug.pdb
 .DS_Store
+./media/audio_material/
+./media/video_material/

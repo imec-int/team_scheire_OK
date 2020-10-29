@@ -24,3 +24,5 @@ bin/TeamScheireV2_debug.pdb
 .DS_Store
 ./media/audio_material/
 ./media/video_material/
+./media/audio_material/*
+./media/video_material/*

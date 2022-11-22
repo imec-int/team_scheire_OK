@@ -41,7 +41,7 @@ Om een lokale variant van de repository te hebben, kan je in Sourcetree volgende
 
 ## Stap 3: Downloaden van media files
 
-In de folder `team_scheire_OK/media` dienen audio- en video bestanden geplaatst te worden. Deze kun je downloaden via [volgende link](https://teamscheire2020.blob.core.windows.net/operatiekwartier/files.zip). Download de files, pak ze uit en plaats ze in deze folder zo dat de folderstructuur eruit ziet als:
+In de folder `team_scheire_OK/media` dienen audio- en video bestanden geplaatst te worden. Deze kun je downloaden via [volgende link](https://drive.google.com/uc?id=1Bu9Wcmqh0twkzcfj9v9PVdwkaGcGih_T&export=download). Download de files, pak ze uit en plaats ze in deze folder zo dat de folderstructuur eruit ziet als:
 `team_scheire_OK/media/`
 
 * `audio_material/`
